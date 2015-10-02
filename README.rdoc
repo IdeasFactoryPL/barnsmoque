@@ -1,0 +1,5 @@
+== README
+
+barnsmoque.pl
+Ruby version: ruby 2.2.4p178 (2015-09-30 revision 51987) [x86_64-linux]
+Rails version: 4.2.4
