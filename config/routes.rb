@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   root 'main#index'
   get 'swiniobicie' => 'competition#index'
   # The priority is based upon order of creation: first created -> highest priority.
