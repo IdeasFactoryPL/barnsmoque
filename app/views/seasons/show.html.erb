@@ -1,0 +1,34 @@
+<% content_for :title, "Świniobicie - Barn Smoque - Warszawa ul. Zgoda 5" %>
+<% content_for :stylesheets do %>
+	<%= stylesheet_link_tag 'competition' %>
+<% end %>
+<div class="social-icons">
+	<a href="http://barnsmoque.pl"><%= image_tag "competition/icons/barnsmoque", alt: "Barn Smoque" %></a>
+	<a href="http://facebook.com/BarnSmoque"><%= image_tag "competition/icons/facebook", alt: "facebook" %><a>
+	<a href="http://instagram.com/BarnSmoque"><%= image_tag "competition/icons/instagram", alt: "instagram" %></a>
+	<a href="http://barnburger.pl"><%= image_tag "competition/icons/barnburger", alt: "Barn Burger" %></a>
+</div>
+<div class='wrapper'>
+<article>
+	<header>
+		<p>Świniobicie nr <%= @number %></p>
+		<p>w</p>
+	</header>
+	<figure><%= image_tag "competition/logo", alt: "logo" %></figure>
+	<%= @html_code.html_safe %>
+	<p>
+		<%= @description.html_safe %>
+	</p>
+</article>
+<article>
+	<header><p>Ranking</p></header>
+	<ul>
+		<% if @attempts != nil %>
+			<% @attempts.each do |attempt| %>
+				<li><%= image_tag attempt.avatar.url %><p><%= attempt.name_surname_time %></p></li>
+			<% end %>
+		<% end %>
+	</ul>
+</article>
+</div>
+<a href="http://ideasfactory.pl" target="_blank" id="ideasfactory">© IdeasFactory.pl</a>

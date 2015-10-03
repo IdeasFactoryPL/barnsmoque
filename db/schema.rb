@@ -11,10 +11,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151002214951) do
+ActiveRecord::Schema.define(version: 20151003145803) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "attempts", force: :cascade do |t|
+    t.string   "name"
+    t.string   "surname"
+    t.integer  "minute"
+    t.integer  "second"
+    t.integer  "hundredths_of_second"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.integer  "season_id"
+  end
+
+  add_index "attempts", ["season_id"], name: "index_attempts_on_season_id", using: :btree
+
+  create_table "seasons", force: :cascade do |t|
+    t.text     "description"
+    t.integer  "number"
+    t.text     "html_code"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
