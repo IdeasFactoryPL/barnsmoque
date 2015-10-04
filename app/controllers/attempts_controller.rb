@@ -53,13 +53,41 @@ class AttemptsController < ApplicationController
 
 	def update
 		if @attempt.update(attempt_params)
-			get_season_number
 			flash[:success] = "Zaktualizowano świniobijca"
-			redirect_to season_path(@season_number)
+			if @attempt.avatar.blank?
+				get_season_number
+				redirect_to season_path(@season_number)
+			else
+				render action: 'crop'
+			end
 		else
 			flash[:error] = "Nie udało się zaktualizować świniobijca"
 			render action: 'edit'
 		end
+	end
+
+	def edit
+		@seasons = Season.all
+	end
+
+	def index
+		@attempts = Attempt.all
+	end
+
+	def destroy
+		if @attempt.present?
+			@attempt.destroy
+			flash[:success] = "Usunięto świniobijcę"
+			redirect_to attempts_path
+		else
+			flash[:error] = "Nie udało się usunąć świniobijcy"
+			render index
+		end
+	end
+
+	def image_crop
+		get_season_number
+		redirect_to season_path(@season_number)
 	end
 
 	private

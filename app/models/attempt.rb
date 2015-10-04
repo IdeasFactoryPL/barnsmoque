@@ -2,7 +2,7 @@ class Attempt < ActiveRecord::Base
 	belongs_to :season
 	validates :name, :season_id, presence: :true
   
-  has_attached_file :avatar, :styles => {:thumb => '50x50', :medium => '500x500'}
+  has_attached_file :avatar, :styles => {:thumb => '50x50', :medium => '500x500'}, :default_url => "/images/original/person.jpg"
   crop_attached_file :avatar
   # has_attached_file :avatar, :styles => { :small => "100x100#", :large => "500x500>" }, :processors => [:cropper]
   # attr_accessor :crop_x, :crop_y, :crop_w, :crop_h

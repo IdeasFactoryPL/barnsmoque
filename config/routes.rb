@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root 'main#index'
   get 'swiniobicie' => 'competition#index'
   get 'manager' => 'manager#index'
+  get 'attempts/:id' => 'attempts#image_crop'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
