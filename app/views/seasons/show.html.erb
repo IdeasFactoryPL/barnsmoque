@@ -1,6 +1,7 @@
 <% content_for :title, "Świniobicie - Barn Smoque - Warszawa ul. Zgoda 5" %>
 <% content_for :stylesheets do %>
 	<%= stylesheet_link_tag 'competition' %>
+	<%= stylesheet_link_tag 'lightbox' %>
 <% end %>
 <div class="social-icons">
 	<a href="http://barnsmoque.pl"><%= image_tag "competition/icons/barnsmoque", alt: "Barn Smoque" %></a>
@@ -15,7 +16,9 @@
 		<p>w</p>
 	</header>
 	<figure><%= image_tag "competition/logo", alt: "logo" %></figure>
-	<%= @html_code.html_safe %>
+	<% if @html_code != nil %>
+		<%= @html_code.html_safe %>
+	<% end %>
 	<p>
 		<%= @description.html_safe %>
 	</p>
@@ -25,10 +28,14 @@
 	<ul>
 		<% if @attempts != nil %>
 			<% @attempts.each do |attempt| %>
-				<li><%= image_tag attempt.avatar.url %><p><%= attempt.name_surname_time %></p></li>
+				<%= link_to attempt.avatar.url(:medium), data: {lightbox: 'gallery', title: attempt.name_surname_time} do %>
+					<li><%= image_tag attempt.avatar.url(:thumb) %><p><%= attempt.name_surname_time %></p></li>
+				<% end %>
 			<% end %>
 		<% end %>
 	</ul>
 </article>
 </div>
 <a href="http://ideasfactory.pl" target="_blank" id="ideasfactory">© IdeasFactory.pl</a>
+
+<%= javascript_include_tag "lightbox" %>

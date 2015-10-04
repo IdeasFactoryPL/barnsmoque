@@ -21,6 +21,8 @@ html_code = '<iframe width="560" height="315" src="https://www.youtube.com/embed
 Season.create(description: description, number: 1, html_code: html_code)
 
 Attempt.destroy_all
-Attempt.create(name: "Gall", surname: "Anonim", minute: 4, second: 33, hundredths_of_second: 11);
-Attempt.create(name: "Zbigniew", surname: "Mąciwoda", minute: 5, second: 33, hundredths_of_second: 11);
-Attempt.create(name: "Emil", surname: "Gnał", minute: 1, second: 33, hundredths_of_second: 11);
+Attempt.create(name: "Gall", surname: "Anonim", minute: 4, second: 0, hundredths_of_second: 11, season: Season.last);
+Attempt.create(name: "Zbigniew", surname: "Mąciwoda", minute: 5, second: 1, hundredths_of_second: 11, season: Season.last);
+Attempt.create(name: "Emil", surname: "Gnał", minute: 1, second: 2, hundredths_of_second: 11, season: Season.last);
+Attempt.create(name: "Ksywka", minute: 1, season: Season.last);
+Attempt.create(name: "Emil", surname: "Gnał", second: 59, hundredths_of_second: 11, season: Season.last);

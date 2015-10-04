@@ -1,27 +1,27 @@
 <%= form_for @attempt do |f| %>
   <p>
     <%= f.label :season_id, "Numer sezonu" %>
-    <%= f.select :season_id, options_for_select(@seasons.collect{ |s| [s.number, s.id] }) %>
+    <%= f.select :season_id, options_for_select(@seasons.collect{ |s| [s.number, s.id] }, @seasons.last.id) %>
   </p>
   <p>
     <%= f.label :name, "Imię" %>
-    <%= f.text_field(:name, required: true, placeholder: "Imię", size: 50) %>
+    <%= f.text_field(:name, required: true, placeholder: @last_name, size: 50, oninvalid: "alert('Imię jest wymagane');") %>
   </p>
   <p>
     <%= f.label :surname, "Nazwisko" %>
-    <%= f.text_field(:surname, placeholder: "Nazwisko", size: 50) %>
+    <%= f.text_field(:surname, placeholder: @last_surname, size: 50) %>
   </p>
   <p>
     <%= f.label :minute, "Minuty" %>
-    <%= f.text_field(:minute, placeholder: "minuty", size: 10) %>
+    <%= f.number_field :minute, in: 0..59, oninvalid: "alert('Liczba powinna być z przedziału od 0 do 59');" %>
   </p>
   <p>
     <%= f.label :second, "Sekundy" %>
-    <%= f.text_field(:second, placeholder: "sekundy", size: 10) %>
+    <%= f.number_field(:second, in: 0..59, oninvalid: "alert('Liczba powinna być z przedziału od 0 do 59');") %>
   </p>
   <p>
     <%= f.label :hundredths_of_second, "Setne sekundy" %>
-    <%= f.text_field(:hundredths_of_second, placeholder: "setne sekundy", size: 10) %>
+    <%= f.number_field(:hundredths_of_second, in: 0..99, oninvalid: "alert('Liczba powinna być z przedziału od 0 do 99');") %>
   </p>
   <p>
     <%= f.file_field :avatar %>
