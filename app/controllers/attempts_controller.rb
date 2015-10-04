@@ -1,4 +1,5 @@
 class AttemptsController < ApplicationController
+	before_action :authenticate_user!, only: [:new, :create]
 	def new
 		@attempt = Attempt.new
 		@seasons = Season.all
