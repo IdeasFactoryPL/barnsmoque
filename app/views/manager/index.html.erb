@@ -1,0 +1,7 @@
+<% content_for :stylesheets do %>
+	<%= stylesheet_link_tag 'bootstrap.min' %>
+<% end %>
+<p><%= link_to "Dodaj świniobijcę", new_attempt_path %></p>
+<p><%= link_to "Zobacz listę świniobijców", attempts_path %></p>
+<p><%= link_to "Zobacz najnowszy sezon świniobicia", seasons_path %></p>
+<p><%= link_to "Edytuj aktualny sezon pasibrzucha (opis itp.)", edit_season_path(Season.last.number) %></p>

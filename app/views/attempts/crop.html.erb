@@ -1,0 +1,8 @@
+<%= form_for @attempt do |f| %>
+  <h1>Przycinanie zdjęcia</h1>
+  <%= f.cropbox :avatar, :width => 600 %>
+  <h2>Podgląd</h2>
+  <%= f.crop_preview :avatar, :width => 150 %>
+  <%= f.submit 'Zapisz'%>
+<% end %>
+<%= link_to "Przejdź do świniobicia numer: " + @attempt.season.number.to_s + " i zobacz dodanego/edytowanego przez siebie świniobijcę", season_path(@attempt.season.number) %>

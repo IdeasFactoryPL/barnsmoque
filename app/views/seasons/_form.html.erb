@@ -1,0 +1,19 @@
+<%= form_for @season do |f| %>
+	<p>
+		<%= f.label :description, "Opis" %>
+		<br>
+		<%= f.text_area :description %>
+	</p>
+	<p>
+		<%= f.label :number, "Numer sezonu" %>
+		<%= f.number_field :number %>
+	</p>
+	<p>
+		<%= f.label :html_code, "Kod HTML (opcja dla zaawansowanych - dodaje kod html przed opisem na stronie" %>
+		<br>
+		<%= f.text_area :html_code %>
+	</p>
+	<p>
+		<%= f.submit "Wyślij" %>
+	</p>
+<% end %>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  surname: MyString
+  minute: 
+  second: 
+  hundredths_of_second: 
+
+two:
+  name: MyString
+  surname: MyString
+  minute: 
+  second: 
+  hundredths_of_second: 
