@@ -2,11 +2,19 @@
 <html>
 <head>
   <title><%= yield(:title) %></title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag 'reset' %>
+
   <%= yield :stylesheets %>
+  <% if controller_name != 'main' %>
+    <%= stylesheet_link_tag 'bootstrap.min' %>
+    <%= javascript_include_tag 'alert', 'data-turbolinks-track' => true %>
+  <% end %>
+  <% if controller_name == "attempts" %>
+    <%= stylesheet_link_tag 'attempt' %>
+  <% end %>
   <% favicon_link_tag 'favicon/apple-icon-57x57.png', rel: 'apple-touch-icon', size: '57x57' %>
   <% favicon_link_tag 'favicon/apple-icon-60x60.png', rel: 'apple-touch-icon', size: '60x60' %>
   <% favicon_link_tag 'favicon/apple-icon-72x72.png', rel: 'apple-touch-icon', size: '72x72' %>

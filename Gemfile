@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+gem 'i18n'
 gem 'thin'
 gem 'papercrop'
 gem 'roman-numerals'

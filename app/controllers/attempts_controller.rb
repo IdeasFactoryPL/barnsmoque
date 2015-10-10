@@ -15,28 +15,6 @@ class AttemptsController < ApplicationController
 	end
 	def create
 		@attempt = Attempt.new(attempt_params)
-		
-		if @attempt.minute == nil and @attempt.second == nil and @attempt.hundredths_of_second == nil
-			if @attempt.minute == nil
-				@attempt.minute = 59
-			end
-			if @attempt.second == nil
-				@attempt.second = 59
-			end
-			if @attempt.hundredths_of_second == nil
-				@attempt.hundredths_of_second = 99
-			end
-		else
-			if @attempt.minute == nil
-				@attempt.minute = 0
-			end
-			if @attempt.second == nil
-				@attempt.second = 0
-			end
-			if @attempt.hundredths_of_second == nil
-				@attempt.hundredths_of_second = 0
-			end
-		end
 		if @attempt.save
 			flash[:success] = "Dodano świniobijca"
 			if @attempt.avatar.blank?
