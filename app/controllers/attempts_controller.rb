@@ -36,7 +36,12 @@ class AttemptsController < ApplicationController
 				get_season_number
 				redirect_to season_path(@season_number)
 			else
-				render action: 'crop'
+				if params["commit"] == "Przytnij zdjęcie"
+					get_season_number
+					redirect_to season_path(@season_number)
+				elsif params["commit"] == "Wyślij"
+					render action: 'crop'
+				end
 			end
 		else
 			flash[:error] = "Nie udało się zaktualizować świniobijca"
@@ -63,10 +68,10 @@ class AttemptsController < ApplicationController
 		end
 	end
 
-	def image_crop
-		get_season_number
-		redirect_to season_path(@season_number)
-	end
+	# def image_crop
+	# 	get_season_number
+	# 	redirect_to season_path(@season_number)
+	# end
 
 	private
 
