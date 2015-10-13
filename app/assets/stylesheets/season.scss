@@ -1,3 +1,199 @@
 // Place all the styles related to the season controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@font-face {
+    font-family: 'swiniobicie';
+    src: url('/assets/swiniobicie/swiniobicie.eot');
+    src: url('/assets/swiniobicie/swiniobicie.eot?#iefix') format('embedded-opentype'), url('/assets/swiniobicie/swiniobicie.woff2') format('woff2'), url('/assets/swiniobicie/swiniobicie.woff') format('woff'), url('/assets/swiniobicie/swiniobicie.ttf') format('truetype'), url('/assets/swiniobicie/swiniobicie.svg#svgFontName') format('svg');
+}
+
+@font-face {
+    font-family: 'quicksand';
+    src: url('/assets/quicksand/quicksand.eot');
+    src: url('/assets/quicksand/quicksand.eot?#iefix') format('embedded-opentype'), url('/assets/quicksand/quicksand.woff2') format('woff2'), url('/assets/quicksand/quicksand.woff') format('woff'), url('/assets/quicksand/quicksand.ttf') format('truetype'), url('/assets/quicksand/quicksand.svg#svgFontName') format('svg');
+}
+
+body {
+	background: url(/assets/competition/background.jpg) no-repeat center center fixed; 
+  	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+  	font-family: 'quicksand';
+  	line-height: 1;
+  	color: #000;
+}
+.wrapper{
+	text-align: center;
+	border-radius: 25px;
+	border-style: dashed;
+    border-width: 3px;
+	width: 70%;
+	margin-left: 15%;
+	margin: 5% 15%;
+	padding-top: 2%;
+	background-color: rgba(255, 255, 255, 0.5);
+}
+article > header, article > p{
+	padding-left: 10%;
+	padding-right: 10%;
+}
+article header p{
+	font-family: 'swiniobicie';
+	font-size: 120px;
+	/*line-height: 0;*/
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
+article header p:last-child{
+	font-size: 60px;
+	margin-bottom: 15px;
+}
+article figure img{
+	width: 400px;
+}
+
+article > p{
+	margin-top: 40px;
+	font-size: 22px;
+	text-shadow: 0px 0px 2px white, 0px 0px 5px white, 0px 0px 50px white;
+}
+
+article > p{
+	transform: rotate(-2deg);
+	margin-bottom: 50px;
+}
+article ul{
+	list-style-type: none;
+}
+
+article ul li{
+	height:50px;
+	margin-bottom: 20px;
+	color: white;
+	width:auto;
+}
+article ul li img{
+	width: 50px;
+	height: 50px;
+	vertical-align: top;
+
+}
+article ul li p{
+    background-color: #000;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 17.7px;
+}
+
+article ul li:first-child p{
+	background-color: #F5D76E;
+	color:black;
+}
+
+article ul li:nth-child(2) p{
+	background-color: #bdc3c7;
+	color:black;
+}
+
+article ul li:nth-child(3) p{
+	background-color: #6D4C41;
+}
+
+article p > iframe{
+	width: 100%;
+}
+.wrapper article:last-child > header > p{
+	margin-bottom: 28px;
+}
+
+.social-icons{
+	position: fixed;
+	width: 50px;
+	top: calc(50% - 110px);
+}
+
+.social-icons a{
+	margin-bottom: 5px;
+	display: block;
+	opacity: .7;
+	transition:all .5s ease;
+}
+
+.social-icons a:hover{
+	opacity: 1;
+	drop-shadow: 0px 0px 2px black;
+}
+
+#ideasfactory {
+    position: fixed;
+    right: 2vh;
+    bottom: 1.5vh;
+    z-index: 2;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+    filter: alpha(opacity=70);
+    opacity: 0.7;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 1), 0 0 2px rgba(255, 255, 255, 1), 0 0 15px white;
+    color: #2c3e50;
+    z-index: 5;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+#ideasfactory:before {
+    content: "Fabryka stron internetowych ";
+    position: relative;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    text-shadow: 0 0 5px rgba(255, 255, 255, 1), 0 0 2px rgba(255, 255, 255, 1), 0 0 15px white;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    top: -30px;
+    transition: all 0.5s;
+}
+
+#ideasfactory:hover:before {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    top: 0px;
+}
+
+@media screen and (max-width: 1100px){
+	article header p{
+		font-size: 90px;
+	}
+}
+
+@media screen and (max-width: 850px){
+	.wrapper{
+		width: calc(100% - 120px);
+		margin-left:60px;
+	}
+	article header p{
+		font-size: 60px;
+	}
+	article figure img{
+		width: 250px;
+	}
+	article > p{
+		font-size: 18px;
+	}
+	article ul li p{
+		font-size: 14px;
+	}
+}
+
+@media screen and (max-width: 740px){
+	article ul li p{
+		display: block;
+	}
+	article ul li img{
+		display: none;
+	}
+	article ul li{
+		height: auto;
+	}
+	article ul{
+		margin-bottom: 30px;
+	}
+}

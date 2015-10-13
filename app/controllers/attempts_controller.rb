@@ -1,6 +1,7 @@
 class AttemptsController < ApplicationController
 	before_action :authenticate_user!
 	before_action :find_attempt, only: [:show, :update, :destroy, :edit]
+	
 	def new
 		@attempt = Attempt.new
 		@seasons = Season.all
@@ -11,21 +12,31 @@ class AttemptsController < ApplicationController
 			@last_name = ""
 			@last_surname = ""
 		end
-		
 	end
+
 	def create
 		@attempt = Attempt.new(attempt_params)
-		if @attempt.save
-			flash[:success] = "Dodano świniobijca"
-			if @attempt.avatar.blank?
-				get_season_number
-				redirect_to season_path(@season_number)
-			else
-				render action: 'crop'
-			end
+		@minute = @attempt.minute
+		@second = @attempt.second
+		@hundredths_of_second = @attempt.hundredths_of_second
+		@minute = 59 if @attempt.minute == nil
+		@second = 59 if @attempt.second == nil
+		@hundredths_of_second = 99 if @attempt.hundredths_of_second == nil
+		if Attempt.where(name: @attempt.name.titleize, surname: @attempt.surname.titleize, minute: @minute, second: @second, hundredths_of_second: @hundredths_of_second, season_id: @attempt.season_id).present?
+			flash[:error] = "Nie udało się dodać świniobijca, prawdopodobnie taki już istnieje w #{view_context.link_to 'tym sezonie', season_path(get_season_number)}"
+			redirect_to new_attempt_path
 		else
-			flash[:error] = "Nie udało się dodać świniobijca"
-			render 'new'
+			if @attempt.save
+				flash[:success] = "Dodano świniobijca"
+				if @attempt.avatar.blank?
+					redirect_to season_path(get_season_number)
+				else
+					render action: 'crop'
+				end
+			else
+				flash[:error] = "Nie udało się dodać świniobijca"
+				render 'new'
+			end
 		end
 	end
 
@@ -33,12 +44,10 @@ class AttemptsController < ApplicationController
 		if @attempt.update(attempt_params)
 			flash[:success] = "Zaktualizowano świniobijca"
 			if @attempt.avatar.blank?
-				get_season_number
-				redirect_to season_path(@season_number)
+				redirect_to season_path(get_season_number)
 			else
 				if params["commit"] == "Przytnij zdjęcie"
-					get_season_number
-					redirect_to season_path(@season_number)
+					redirect_to season_path(get_season_number)
 				elsif params["commit"] == "Wyślij"
 					render action: 'crop'
 				end
@@ -68,11 +77,6 @@ class AttemptsController < ApplicationController
 		end
 	end
 
-	# def image_crop
-	# 	get_season_number
-	# 	redirect_to season_path(@season_number)
-	# end
-
 	private
 
 	def find_attempt
@@ -80,7 +84,7 @@ class AttemptsController < ApplicationController
 	end
 
 	def get_season_number
-		@season_number = Season.find(@attempt.season_id).number
+		Season.find(@attempt.season_id).number
 	end
 
 	def attempt_params

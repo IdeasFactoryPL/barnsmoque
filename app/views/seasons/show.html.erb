@@ -1,6 +1,6 @@
 <% content_for :title, "Świniobicie - Barn Smoque - Warszawa ul. Zgoda 5" %>
 <% content_for :stylesheets do %>
-	<%= stylesheet_link_tag 'competition' %>
+	<%= stylesheet_link_tag 'season' %>
 	<%= stylesheet_link_tag 'lightbox' %>
 <% end %>
 <div class="social-icons">
@@ -9,7 +9,6 @@
 	<a href="http://instagram.com/BarnSmoque"><%= image_tag "competition/icons/instagram", alt: "instagram" %></a>
 	<a href="http://barnburger.pl"><%= image_tag "competition/icons/barnburger", alt: "Barn Burger" %></a>
 </div>
-<div class='wrapper'>
 <article>
 	<header>
 		<p>Świniobicie nr <%= @number %></p>
@@ -35,7 +34,6 @@
 		<% end %>
 	</ul>
 </article>
-</div>
 <a href="http://ideasfactory.pl" target="_blank" id="ideasfactory">© IdeasFactory.pl</a>
 
 <%= javascript_include_tag "lightbox" %>

@@ -1,5 +1,6 @@
 <div class="col-md-10 col-centered">
 <%= form_for @attempt do |f| %>
+
   <div class="form-group">
     <%= f.label :season_id, "Numer sezonu" %>
     <%= f.select :season_id, options_for_select(@seasons.collect{ |s| [s.number, s.id] }, @seasons.last.id), {}, {class: 'form-control'} %>
@@ -16,15 +17,15 @@
     <div class="row">
       <div class="col-md-4">
         <%= f.label :minute, "Minuty" %>
-        <%= f.number_field :minute, in: 0..59, oninvalid: "alert('Liczba powinna być z przedziału od 0 do 59');", class: "form-control" %>
+        <%= f.number_field :minute, in: 0..59, oninvalid: "alert('Minuty powinny być z przedziału od 0 do 59');", class: "form-control" %>
       </div>
       <div class="col-md-4">
         <%= f.label :second, "Sekundy" %>
-        <%= f.number_field :second, in: 0..59, oninvalid: "alert('Liczba powinna być z przedziału od 0 do 59');", class: "form-control" %>
+        <%= f.number_field :second, in: 0..59, oninvalid: "alert('Sekundy powinny być z przedziału od 0 do 59');", class: "form-control" %>
       </div>
       <div class="col-md-4">
         <%= f.label :hundredths_of_second, "Setne sekundy" %>
-        <%= f.number_field :hundredths_of_second, in: 0..99, oninvalid: "alert('Liczba powinna być z przedziału od 0 do 99');", class: "form-control" %>
+        <%= f.number_field :hundredths_of_second, in: 0..99, oninvalid: "alert('Setne sekundy powinny być z przedziału od 0 do 99');", class: "form-control" %>
       </div>
     </div>
   </div>

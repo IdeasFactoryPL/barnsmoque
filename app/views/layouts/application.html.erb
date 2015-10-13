@@ -6,8 +6,6 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag 'reset' %>
-
-  <%= yield :stylesheets %>
   <% if controller_name != 'main' %>
     <%= stylesheet_link_tag 'bootstrap.min' %>
     <%= javascript_include_tag 'alert', 'data-turbolinks-track' => true %>
@@ -15,6 +13,7 @@
   <% if controller_name == "attempts" %>
     <%= stylesheet_link_tag 'attempt' %>
   <% end %>
+  <%= yield :stylesheets %>
   <% favicon_link_tag 'favicon/apple-icon-57x57.png', rel: 'apple-touch-icon', size: '57x57' %>
   <% favicon_link_tag 'favicon/apple-icon-60x60.png', rel: 'apple-touch-icon', size: '60x60' %>
   <% favicon_link_tag 'favicon/apple-icon-72x72.png', rel: 'apple-touch-icon', size: '72x72' %>
@@ -42,13 +41,31 @@
   <%= yield(:head) %>
 </head>
 <body>
-<% if notice %>
-  <p class="alert alert-success"><%= notice %></p>
-<% end %>
-<% if alert %>
-  <p class="alert alert-danger"><%= alert %></p>
-<% end %>
-<%= yield %>
-
+  <% if controller_name != 'main' %>
+    <div class="wrapper">
+      <% if flash[:success] %>
+        <div class="alert alert-success alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <%= flash[:success].html_safe %>
+        </div>
+      <% end %>
+      <% if flash[:error] %>
+        <div class="alert alert-danger alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <%= flash[:error].html_safe %>
+        </div>
+      <% end %>
+      <% if flash[:alert] %>
+        <div class="alert alert-warning alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <%= flash[:alert].html_safe %>
+        </div>
+      <% end %>
+      <%= yield(:message) %>
+      <%= yield %>
+    </div>
+  <% else %>
+    <%= yield %>
+  <% end %>
 </body>
 </html>
