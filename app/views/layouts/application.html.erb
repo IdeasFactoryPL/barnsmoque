@@ -10,7 +10,7 @@
     <%= stylesheet_link_tag 'bootstrap.min' %>
     <%= javascript_include_tag 'alert', 'data-turbolinks-track' => true %>
   <% end %>
-  <% if controller_name == "attempts" %>
+  <% if controller_name == "attempts" or controller_name == "sessions" %>
     <%= stylesheet_link_tag 'attempt' %>
   <% end %>
   <%= yield :stylesheets %>
@@ -33,7 +33,7 @@
   <% favicon_link_tag 'favicon/apple-icon-180x180.png', rel: 'apple-touch-icon', type: 'image/png', size: '57x57' %>
   <% favicon_link_tag 'favicon/apple-icon-180x180.png', rel: 'apple-touch-icon', type: 'image/png', size: '57x57' %>
   <% favicon_link_tag 'favicon/apple-icon-180x180.png', rel: 'apple-touch-icon', type: 'image/png', size: '57x57' %>
-  <link href="/favicon/favicon.ico" rel="shortcut icon" />
+  <link href="/assets/favicon/favicon.ico" rel="shortcut icon" />
   <link rel="manifest" href="/assets/favicon/manifest.json">
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="msapplication-TileImage" content="/assets/favicon/ms-icon-144x144.png">
@@ -61,8 +61,10 @@
           <%= flash[:alert].html_safe %>
         </div>
       <% end %>
+      <div class="col-md-10 col-centered">
       <%= yield(:message) %>
       <%= yield %>
+      </div>
     </div>
   <% else %>
     <%= yield %>
