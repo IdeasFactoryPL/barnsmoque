@@ -1,6 +1,6 @@
 <div class="container">
   <h2>Lista świniobijców</h2>
-
+  <%= link_to "Dodaj nowego świniobijca", new_attempt_path, class: "btn btn-primary btn-xs" %>
   <table class="table table-striped">
     <thead>
       <tr>
@@ -17,7 +17,7 @@
       <% @attempts.each do |attempt| %>
         <tr>
           <td>
-            <%= attempt.season_number %>
+            <%= link_to attempt.season_number, season_path(attempt.season_number) %>
           </td>
           <td>
             <%= image_tag attempt.avatar.url(:thumb) %>

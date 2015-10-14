@@ -63,8 +63,17 @@ class AttemptsController < ApplicationController
 	end
 
 	def index
-		@attempts = Attempt.all.order(season_id: :desc, minute: :asc)
-		# @attempts = @attempts.sort {|a, b| b[:season_id] <=> a[:season_id]}
+		@attempts = Attempt.all
+		@attempts.clear
+		@season_numbers = Hash.new { |hash, key|  }
+		@season_ids = Attempt.pluck(:season_id).uniq
+		@season_ids.each do |season_id|
+			@season_numbers[season_id] = Season.get_season_number(season_id)
+		end
+		@season_numbers = @season_numbers.sort_by {|key, value| value}.reverse.to_h
+		@season_numbers.each do |key, value|
+			@attempts += Attempt.where(season_id: key).order(minute: :asc, second: :asc, hundredths_of_second: :asc)
+		end
 	end
 
 	def destroy
