@@ -1,8 +1,10 @@
 <div class="container">
-  <h2>Lista świniobijców</h2>  
+  <h2>Lista świniobijców</h2>
+
   <table class="table table-striped">
     <thead>
       <tr>
+        <th>Nr. sezonu</th>
         <th>Zdjęcie</th>
         <th>Imię</th>
         <th>Nazwisko</th>
@@ -14,6 +16,9 @@
     <tbody>
       <% @attempts.each do |attempt| %>
         <tr>
+          <td>
+            <%= attempt.season_number %>
+          </td>
           <td>
             <%= image_tag attempt.avatar.url(:thumb) %>
           </td>

@@ -63,7 +63,8 @@ class AttemptsController < ApplicationController
 	end
 
 	def index
-		@attempts = Attempt.all
+		@attempts = Attempt.all.order(season_id: :desc, minute: :asc)
+		# @attempts = @attempts.sort {|a, b| b[:season_id] <=> a[:season_id]}
 	end
 
 	def destroy
@@ -84,7 +85,7 @@ class AttemptsController < ApplicationController
 	end
 
 	def get_season_number
-		Season.find(@attempt.season_id).number
+		@attempt.season_number
 	end
 
 	def attempt_params

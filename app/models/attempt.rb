@@ -33,6 +33,10 @@ class Attempt < ActiveRecord::Base
     self.surname = self.surname.strip
   end
 
+  def season_number
+    Season.get_season_number(self.season_id)
+  end
+
   def check_time
     if self.minute == nil and self.second == nil and self.hundredths_of_second == nil
       self.minute = 59 if self.minute == nil

@@ -38,3 +38,11 @@ margin: 0 auto;
 .text-center{
     text-align: center;
 }
+
+.table > tbody > tr{
+    height: 67px;
+}
+
+.table > tbody > tr > td{
+    vertical-align: middle;
+}

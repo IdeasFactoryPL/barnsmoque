@@ -102,7 +102,7 @@ article ul li:nth-child(3) p{
 }
 
 article p > iframe{
-	width: 100%;
+	max-width: 100%;
 }
 .wrapper article:last-child > header > p{
 	margin-bottom: 28px;

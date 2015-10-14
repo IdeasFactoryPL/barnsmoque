@@ -61,10 +61,14 @@
           <%= flash[:alert].html_safe %>
         </div>
       <% end %>
-      <div class="col-md-10 col-centered">
+      <% if controller_name != "seasons" %>
+        <div class="col-md-10 col-centered">
+      <% end %>
       <%= yield(:message) %>
       <%= yield %>
-      </div>
+      <% if controller_name != "seasons" %>
+        </div>
+      <% end %>
     </div>
   <% else %>
     <%= yield %>
