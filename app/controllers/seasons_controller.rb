@@ -1,6 +1,11 @@
 class SeasonsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :find_season, only: [:show, :edit]
+
+  def new
+    @season = Season.new
+  end
+  
   def index
     @season = Season.last
     get_season_stuff
@@ -23,6 +28,23 @@ class SeasonsController < ApplicationController
     else
       flash[:error] = "Nie udało się zakutalizować sezonu " + @season.number.to_s + " świniobicia"
       render 'edit'
+    end
+  end
+
+  def list
+    @seasons = Season.all
+  end
+
+  def destroy
+    @season = Season.find(params[:id])
+    if @season.present?
+
+      @season.destroy
+      flash[:success] = "Usunięto sezon świniobicia"
+      redirect_to seasons_list_path
+    else
+      flash[:error] = "Nie udało się usunąć sezonu świniobicia"
+      redirect_to seasons_list_path
     end
   end
 

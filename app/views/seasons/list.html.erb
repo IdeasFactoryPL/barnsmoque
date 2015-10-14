@@ -1,0 +1,32 @@
+<div class="container">
+  <h2>Lista sezonów świniobicia</h2>
+  <%= link_to "Dodaj nowy sezon", new_attempt_path, class: "btn btn-primary btn-xs" %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Nr sezonu</th>
+        <th>Opis</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @seasons.each do |season| %>
+        <tr>
+          <td>
+            <%= season.number %>
+          </td>
+          <td>
+            <%= season.description.truncate_words(10) %>
+          </td>
+          <td>
+            <%= link_to "Edytuj", edit_season_path(season.number), class: "btn btn-warning" %>
+          </td>
+          <td>
+            <%= link_to "Usuń", season_path(season), method: :delete, data: {confirm: "Jesteś pewien, że chcesz usunąć sezon numer " + season.number.to_s}, class: "btn btn-danger" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

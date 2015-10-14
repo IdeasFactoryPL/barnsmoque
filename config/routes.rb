@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :seasons
+  resources :seasons, except: :show
+  get 'seasons/list'
+  get 'seasons/:id', to: 'seasons#show'
   resources :attempts
   
   devise_for :users
@@ -7,6 +9,7 @@ Rails.application.routes.draw do
   get 'swiniobicie' => 'competition#index'
   get 'manager' => 'manager#index'
   get 'attempts/:id' => 'attempts#image_crop'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

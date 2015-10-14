@@ -1,4 +1,8 @@
-<p>
-	Jeśli uczestnik się poddał to nie uzupełniamy jego czasu
-</p>
+<% content_for :message do %>
+  <div class="alert alert-info alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <%= (I18n.translate 'alerts.info.info_about_time').html_safe %>
+  </div>
+<% end %>
+<h2>Formularz edycji świniobijcy</h2>
 <%= render 'form' %>
