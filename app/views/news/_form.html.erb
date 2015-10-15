@@ -1,0 +1,34 @@
+<%= form_for @news do |f| %>
+  
+  <div class="form-group">
+    <%= f.label :release_date, "Kiedy ma się ukazać Twoja aktualność" %>
+    <%= f.datetime_select :release_date, class: 'form-control', order: [:day, :month, :year], start_year: Date.today.year-1, end_year: Date.today.year+1, default: {:year => DateTime.now.year, :month => DateTime.now.month, :day => DateTime.now.day, :hour => DateTime.now.hour, :minute => DateTime.now.minute } %>
+  </div>
+  <div class="form-group">
+    <%= f.label :date, "Data aktualności (widoczna na stronie" %>
+    <%= f.date_select :date, class: 'form-control', order: [:day, :month, :year], start_year: Date.today.year-1, end_year: Date.today.year+1, default: {:year => DateTime.now.year, :month => DateTime.now.month, :day => DateTime.now.day} %>
+  </div>
+  <div class="form-group">
+    <%= f.label :title, "Tytuł" %>
+    <%= f.text_field :title, placeholder: @last_title, required: true, oninvalid: "alert('Tytuł jest wymagany');", class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :description, "Opis" %>
+    <%= f.text_area :description, placeholder: @last_description, required: true, oninvalid: "alert('Opis jest wymagany');", class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :link_name, "Nazwa linku (opcjonalnie)" %>
+    <%= f.text_field :link_name, placeholder: @last_link_name, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :link_to, "Link (opcjonalnie)" %>
+    <%= f.text_field :link_to, placeholder: @last_link_to, class: 'form-control' %>
+  </div>
+  <div class="tags">
+    <h3>Tagi do tekstu</h3>
+    <p>#Link - wpisuje link (link można wstawiać tylko do opisu)</p>
+  </div>
+  <div class="form-group">
+    <%= f.submit "Wyślij", class: "btn btn-primary" %>
+  </div>
+<% end %>

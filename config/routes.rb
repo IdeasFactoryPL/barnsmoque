@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :seasons, except: :show
   get 'seasons/list'
   get 'seasons/:id', to: 'seasons#show'
-  resources :attempts
+  resources :attempts, :news
   
   devise_for :users
   root 'main#index'
