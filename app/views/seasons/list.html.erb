@@ -1,6 +1,9 @@
+<% content_for :stylesheets do %>
+  <%= stylesheet_link_tag 'attempt' %>
+<% end %>
 <div class="container">
   <h2>Lista sezonów świniobicia</h2>
-  <%= link_to "Dodaj nowy sezon", new_attempt_path, class: "btn btn-primary btn-xs" %>
+  <%= link_to "Dodaj nowy sezon", new_season_path, class: "btn btn-primary btn-xs" %>
   <table class="table table-striped">
     <thead>
       <tr>
@@ -14,7 +17,7 @@
       <% @seasons.each do |season| %>
         <tr>
           <td>
-            <%= season.number %>
+            <%= link_to season.number, season_path(season.number) %>
           </td>
           <td>
             <%= season.description.truncate_words(10) %>

@@ -1,8 +1,2 @@
-<% content_for :message do %>
-  <div class="alert alert-info alert-dismissible" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <%= (I18n.translate 'alerts.info.info_about_time').html_safe %>
-  </div>
-<% end %>
-<h2>Formularz edycji świniobijcy</h2>
+<%= render partial: 'seasons_check', locals: {correct_message: "(I18n.translate 'alerts.info.info_about_time')", header: "Formularz edycji świniobijcy", error_message: "(I18n.translate 'alerts.error.no_seasions_edit_attempt').html_safe"} %>
 <%= render 'form' %>

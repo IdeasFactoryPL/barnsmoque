@@ -6,6 +6,17 @@ class SeasonsController < ApplicationController
     @season = Season.new
   end
   
+  def create
+    @season = Season.new(season_params)
+    if @season.save
+      flash[:success] = "Dodano sezon świniobicia"
+      redirect_to seasons_list_path
+    else
+      flash[:error] = "Nie można było dodać sezonu świniobicia"
+      render 'new'
+    end
+  end
+
   def index
     @season = Season.last
     get_season_stuff

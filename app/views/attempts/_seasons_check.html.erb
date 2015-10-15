@@ -1,0 +1,19 @@
+<% if @seasons.count > 0 %>
+  <% unless (defined? correct_message).nil? %>
+    <div class="alert alert-info alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <%= eval(correct_message).html_safe %>
+    </div>
+  <% end %>
+  <% unless (defined? header).nil? %>
+    <h2><%= header %></h2>
+  <% end %>
+  <%= yield %>
+<% else %>
+  <% unless (defined? error_message).nil? %>
+    <div class="alert alert-danger alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <%= eval(error_message).html_safe %>
+    </div>
+  <% end %>
+<% end %>

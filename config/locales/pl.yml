@@ -23,6 +23,11 @@ pl:
   alerts:
     info:
       info_about_time: "<strong>Informacja!</strong> Jeśli uczestnik się poddał to nie uzupełniamy jego czasu"
+    error:
+      no_seasions: "Brak sezonów, nie można wyświetlić uczestników"
+      no_seasions_new_attempt: "Musisz mieć jakiś sezon, aby móc dodać uczestnika"
+      no_seasions_edit_attempt: "Musisz mieć jakiś sezon, aby móc edytować uczestnika"
+
   activerecord:
     errors:
       models:

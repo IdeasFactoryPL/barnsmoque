@@ -63,12 +63,15 @@ class AttemptsController < ApplicationController
 	end
 
 	def index
+		@seasons = Season.all
 		@attempts = Attempt.all
 		@attempts.clear
 		@season_numbers = Hash.new { |hash, key|  }
 		@season_ids = Attempt.pluck(:season_id).uniq
 		@season_ids.each do |season_id|
-			@season_numbers[season_id] = Season.get_season_number(season_id)
+			if Season.where(id: season_id).count > 0
+				@season_numbers[season_id] = Season.get_season_number(season_id)
+			end
 		end
 		@season_numbers = @season_numbers.sort_by {|key, value| value}.reverse.to_h
 		@season_numbers.each do |key, value|

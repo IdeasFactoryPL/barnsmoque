@@ -1,44 +1,47 @@
-<div class="container">
-  <h2>Lista świniobijców</h2>
-  <%= link_to "Dodaj nowego świniobijca", new_attempt_path, class: "btn btn-primary btn-xs" %>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Nr. sezonu</th>
-        <th>Zdjęcie</th>
-        <th>Imię</th>
-        <th>Nazwisko</th>
-        <th>Czas</th>
-        <th></th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @attempts.each do |attempt| %>
+<%= render 'seasons_check' %>
+
+  <div class="container">
+    <h2>Lista świniobijców</h2>
+    <%= link_to "Dodaj nowego świniobijca", new_attempt_path, class: "btn btn-primary btn-xs" %>
+    <table class="table table-striped">
+      <thead>
         <tr>
-          <td>
-            <%= link_to attempt.season_number, season_path(attempt.season_number) %>
-          </td>
-          <td>
-            <%= image_tag attempt.avatar.url(:thumb) %>
-          </td>
-          <td>
-            <%= attempt.name %>
-          </td>
-          <td>
-            <%= attempt.surname %>
-          </td>
-          <td>
-            <%= attempt.time %>
-          </td>
-          <td>
-            <%= link_to "Edytuj", edit_attempt_path(attempt), class: "btn btn-warning" %>
-          </td>
-          <td>
-            <%= link_to "Usuń", attempt_path(attempt), method: :delete, data: {confirm: "Jesteś pewien, że chcesz usunąć " + attempt.name_surname_time}, class: "btn btn-danger" %>
-          </td>
+          <th>Nr. sezonu</th>
+          <th>Zdjęcie</th>
+          <th>Imię</th>
+          <th>Nazwisko</th>
+          <th>Czas</th>
+          <th></th>
+          <th></th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+      </thead>
+      <tbody>
+        <% @attempts.each do |attempt| %>
+          <tr>
+            <td>
+              <%= link_to attempt.season_number, season_path(attempt.season_number) %>
+            </td>
+            <td>
+              <%= image_tag attempt.avatar.url(:thumb) %>
+            </td>
+            <td>
+              <%= attempt.name %>
+            </td>
+            <td>
+              <%= attempt.surname %>
+            </td>
+            <td>
+              <%= attempt.time %>
+            </td>
+            <td>
+              <%= link_to "Edytuj", edit_attempt_path(attempt), class: "btn btn-warning" %>
+            </td>
+            <td>
+              <%= link_to "Usuń", attempt_path(attempt), method: :delete, data: {confirm: "Jesteś pewien, że chcesz usunąć " + attempt.name_surname_time}, class: "btn btn-danger" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
