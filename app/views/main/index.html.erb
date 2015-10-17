@@ -105,14 +105,15 @@
         </section>
         <section id="aktualnosci">
             <h2>AKTUALNOŚCI</h2>
-            <article class="day10">
-            <header>Otwarcie restauracji</header>
-            <h4>10 września 2015</h4>
-            <p>
-                Witamy naszych sympatyków.<br>
-                Tradycyjnie, bez Magdy G., bez spiny i fajerwerków, bez specjalnych wystrojów - uczciwe żarcie i tyle.<br>
-                Kto ma chęć, od 11 września ul. Zgoda 5 - bo nie samym burgerem żyje człowiek
-            </p>
+            <% @top_news.each do |news| %>
+                <article class="day<%= news.date.day.to_s.rjust(2, '0')%>">
+                    <header><%= news.title %></header>
+                    <h4><%= news.date_string %></h4>
+                    <p>
+                        <%= news.description_with_link.html_safe %>
+                    </p>
+                </article>
+            <% end %>
         </article>
 </article>
 </section>

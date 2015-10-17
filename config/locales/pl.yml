@@ -37,4 +37,4 @@ pl:
               blank: "Sezon nie powinien być pusty"
   date:
     order: ["year", "month", "day"]
-    month_names: ["Styczeń", "Luty", "Marzec", "Kwiecień", "Maj", "Czerwiec", "Lipiec", "Sierpień", "Wrzesień", "Październik", "Listopad", "Grudzień"]
+    month_names: ["stycznia", "lutego", "marca", "kwietnia", "maja", "czerwca", "lipca", "sierpnia", "września", "października", "listopada", "grudnia"]

@@ -21,12 +21,13 @@
     <%= f.text_field :link_name, placeholder: @last_link_name, class: 'form-control' %>
   </div>
   <div class="form-group">
-    <%= f.label :link_to, "Link (opcjonalnie)" %>
-    <%= f.text_field :link_to, placeholder: @last_link_to, class: 'form-control' %>
+    <%= f.label :link_for, "Link (opcjonalnie)" %>
+    <%= f.text_field :link_for, placeholder: @last_link_to, class: 'form-control' %>
   </div>
   <div class="tags">
     <h3>Tagi do tekstu</h3>
     <p>#Link - wpisuje link (link można wstawiać tylko do opisu)</p>
+    <p>#Menu - wpisuje menu (menu można wstawiać tylko do opisu)</p>
   </div>
   <div class="form-group">
     <%= f.submit "Wyślij", class: "btn btn-primary" %>

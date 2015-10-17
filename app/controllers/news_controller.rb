@@ -1,16 +1,17 @@
 class NewsController < ApplicationController
 	
 	before_action :authenticate_user!
-	
+	before_action :find_news, only: [:show, :edit, :destroy, :update]
+
 	def new
 		@news = News.new
 	end
 	def index
-		@news = News.all
+		@news = News.order(:date)
 	end
 	def create
 		@news = News.create(news_params)
-		if @news.save?
+		if @news.save
 			flash[:success] = "Dodano aktualność"
 			redirect_to news_index_path
 		else
@@ -18,14 +19,33 @@ class NewsController < ApplicationController
 			render 'new'
 		end
 	end
-
+	def update
+		if @news.update(news_params)
+			flash[:success] = "Zaktualizowano aktualność po Polsku"
+			redirect_to news_path(@news)
+		else
+			flash[:error] = "Nie udało się zaktualizować aktualności po Polsku"
+			render 'edit'
+		end
+	end
+	def destroy
+		if @news.present?
+			@news.destroy
+			flash[:success] = "Usunięto aktualność po Polsku"
+			redirect_to news_index_path
+		else
+			flash[:error] = "Nie można było usunąć aktualności po Polsku"
+			redirect_to news_path(@news)
+		end
+	end
 
 	private
 	def news_params
-		params.require(:news).permit(:title, :date, :description, :link_name, :link_to)
+		params.require(:news).permit(:title, :date, :description, :link_name, :link_for, :release_date)
 	end
 
 	def find_news
 		@news = News.find(params[:id])
 	end
+
 end

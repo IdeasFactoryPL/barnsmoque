@@ -1,0 +1,36 @@
+<div class="container">
+  <h2>Lista aktualności po Polsku</h2>
+  <%= link_to "Dodaj nową aktualność po Polsku", new_news_path, class: "btn btn-primary btn-xs" %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Tytuł</th>
+        <th>Opis</th>
+        <th>Data</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @news.each do |news| %>
+        <tr>
+          <td>
+            <%= link_to news.title, news_path(news.id) %>
+          </td>
+          <td>
+            <%= news.description.truncate_words(10) %>
+          </td>
+          <td>
+            <%= news.date %>
+          </td>
+          <td>
+            <%= link_to "Edytuj", edit_news_path(news), class: "btn btn-warning" %>
+          </td>
+          <td>
+            <%= link_to "Usuń", news_path(news), method: :delete, data: {confirm: "Jesteś pewien, że chcesz usunąć " + news.title}, class: "btn btn-danger" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
