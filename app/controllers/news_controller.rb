@@ -38,7 +38,9 @@ class NewsController < ApplicationController
 			redirect_to news_path(@news)
 		end
 	end
-
+	def show
+	end
+	
 	private
 	def news_params
 		params.require(:news).permit(:title, :date, :description, :link_name, :link_for, :release_date)

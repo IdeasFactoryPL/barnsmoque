@@ -35,6 +35,10 @@ pl:
           attributes:
             season_id:
               blank: "Sezon nie powinien być pusty"
+        voucher:
+          attributes:
+            code:
+              too_short: "Za krótki kod vouchera"
   date:
     order: ["year", "month", "day"]
     month_names: ["stycznia", "lutego", "marca", "kwietnia", "maja", "czerwca", "lipca", "sierpnia", "września", "października", "listopada", "grudnia"]

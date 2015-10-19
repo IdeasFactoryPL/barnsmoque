@@ -10,7 +10,7 @@
     <%= stylesheet_link_tag 'bootstrap.min' %>
     <%= javascript_include_tag 'alert', 'data-turbolinks-track' => true %>
   <% end %>
-  <% if controller_name == "attempts" or controller_name == "sessions" or controller_name == "news" %>
+  <% if controller_name == "attempts" or controller_name == "sessions" or controller_name == "news" or controller_name == "vouchers" %>
     <%= stylesheet_link_tag 'attempt' %>
   <% end %>
   <%= yield :stylesheets %>

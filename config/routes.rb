@@ -2,11 +2,12 @@ Rails.application.routes.draw do
   resources :seasons, except: :show
   get 'seasons/list'
   get 'seasons/:id', to: 'seasons#show'
-  resources :attempts, :news
-  
+  resources :attempts, :news, :vouchers
+  match 'find_vouchers' => 'vouchers#find', via: [:get, :post]
+
   devise_for :users
   root 'main#index'
-  get 'swiniobicie' => 'competition#index'
+  # get 'swiniobicie' => 'competition#index'
   get 'manager' => 'manager#index'
   get 'attempts/:id' => 'attempts#image_crop'
   
