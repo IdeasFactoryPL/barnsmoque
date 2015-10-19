@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 	before_action :authenticate_user!
 	before_action :find_user, only: [:update, :destroy, :edit, :show]
-	before_action :all_users_and_roles, only: [:new, :edit]
+	before_action :all_users_and_roles, only: [:new, :edit, :update]
 	def new
 		@user = User.new
 	end
@@ -12,7 +12,6 @@ class UsersController < ApplicationController
 			redirect_to user_path(@user)
 		else
 			flash[:error] = "Nie udało się utworzyć użytkownika"
-			debugger
 			render 'new'
 		end
 	end
@@ -45,7 +44,7 @@ class UsersController < ApplicationController
 
 	private
 	def user_params
-		params.require(:user).permit(:email, :password, :role_id)
+		params.require(:user).permit(:email, :password, :password_confirmation, :role_id)
 	end
 	def find_user
 		@user = User.find(params[:id])

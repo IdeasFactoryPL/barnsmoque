@@ -44,6 +44,9 @@ pl:
               taken: "Adres email jest już używany przez innego użytkownika"
             password:
               too_short: "Hasło jest za krótkie"
+            password_confirmation:
+              blank: "Pole potwierdź hasło nie może być puste"
+              confirmation: "Podane hasła są różne"
             role:
               blank: "Nie wybrano uprawnień dla użytkownika"
   date:

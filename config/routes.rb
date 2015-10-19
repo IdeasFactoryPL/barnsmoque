@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   resources :attempts, :news, :vouchers
   match 'find_vouchers' => 'vouchers#find', via: [:get, :post]
 
-  devise_for :users, :path_prefix => 'my'
+  devise_for :users
+  # devise_for :users, :path_prefix => 'my'
   resources :users
   root 'main#index'
   # get 'swiniobicie' => 'competition#index'

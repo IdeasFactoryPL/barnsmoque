@@ -1,11 +1,16 @@
 <%= form_for @user do |f| %>
+  <%= render 'layouts/error_messages', :object => @user %>
   <div class="form-group">
     <%= f.label :email, "Email" %>
     <%= f.email_field :email, class: 'form-control', required: true, oninvalid: "alert('Email jest wymagany');" %>
   </div>
   <div class="form-group">
     <%= f.label :password, "Hasło" %>
-    <%= f.password_field :password, class: 'form-control', oninvalid: "alert('Hasło jest wymagane');" %>
+    <%= f.password_field :password, class: 'form-control', oninvalid: "alert('Hasło jest wymagane');", minlength: 8 %>
+  </div>
+  <div class="form-group">
+    <%= f.label :password, "Potwierdź hasło" %>
+    <%= f.password_field :password_confirmation, class: 'form-control', oninvalid: "alert('Potwierdzenie hasła jest wymagane');" %>
   </div>
   <div class="form-group">
     <%= f.label :role_id, "Uprawniena" %>

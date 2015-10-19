@@ -65,11 +65,24 @@
         <div class="col-md-10 col-centered">
       <% end %>
       <%= yield(:message) %>
-      <%= yield %>
-      <% unless controller_name == "seasons" and (controller.action_name == "show" or controller.action_name == "index") %>
-        <%= link_to "Wstecz", :back , class: "btn btn-warning"%>
-        <%= link_to "Strona główna panelu", manager_path, class: "btn btn-success"%>
-        </div>
+      <% if controller_name != "sessions" %>
+        <% if current_user.present? %>
+          <% if current_user.has_role?('zbanowany') %>
+            <div class="alert alert-danger alert-dismissible" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                Jesteś zbanowany
+            </div>
+          <% else %>
+            <%= yield %>
+            <% unless controller_name == "seasons" and (controller.action_name == "show" or controller.action_name == "index") %>
+              <%= link_to "Wstecz", :back , class: "btn btn-warning"%>
+              <%= link_to "Strona główna panelu", manager_path, class: "btn btn-success"%>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% else %>
+        <%= yield %>
       <% end %>
     </div>
   <% else %>
