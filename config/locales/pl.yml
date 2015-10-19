@@ -27,7 +27,6 @@ pl:
       no_seasions: "Brak sezonów, nie można wyświetlić uczestników"
       no_seasions_new_attempt: "Musisz mieć jakiś sezon, aby móc dodać uczestnika"
       no_seasions_edit_attempt: "Musisz mieć jakiś sezon, aby móc edytować uczestnika"
-
   activerecord:
     errors:
       models:
@@ -39,6 +38,14 @@ pl:
           attributes:
             code:
               too_short: "Za krótki kod vouchera"
+        user:
+          attributes:
+            email:
+              taken: "Adres email jest już używany przez innego użytkownika"
+            password:
+              too_short: "Hasło jest za krótkie"
+            role:
+              blank: "Nie wybrano uprawnień dla użytkownika"
   date:
     order: ["year", "month", "day"]
     month_names: ["stycznia", "lutego", "marca", "kwietnia", "maja", "czerwca", "lipca", "sierpnia", "września", "października", "listopada", "grudnia"]

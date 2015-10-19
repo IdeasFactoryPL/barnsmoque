@@ -2,7 +2,7 @@
   
   <div class="form-group">
     <%= f.label :code, "Kod" %>
-    <%= f.text_field :code, placeholder: @last_code, required: true, oninvalid: "alert('Kod jest wymagany');", maxlength: 8, class: 'form-control' %>
+    <%= f.text_field :code, placeholder: @last_code, required: true, oninvalid: "alert('Kod jest wymagany');", minlength: 8, maxlength: 8, class: 'form-control' %>
   </div>
   <div class="form-group">
     <%= f.label :status, "Status" %>

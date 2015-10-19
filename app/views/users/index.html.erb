@@ -1,0 +1,32 @@
+<div class="container">
+  <h2>Lista użytkowników</h2>
+  <%= link_to "Dodaj nowego użytkownika", new_user_path, class: "btn btn-primary btn-xs" %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Login</th>
+        <th>Uprawnienia</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td>
+            <%= link_to user.email, user_path(user.id) %>
+          </td>
+          <td>
+            <%= user.role.name %>
+          </td>
+          <td>
+            <%= link_to "Edytuj", edit_user_path(user), class: "btn btn-warning" %>
+          </td>
+          <td>
+            <%= link_to "Usuń", user_path(user), method: :delete, data: {confirm: "Jesteś pewien, że chcesz usunąć użytkownika: " + user.email}, class: "btn btn-danger" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

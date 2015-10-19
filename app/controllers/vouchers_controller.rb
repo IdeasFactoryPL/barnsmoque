@@ -1,7 +1,6 @@
 class VouchersController < ApplicationController
 	before_action :authenticate_user!
 	before_action :find_voucher, only: [:update, :destroy, :edit, :show]
-
 	def index
 		@vouchers = Voucher.order(:code)
 	end

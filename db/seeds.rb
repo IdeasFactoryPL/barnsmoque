@@ -6,9 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-# User.destroy_all
-# User.create(email: "renata@barnsmoque.pl", password: "questr12")
-
 # Season.destroy_all
 # description = "Przyjdź do Barn Smoque, powiedz, że chcesz pobić rekord, zamów Double Pulled Pork, a jeśli pobijesz dotychczasowego lidera - burger będzie gratis. Konkurs trwa od 5 października do 25 listopada. Jasiek Gąsiennica Curuś Pizdryk Farell dla najszybszego świniobijcy funduje:
 # 		<br>WYUZDANIE I ROZPUSTA!!!!
@@ -27,7 +24,11 @@
 # Attempt.create(name: "Emil", surname: "Gnał", minute: 1, second: 2, hundredths_of_second: 11, season: Season.last);
 # Attempt.create(name: "Ksywka", minute: 1, season: Season.last);
 # Attempt.create(name: "Emil", surname: "Gnał", second: 59, hundredths_of_second: 11, season: Season.last);
-
-['registered', 'banned', 'moderator', 'admin'].each do |role|
+User.destroy_all
+Role.destroy_all
+['zarejestrowany', 'zbanowany', 'moderator', 'admin'].each do |role|
   Role.find_or_create_by({name: role})
 end
+
+
+User.create(email: "renata@barnsmoque.pl", password: "questr12", role: Role.where(name: "admin").first)
