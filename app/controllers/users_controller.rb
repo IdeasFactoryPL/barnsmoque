@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+ class UsersController < ApplicationController
 	before_action :authenticate_user!
 	before_action :find_user, only: [:update, :destroy, :edit, :show]
 	before_action :all_users_and_roles, only: [:new, :edit, :update]

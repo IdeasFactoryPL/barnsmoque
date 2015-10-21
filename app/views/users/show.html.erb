@@ -1,3 +1,4 @@
+<% if can? :show, User or @user = current_user %>
 <div class="title">
   <%= @user.email %>
 </div>
@@ -10,16 +11,29 @@
             <td><%= @user.role.name %></td>
           </tr>
           <tr>
-            <td><%= link_to "Edytuj", edit_user_path(@user), class: 'btn btn-warning btn-m' %></td>
-          <td><%= link_to "Usuń", user_path(@user), method: :delete, data: {confirm: "Czy na pewno chcesz usunąć użytkownika #{@user.email}?"}, class: 'btn btn-danger btn-m' %></td>
-          </tr>
-          <tr>
             <td>
-              <%= link_to "Wróć do użytkowników", users_path, class: 'btn btn-info btn-m' %>
+              <% if can? :edit, User or @user = current_user %>
+                <%= link_to "Edytuj", edit_user_path(@user), class: 'btn btn-warning btn-m' %>
+              <% end %>
             </td>
-            <td></td>
+            <td>
+              <% if can? :destroy, User %>
+                <%= link_to "Usuń", user_path(@user), method: :delete, data: {confirm: "Czy na pewno chcesz usunąć użytkownika #{@user.email}?"}, class: 'btn btn-danger btn-m' %>
+              <% end %>
+            </td>
           </tr>
+          <% if can? :index, User %>
+            <tr>
+              <td>
+                <%= link_to "Wróć do użytkowników", users_path, class: 'btn btn-info btn-m' %>
+              </td>
+              <td></td>
+            </tr>
+          <% end %>
         </tbody>
     </table>
   </div>
 </div>
+<% else %>
+  <%= render 'layouts/error_message', error_message: (I18n.translate 'alerts.error.no_permission') %>
+<% end %>

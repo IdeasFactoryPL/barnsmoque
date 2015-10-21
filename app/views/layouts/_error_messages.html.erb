@@ -1,8 +1,6 @@
 <% if object.errors.any? %>
-  <% object.errors.each do |msg| %>
-    <div class="alert alert-danger alert-dismissible" role="alert">
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      <%= object.errors.messages[msg].to_sentence %>
-    </div>
-  <% end %>
+  <div class="alert alert-danger alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <%= object.errors.messages.first[1][0] %>
+  </div>
 <% end %>

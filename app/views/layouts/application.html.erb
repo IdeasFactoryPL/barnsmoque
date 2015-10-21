@@ -42,6 +42,88 @@
 </head>
 <body>
   <% if controller_name != 'main' %>
+    <% unless controller_name == "seasons" and (controller.action_name == "show" or controller.action_name == "index") %>
+      <script src="/assets/bootstrap.min.js"></script>
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <%= link_to "Panel zarządzania Barn Smoque", manager_path, class: "navbar-brand"%>
+          </div>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <% if user_signed_in? %>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Świniobicie<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <% if can? :create, Attempt %>
+                      <li><%= link_to "Dodaj świniobijcę", new_attempt_path %></li>
+                    <% end %>
+                    <% if can? :index, Attempt %>
+                      <li><%= link_to "Lista świniobijców", attempts_path %></li>
+                    <% end %>
+                    <li role="separator" class="divider"></li>
+                    <% if can? :create, Season %>
+                      <li><%= link_to "Dodaj sezon świniobicia", new_season_path %></li>
+                    <% end %>
+                    <% if can? :list, Season %>
+                      <li><%= link_to "Lista sezonów świniobicia", seasons_list_path %></li>
+                    <% end %>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Strona<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <% if can? :create, News %>
+                      <li><%= link_to "Dodaj aktualność po Polsku", new_news_path %></li>
+                    <% end %>
+                    <% if can? :index, News %>
+                      <li><%= link_to "Lista aktualności po Polsku", news_index_path %></li>
+                    <% end %>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Vouchery<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <% if can? :index, Voucher %>
+                      <li><%= link_to "Lista voucherów", vouchers_path %></li>
+                    <% end %>
+                    <% if can? :find, Voucher %>
+                      <li><%= link_to "Edytuj voucher (po wpisaniu kodu)", find_vouchers_path %></li>
+                    <% end %>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Użytkownicy<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <% if can? :index, User %>
+                      <li><%= link_to "Lista użytkowników", users_path %></li>
+                    <% end %>
+                    <% if can? :create, User %>
+                      <li><%= link_to "Utwórz użytkownika", new_user_path %></li>
+                    <% end %>
+                    <% if can? :edit_own, User %>
+                      <li><%= link_to "Edytuj swoje konto", edit_user_path(current_user) %></li>
+                    <% end %>
+                  </ul>
+                </li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                  <li><%= link_to "Wstecz", :back %></li>
+                  <li><%= link_to "Wyloguj #{current_user.email}", destroy_user_session_path, method: :delete %></li>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          <% end %>
+        </div><!-- /.container-fluid -->
+      </nav>
+    <% end %>
     <div class="wrapper">
       <% if flash[:success] %>
         <div class="alert alert-success alert-dismissible" role="alert">
@@ -74,12 +156,9 @@
             </div>
           <% else %>
             <%= yield %>
-            <% unless controller_name == "seasons" and (controller.action_name == "show" or controller.action_name == "index") %>
-              <%= link_to "Wstecz", :back , class: "btn btn-warning"%>
-              <%= link_to "Strona główna panelu", manager_path, class: "btn btn-success"%>
-              </div>
-            <% end %>
           <% end %>
+        <% else %>
+          <%= yield %>
         <% end %>
       <% else %>
         <%= yield %>

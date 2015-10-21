@@ -1,0 +1,39 @@
+<div class="title">
+  <%= @voucher.code %>
+</div>
+<div class="container theme-showcase" role="main">
+  <div class="container">
+    <table class="table table-hover">
+        <tbody>
+          <tr>
+            <td>Status</td>
+            <td><%= @voucher.status %></td>
+          </tr>
+          <tr>
+            <td>Data ostatniej aktualizacji</td>
+            <td><%= @voucher.updated_at %></td>
+          </tr>
+          <tr>
+            <td>
+              <% if can? :edit, Voucher %>
+                <%= link_to "Edytuj", edit_voucher_path(@voucher), class: 'btn btn-warning btn-m' %>
+              <% end %>
+            </td>
+            <td>
+              <% if can? :destroy, Voucher %>
+                <%= link_to "Usuń", voucher_path(@voucher), method: :delete, data: {confirm: "Czy na pewno chcesz usunąć voucher #{@voucher.code}?"}, class: 'btn btn-danger btn-m' %>
+              <% end %>
+            </td>
+          </tr>
+          <% if can? :index, Voucher %>
+            <tr>
+              <td>
+                <%= link_to "Wróć do listy voucherów", vouchers_path, class: 'btn btn-info btn-m' %>
+              </td>
+              <td></td>
+            </tr>
+          <% end %>
+        </tbody>
+    </table>
+  </div>
+</div>

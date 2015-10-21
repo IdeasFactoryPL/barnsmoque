@@ -26,10 +26,14 @@
             <%= @voucher.status %>
           </td>
           <td>
-            <%= link_to "Edytuj", edit_voucher_path(@voucher), class: "btn btn-warning" %>
+            <% if can? :update, Voucher %>
+              <%= link_to "Edytuj", edit_voucher_path(@voucher), class: "btn btn-warning" %>
+            <% end %>
           </td>
           <td>
-            <%= link_to "Usuń", voucher_path(@voucher), method: :delete, data: {confirm: "Jesteś pewien, że chcesz usunąć voucher: " + @voucher.code}, class: "btn btn-danger" %>
+            <% if can? :destroy, Voucher %>
+              <%= link_to "Usuń", voucher_path(@voucher), method: :delete, data: {confirm: "Jesteś pewien, że chcesz usunąć voucher: " + @voucher.code}, class: "btn btn-danger" %>
+            <% end %>
           </td>
         </tr>
     </tbody>

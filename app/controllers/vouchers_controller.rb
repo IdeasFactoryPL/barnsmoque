@@ -14,7 +14,7 @@ class VouchersController < ApplicationController
 		@voucher = Voucher.create(voucher_params)
 		if @voucher.save
 			flash[:success] = "Dodano voucher"
-			redirect_to vouchers_path
+			redirect_to voucher_path(@voucher)
 		else
 			if @voucher.errors.any?
 				@voucher.errors.each do |attribute, message|
@@ -29,7 +29,7 @@ class VouchersController < ApplicationController
 	def update
 		if @voucher.update(voucher_params)
 			flash[:success] = "Zaktualizowano voucher"
-			redirect_to vouchers_path(@voucher)
+			redirect_to voucher_path(@voucher)
 		else			
 			if @voucher.errors.any?
 				@voucher.errors.each do |attribute, message|

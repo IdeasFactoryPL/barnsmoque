@@ -27,6 +27,7 @@ pl:
       no_seasions: "Brak sezonów, nie można wyświetlić uczestników"
       no_seasions_new_attempt: "Musisz mieć jakiś sezon, aby móc dodać uczestnika"
       no_seasions_edit_attempt: "Musisz mieć jakiś sezon, aby móc edytować uczestnika"
+      no_permission: "Brak uprawnień do tej części strony"
   activerecord:
     errors:
       models:

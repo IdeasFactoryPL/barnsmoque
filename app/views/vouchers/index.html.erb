@@ -1,32 +1,36 @@
-<div class="container">
-  <h2>Lista voucherów</h2>
-  <%= link_to "Dodaj nowy voucher", new_voucher_path, class: "btn btn-primary btn-xs" %>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Kod</th>
-        <th>Status</th>
-        <th></th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @vouchers.each do |voucher| %>
+<% if can? :index, Voucher %>
+  <div class="container">
+    <h2>Lista voucherów</h2>
+    <%= link_to "Dodaj nowy voucher", new_voucher_path, class: "btn btn-primary btn-xs" %>
+    <table class="table table-striped">
+      <thead>
         <tr>
-          <td>
-            <%= voucher.code %>
-          </td>
-          <td>
-            <%= voucher.status %>
-          </td>
-          <td>
-            <%= link_to "Edytuj", edit_voucher_path(voucher), class: "btn btn-warning" %>
-          </td>
-          <td>
-            <%= link_to "Usuń", voucher_path(voucher), method: :delete, data: {confirm: "Jesteś pewien, że chcesz usunąć voucher: " + voucher.code}, class: "btn btn-danger" %>
-          </td>
+          <th>Kod</th>
+          <th>Status</th>
+          <th></th>
+          <th></th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+      </thead>
+      <tbody>
+        <% @vouchers.each do |voucher| %>
+          <tr>
+            <td>
+              <%= link_to voucher.code, voucher_path(voucher) %>
+            </td>
+            <td>
+              <%= voucher.status %>
+            </td>
+            <td>
+              <%= link_to "Edytuj", edit_voucher_path(voucher), class: "btn btn-warning" %>
+            </td>
+            <td>
+              <%= link_to "Usuń", voucher_path(voucher), method: :delete, data: {confirm: "Jesteś pewien, że chcesz usunąć voucher: " + voucher.code}, class: "btn btn-danger" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% else %>
+  <%= render 'layouts/error_message', error_message: (I18n.translate 'alerts.error.no_permission') %>
+<% end %>
