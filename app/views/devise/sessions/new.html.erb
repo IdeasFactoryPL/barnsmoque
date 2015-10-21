@@ -1,26 +1,26 @@
+<% content_for :stylesheets do %>
+  <%= stylesheet_link_tag 'users' %>
+<% end %>
 <div class="text-center">
-  <h2>Log in</h2>
+  <h1>Logowanie</h1>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="field top30">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, size: 40 %>
-    </div>
-
-    <div class="field top15">
-      <%= f.label "Hasło" %><br />
-      <%= f.password_field :password, autocomplete: "off", size: 40 %>
+    <div class="field top30 input-group-lg">
+      <%= f.email_field :email, autofocus: true, size: 40, class: "form-control", placeholder: "EMAIL" %>
+      <%= f.password_field :password, autocomplete: "off", size: 40, class: "form-control", placeholder: "HASŁO" %>
     </div>
 
     <% if devise_mapping.rememberable? -%>
-      <div class="field top15">
-        <%= f.check_box :remember_me %>
-        <%= f.label "Pozostaw mnie zalogowanego" %>
+      <div class="checkbox">
+        <div class="field top15">
+          <%= f.check_box :remember_me %>
+          <%= f.label "Pozostaw mnie zalogowanego", class: "" %>
+        </div>
       </div>
     <% end -%>
 
     <div class="actions">
-      <%= f.submit "Log in", class: 'btn btn-primary btn-lg top30' %>
+      <%= f.submit "Zaloguj", class: 'btn btn-primary btn-lg top15' %>
     </div>
   <% end %>
 
