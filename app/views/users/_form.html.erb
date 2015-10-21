@@ -10,11 +10,19 @@
   </div>
   <div class="form-group">
     <%= f.label :name, "Imię" %>
-    <%= f.text_field :name, class: 'form-control' %>
+    <% if can? :edit, User %>
+      <%= f.text_field :name, class: 'form-control' %>
+    <% else %>
+      <%= f.text_field :name, readonly: true, class: 'form-control' %>
+    <% end %>
   </div>
   <div class="form-group">
     <%= f.label :surname, "Nazwisko" %>
-    <%= f.text_field :surname, class: 'form-control' %>
+    <% if can? :edit, User %>
+      <%= f.text_field :surname, class: 'form-control' %>
+    <% else %>
+      <%= f.text_field :surname, readonly: true, class: 'form-control' %>
+    <% end %>
   </div>
   <div class="form-group">
     <%= f.label :password, "Hasło (minimum 8 znaków)" %>
@@ -27,7 +35,7 @@
   <% if can? :edit, User %>
     <div class="form-group">
       <%= f.label :role_id, "Uprawniena" %>
-      <%= f.select :role_id, options_for_select(@roles.collect{|r| [r.name, r.id]}, @users.last.role.name), {}, class: 'form-control' %>
+      <%= f.select :role_id, options_for_select(@roles.collect{|r| [r.name, r.id]}, [@current_role.name, @current_role.id]), {}, class: 'form-control' %>
     </div>
   <% end %>
   <div class="form-group">

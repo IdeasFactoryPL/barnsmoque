@@ -1,4 +1,4 @@
-class NewsController < ApplicationController
+class NewsController < GenericController
 	
 	before_action :authenticate_user!
 	before_action :find_news, only: [:show, :edit, :destroy, :update]
@@ -41,6 +41,7 @@ class NewsController < ApplicationController
 		end
 	end
 	def show
+		@news.description = nl2br(@news.description)
 	end
 	
 	private

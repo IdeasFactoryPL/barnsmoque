@@ -6,29 +6,17 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-# Season.destroy_all
-# description = "Przyjdź do Barn Smoque, powiedz, że chcesz pobić rekord, zamów Double Pulled Pork, a jeśli pobijesz dotychczasowego lidera - burger będzie gratis. Konkurs trwa od 5 października do 25 listopada. Jasiek Gąsiennica Curuś Pizdryk Farell dla najszybszego świniobijcy funduje:
-# 		<br>WYUZDANIE I ROZPUSTA!!!!
-# 		<br>ŚWINIA, PYRY I KAPUSTA
-# 		<br>METR CHORIZO, BOCZKU BLACHA
-# 		<br>I TEQUILI ZŁOTEJ FLACHA
-# 		<br>a wszystko to bo Barna kocham....
-# 		<br>nagroda za udział jakaś???
-# 		<br>Każdy z uczestników bierze udział w konkursie na własne ryzyko i własną odpowiedzialność."
-# html_code = '<iframe width="560" height="315" src="https://www.youtube.com/embed/Wq-6TqupiZE" frameborder="0" allowfullscreen></iframe>'
-# Season.create(description: description, number: 1, html_code: html_code)
-
-# Attempt.destroy_all
-# Attempt.create(name: "Gall", surname: "Anonim", minute: 4, second: 0, hundredths_of_second: 11, season: Season.last);
-# Attempt.create(name: "Zbigniew", surname: "Mąciwoda", minute: 5, second: 1, hundredths_of_second: 11, season: Season.last);
-# Attempt.create(name: "Emil", surname: "Gnał", minute: 1, second: 2, hundredths_of_second: 11, season: Season.last);
-# Attempt.create(name: "Ksywka", minute: 1, season: Season.last);
-# Attempt.create(name: "Emil", surname: "Gnał", second: 59, hundredths_of_second: 11, season: Season.last);
 User.destroy_all
 Role.destroy_all
-['zarejestrowany', 'zbanowany', 'moderator', 'admin'].each do |role|
+News.destroy_all
+# Attempt.destroy_all
+# Season.destroy_all
+
+['zarejestrowany', 'zbanowany', 'pracownik', 'admin'].each do |role|
   Role.find_or_create_by({name: role})
 end
 
+User.create(email: "renata@barnsmoque.pl", password: "questr12", role: Role.where(name: "admin").first, name: "Renata", surname: "Petryka")
 
-User.create(email: "renata@barnsmoque.pl", password: "questr12", role: Role.where(name: "admin").first)
+News.create(title: "Otwarcie restauracji", date: "11-09-2015".to_date, description: "Witamy naszych sympatyków.\r\nTradycyjnie, bez Magdy G., bez spiny i fajerwerków, bez specjalnych wystrojów - uczciwe żarcie i tyle.\r\nKto ma chęć, od 11 września ul. Zgoda 5 - bo nie samym burgerem żyje człowiek", release_date: Time.now, user_id: User.last.id)
+News.create(title: "Świniobicie", date: "6-10-2015".to_date, description: "Zapraszamy na Świniobicie do Barn Smoque w którym można wygrać smaczne nagrody. Więcej informacji znajdziesz na #link", link_name: "swiniobicie.barnsmoque.pl", link_for: "http://swiniobicie.barnsmoque.pl", release_date: Time.now, user_id: User.last.id)

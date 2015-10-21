@@ -8,7 +8,7 @@ class Ability
       alias_action :create, :read, :update, :destroy, :to => :crud
       if user.role.name == "admin"
         can :manage, :all
-      elsif user.role.name == "moderator"
+      elsif user.role.name == "pracownik"
         can :crud, Attempt
         can [:update, :show, :find], Voucher
         can :crud, News

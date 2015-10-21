@@ -1,4 +1,4 @@
-class SeasonsController < ApplicationController
+class SeasonsController < GenericController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :find_season, only: [:show, :edit]
 
@@ -66,7 +66,7 @@ class SeasonsController < ApplicationController
   private
   def get_season_stuff
     @number = RomanNumerals.to_roman(@season.number)
-    @description = @season.description
+    @description = nl2br(@season.description)
     @html_code = @season.html_code
     if @html_code != nil
       @html_code = "<p>" + @html_code + "</p>"

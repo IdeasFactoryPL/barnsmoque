@@ -52,5 +52,10 @@
 	def all_users_and_roles
 		@users = User.all
 		@roles = Role.all
+		if @user != nil
+			@current_role = Role.where(name: @user.role.name).first
+		else
+			@current_role = Role.where(name: "zarejestrowany").first
+		end
 	end
 end
