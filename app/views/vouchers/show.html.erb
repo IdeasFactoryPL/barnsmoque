@@ -14,6 +14,10 @@
             <td><%= @voucher.updated_at %></td>
           </tr>
           <tr>
+            <td>Zmieniony lub utworzony przez</td>
+            <td><%= link_to @voucher.user[0], user_path(@voucher.user[1])%></td>
+          </tr>
+          <tr>
             <td>
               <% if can? :edit, Voucher %>
                 <%= link_to "Edytuj", edit_voucher_path(@voucher), class: 'btn btn-warning btn-m' %>

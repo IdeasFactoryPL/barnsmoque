@@ -9,6 +9,7 @@
       <tr>
         <th>Nr sezonu</th>
         <th>Opis</th>
+        <th>Zmieniony lub utworzony przez</th>
         <th></th>
         <th></th>
       </tr>
@@ -21,6 +22,9 @@
           </td>
           <td>
             <%= season.description.truncate_words(10) %>
+          </td>
+          <td>
+            <%= link_to season.user[0], user_path(season.user[1]) %>
           </td>
           <td>
             <%= link_to "Edytuj", edit_season_path(season.number), class: "btn btn-warning" %>

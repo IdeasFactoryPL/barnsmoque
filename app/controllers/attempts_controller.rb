@@ -16,6 +16,7 @@ class AttemptsController < ApplicationController
 
 	def create
 		@attempt = Attempt.new(attempt_params)
+		@attempt.user_id = current_user.id
 		@minute = @attempt.minute
 		@second = @attempt.second
 		@hundredths_of_second = @attempt.hundredths_of_second
@@ -41,6 +42,7 @@ class AttemptsController < ApplicationController
 	end
 
 	def update
+		@attempt.user_id = current_user.id
 		if @attempt.update(attempt_params)
 			flash[:success] = "Zaktualizowano świniobijca"
 			if @attempt.avatar.blank?
@@ -101,6 +103,6 @@ class AttemptsController < ApplicationController
 	end
 
 	def attempt_params
-		params.require(:attempt).permit(:name, :surname, :minute, :second, :hundredths_of_second, :avatar, :season_id, :avatar_original_w, :avatar_original_h, :avatar_box_w, :avatar_aspect, :avatar_crop_x, :avatar_crop_y, :avatar_crop_w, :avatar_crop_h)
+		params.require(:attempt).permit(:name, :surname, :minute, :second, :hundredths_of_second, :avatar, :season_id, :avatar_original_w, :avatar_original_h, :avatar_box_w, :avatar_aspect, :avatar_crop_x, :avatar_crop_y, :avatar_crop_w, :avatar_crop_h, :user_id)
 	end
 end

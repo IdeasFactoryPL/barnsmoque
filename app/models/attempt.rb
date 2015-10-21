@@ -1,4 +1,5 @@
 class Attempt < ActiveRecord::Base
+  include FindUser
   belongs_to :season
   validates :name, :season_id, presence: :true
   before_create :titleize_name_and_surname, :check_time

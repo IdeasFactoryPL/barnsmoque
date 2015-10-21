@@ -11,6 +11,7 @@ class NewsController < ApplicationController
 	end
 	def create
 		@news = News.create(news_params)
+		@news.user_id = current_user.id
 		if @news.save
 			flash[:success] = "Dodano aktualność"
 			redirect_to news_index_path
@@ -20,6 +21,7 @@ class NewsController < ApplicationController
 		end
 	end
 	def update
+		@news.user_id = current_user.id
 		if @news.update(news_params)
 			flash[:success] = "Zaktualizowano aktualność po Polsku"
 			redirect_to news_path(@news)

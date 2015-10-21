@@ -8,6 +8,8 @@ class SeasonsController < ApplicationController
   
   def create
     @season = Season.new(season_params)
+    @season.user_id = current_user.id
+    check_if_season_number_exist
     if @season.save
       flash[:success] = "Dodano sezon świniobicia"
       redirect_to seasons_list_path
@@ -33,9 +35,11 @@ class SeasonsController < ApplicationController
 
   def update
     find_season_by_id
+    check_if_season_number_exist
+    @season.user_id = current_user.id
     if @season.update(season_params)
       flash[:success] = "Zaktualizowano sezon " + @season.number.to_s + " świniobicia"
-      redirect_to season_path(@season.number)
+      redirect_to seasons_list_path
     else
       flash[:error] = "Nie udało się zakutalizować sezonu " + @season.number.to_s + " świniobicia"
       render 'edit'
@@ -77,5 +81,17 @@ class SeasonsController < ApplicationController
   end
   def season_params
     params.require(:season).permit(:description, :number, :html_code)
+  end
+  def check_if_season_number_exist
+    # debugger
+    @counter = 0
+    if @season.id != nil
+    if Season.where(number: @season.number).find(@season.id) != nil
+      @counter += 1
+    end
+  end
+    if Season.where(number: @season.number).count > @counter
+      raise "Już taki sezon instnieje"
+    end
   end
 end

@@ -11,6 +11,14 @@
             <td><%= @user.role.name %></td>
           </tr>
           <tr>
+            <td>Imię</td>
+            <td><%= @user.name %></td>
+          </tr>
+          <tr>
+            <td>Nazwisko</td>
+            <td><%= @user.surname %></td>
+          </tr>
+          <tr>
             <td>
               <% if can? :edit, User or @user = current_user %>
                 <%= link_to "Edytuj", edit_user_path(@user), class: 'btn btn-warning btn-m' %>

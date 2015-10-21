@@ -12,6 +12,7 @@ class VouchersController < ApplicationController
 	end
 	def create
 		@voucher = Voucher.create(voucher_params)
+		@voucher.user_id = current_user.id
 		if @voucher.save
 			flash[:success] = "Dodano voucher"
 			redirect_to voucher_path(@voucher)
@@ -27,6 +28,7 @@ class VouchersController < ApplicationController
 		end
 	end
 	def update
+		@voucher.user_id = current_user.id
 		if @voucher.update(voucher_params)
 			flash[:success] = "Zaktualizowano voucher"
 			redirect_to voucher_path(@voucher)
@@ -62,7 +64,7 @@ class VouchersController < ApplicationController
 	end
 	private
 	def voucher_params
-		params.require(:voucher).permit(:code, :status)
+		params.require(:voucher).permit(:code, :status, :user_id)
 	end
 	def find_voucher
 		@voucher = Voucher.find(params[:id])

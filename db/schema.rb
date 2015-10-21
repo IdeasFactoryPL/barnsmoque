@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151019075518) do
+ActiveRecord::Schema.define(version: 20151021163112) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20151019075518) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.integer  "season_id"
+    t.integer  "user_id"
   end
 
   add_index "attempts", ["season_id"], name: "index_attempts_on_season_id", using: :btree
@@ -42,6 +43,7 @@ ActiveRecord::Schema.define(version: 20151019075518) do
     t.datetime "release_date"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.integer  "user_id"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -56,6 +58,7 @@ ActiveRecord::Schema.define(version: 20151019075518) do
     t.text     "html_code"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -72,6 +75,8 @@ ActiveRecord::Schema.define(version: 20151019075518) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "role_id"
+    t.string   "name"
+    t.string   "surname"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
@@ -83,6 +88,7 @@ ActiveRecord::Schema.define(version: 20151019075518) do
     t.string   "code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
 
   add_foreign_key "users", "roles"

@@ -1,4 +1,5 @@
 class Season < ActiveRecord::Base
+	include FindUser
 	has_many :attempts
 
 	validates :description, :number, presence: true

@@ -18,6 +18,10 @@
             <td><%= @news.description_with_link.html_safe %></td>
           </tr>
           <tr>
+            <td>Zmieniony lub utworzony przez</td>
+            <td><%= link_to @news.user[0], user_path(@news.user[1])%></td>
+          </tr>
+          <tr>
             <td><%= link_to "Edytuj", edit_news_path(@news), class: 'btn btn-warning btn-m' %></td>
           <td><%= link_to "Usuń", news_path(@news), method: :delete, data: {confirm: "Czy na pewno chcesz usunąć #{@news.title}?"}, class: 'btn btn-danger btn-m' %></td>
           </tr>
