@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   # devise_for :users, :path_prefix => 'my'
   resources :users
   root 'main#index'
-  # get 'swiniobicie' => 'competition#index'
+  get 'swiniobicie' => 'seasons#index'
   get 'manager' => 'manager#index'
   get 'attempts/:id' => 'attempts#image_crop'
   

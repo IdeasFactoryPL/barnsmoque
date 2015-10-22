@@ -1,6 +1,6 @@
 class MainController < GenericController
 	def index
-		@news = News.order(:date, :release_date)
+		@news = News.order(date: :desc, release_date: :desc)
 		@top_news = []
 		@news.each do |news|
 			news.description = nl2br(news.description)
