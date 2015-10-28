@@ -1,7 +1,9 @@
 module FindUser	
 	def user
-		if self.user_id != nil
-			@u = User.find(self.user_id)
+		@u = User.find_by_id(self.user_id)
+		if @u == nil
+			@r = Role.where("name = 'admin'").first.id
+			@u = User.where("role_id = #{@r}").first
 		end
 		if @u.name.present? and @u.surname.present?
 			[@u.name + " " + @u.surname, @u]
