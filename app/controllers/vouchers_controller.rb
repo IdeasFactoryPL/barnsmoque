@@ -55,7 +55,7 @@ class VouchersController < ApplicationController
 	end
 	def find
 		if params[request.path].present?
-			@code = params[request.path]["code"]
+			@code = params[request.path]["code"].downcase
 			@voucher
 			if @code != nil
 				@voucher = Voucher.where(code: @code).first
