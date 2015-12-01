@@ -6,7 +6,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag 'reset' %>
-  <% if controller_name != 'main' %>
+  <% unless ['main', 'christmas_eves'].include? controller_name %>
     <%= stylesheet_link_tag 'bootstrap.min' %>
     <%= javascript_include_tag 'alert', 'data-turbolinks-track' => true %>
   <% end %>
@@ -41,7 +41,7 @@
   <%= yield(:head) %>
 </head>
 <body>
-  <% if controller_name != 'main' %>
+  <% unless ["main", "christmas_eves"].include? controller_name %>
     <% unless controller_name == "seasons" and (controller.action_name == "show" or controller.action_name == "index") %>
       <script src="/assets/bootstrap.min.js"></script>
       <nav class="navbar navbar-default">
@@ -152,7 +152,7 @@
           <% if current_user.has_role?('zbanowany') %>
             <div class="alert alert-danger alert-dismissible" role="alert">
               <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                Jesteś zbanowany
+              Jesteś zbanowany
             </div>
           <% else %>
             <%= yield %>

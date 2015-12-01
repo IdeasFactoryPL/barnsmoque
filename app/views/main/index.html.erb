@@ -1,7 +1,8 @@
-<% content_for :title, "Barn Smoque - Warszawa ul. Zgoda 5" %>        
+<% content_for :title, "Barn Smoque - Warszawa ul. Zgoda 5" %>
 <% content_for :stylesheets do %>
   <%= stylesheet_link_tag 'main' %>
   <%= stylesheet_link_tag 'lightbox' %>
+  <%= stylesheet_link_tag 'jquery.fancybox' %>
 <% end %>
         <section id="start">
             <div class="wrapper">
@@ -123,7 +124,7 @@
         <a href="/assets/gallery/big/01.jpg" data-lightbox="gallery" data-title="CHILLI CON CARNE - pikantna zupa z wołowiny,ser, fasola, jalapeno, salsa fresca, guacamole, nachos">
             <%= image_tag "gallery/small/01.jpg", alt: "gallery", class: "gallery_big" %>
             <figcaption>CHILLI CON CARNE</figcaption>
-        </a>        
+        </a>
     </figure>
     <div class="small_photos">
         <figure>
@@ -982,6 +983,22 @@
     <a href="mailto:kontakt@barnsmoque.pl">kontakt@barnsmoque.pl</a></p>
 </div>
 </footer>
+<a id="hidden_link" rel="group" href="/images/wigilia.jpg" style="display:none" title='<center>Więcej informacji znajdziesz <%= link_to "tutaj", "wigilia_barn_smoque.pdf", {style: "color: #d35400"} %></center>'<img src="/assets/logo.png" alt=""></a>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("#hidden_link").fancybox({
+      helpers     : {
+        title: {
+          type: 'inside'
+        }
+      }
+    });
+    $(document).ready(function(){
+      $("#hidden_link").eq(0).trigger('click');
+    });
+  });
+</script>
+<%= javascript_include_tag "jquery.fancybox" %>
 <%= javascript_include_tag "show_more" %>
 <%= javascript_include_tag "animatescroll.min" %>
 <%= javascript_include_tag "nav" %>
