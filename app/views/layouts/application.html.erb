@@ -6,7 +6,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag 'reset' %>
-  <% unless ['main', 'christmas_eves'].include? controller_name %>
+  <% unless controller_name == "main" %>
     <%= stylesheet_link_tag 'bootstrap.min' %>
     <%= javascript_include_tag 'alert', 'data-turbolinks-track' => true %>
   <% end %>
@@ -41,7 +41,7 @@
   <%= yield(:head) %>
 </head>
 <body>
-  <% unless ["main", "christmas_eves"].include? controller_name %>
+  <% unless controller_name == "main" %>
     <% unless controller_name == "seasons" and (controller.action_name == "show" or controller.action_name == "index") %>
       <script src="/assets/bootstrap.min.js"></script>
       <nav class="navbar navbar-default">

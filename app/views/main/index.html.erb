@@ -3,6 +3,8 @@
   <%= stylesheet_link_tag 'main' %>
   <%= stylesheet_link_tag 'lightbox' %>
   <%= stylesheet_link_tag 'jquery.fancybox' %>
+  <%= stylesheet_link_tag 'photoswipe' %>
+  <%= stylesheet_link_tag 'default-skin' %>
 <% end %>
         <section id="start">
             <div class="wrapper">
@@ -119,94 +121,94 @@
 </article>
 </section>
 <section id="galeria">
-<div class="galeria_first">
-    <figure>
-        <a href="/assets/gallery/big/01.jpg" data-lightbox="gallery" data-title="CHILLI CON CARNE - pikantna zupa z wołowiny,ser, fasola, jalapeno, salsa fresca, guacamole, nachos">
-            <%= image_tag "gallery/small/01.jpg", alt: "gallery", class: "gallery_big" %>
-            <figcaption>CHILLI CON CARNE</figcaption>
-        </a>
-    </figure>
-    <div class="small_photos">
+    <div class="galeria_first picture">
         <figure>
-            <a href="/assets/gallery/big/02.jpg" data-lightbox="gallery" data-title="DEATH’S KISS - brownies bez mąki, sorbet pomarańczowy, creme fraiche">
-                <%= image_tag "gallery/small/02", alt: "gallery", class: "gallery_small" %>
-                <figcaption>DEATH’S KISS</figcaption>
+            <a href="/assets/gallery/big/01.jpg" data-title="<center><b>CHILLI CON CARNE</b> - pikantna zupa z wołowiny,ser, fasola, jalapeno, salsa fresca, guacamole, nachos</center>" data-size="1600x902">
+                <%= image_tag "gallery/small/01", alt: "gallery", class: "gallery_big" %>
+                <figcaption>CHILLI CON CARNE</figcaption>
             </a>
         </figure>
+        <div class="small_photos">
+            <figure>
+                <a href="/assets/gallery/big/02.jpg" data-title="<center><b>DEATH’S KISS</b> - brownies bez mąki, sorbet pomarańczowy, creme fraiche</center>" data-size="1600x902">
+                    <%= image_tag "gallery/small/02", alt: "gallery", class: "gallery_small" %>
+                    <figcaption>DEATH’S KISS</figcaption>
+                </a>
+            </figure>
+            <figure>
+                <a href="/assets/gallery/big/03.jpg" data-title="<center><b>MARGARITA TRUSKAWKOWA, MOJITO, CUBA LIBRE, TEQUILA SUNRISE</b></center>" data-size="1600x902">
+                    <%= image_tag "gallery/small/03", alt: "gallery", class: "gallery_small" %>
+                    <figcaption>DRINKI</figcaption>
+                </a>
+            </figure>
+        </div>
+    </div>
+    <div class="galeria_second picture">
+        <div class="small_photos">
+            <figure>
+                <a href="/assets/gallery/big/04.jpg" data-title="<center><b>LOKAL PIĘTRO<b></center>" data-size="1600x902">
+                    <%= image_tag "gallery/small/04", alt: "gallery", class: "gallery_small" %>
+                    <figcaption>LOKAL PIĘTRO</figcaption>
+                </a>
+            </figure>
+            <figure>
+                <a href="/assets/gallery/big/05.jpg" data-title="<center><b>LOKAL PARTER</b></center>" data-size="1600x902">
+                    <%= image_tag "gallery/small/05", alt: "gallery", class: "gallery_small" %>
+                    <figcaption>LOKAL PARTER</figcaption>
+                </a>
+            </figure>
+        </div>
         <figure>
-            <a href="/assets/gallery/big/03.jpg" data-lightbox="gallery" data-title="MARGARITA TRUSKAWKOWA, MOJITO, CUBA LIBRE, TEQUILA SUNRISE">
-                <%= image_tag "gallery/small/03", alt: "gallery", class: "gallery_small" %>
-                <figcaption>DRINKI</figcaption>
+            <a href="/assets/gallery/big/06.jpg" data-title="<center><b>JOE BUFFALO WINGS - LOUISIANA / BBQ</b> - smażone skrzydełka, seler naciowy, marchewka, ranch dip</center>" data-size="1600x902">
+                <%= image_tag "gallery/small/06", alt: "gallery", class: "gallery_big" %>
+                <figcaption>JOE BUFFALO WINGS</figcaption>
             </a>
         </figure>
     </div>
-</div>
-<div class="galeria_second">
-    <div class="small_photos">
+    <div class="galeria_second picture">
+        <div class="small_photos">
+            <figure>
+                <a href="/assets/gallery/big/07.jpg" data-title="<center><b>PANCAKE</b> - naleśniki na maślance z syropem klonowym i owocami</center>" data-size="1600x902">
+                    <%= image_tag "gallery/small/07", alt: "gallery", class: "gallery_small bez-bordera" %>
+                    <figcaption>PANCAKE</figcaption>
+                </a>
+            </figure>
+            <figure>
+                <a href="/assets/gallery/big/08.jpg" data-title="<center><b>QUESADILLAS RIO GRANDE Qra | Wół | Wege</b> - tortilla pszenna grillowana, ser, papryka, szczypiorek, cebulka, salsa fresca</center>" data-size="1600x902">
+                    <%= image_tag "gallery/small/08", alt: "gallery", class: "gallery_small bez-bordera" %>
+                    <figcaption>QUESADILLAS RIO GRANDE</figcaption>
+                </a>
+            </figure>
+        </div>
         <figure>
-            <a href="/assets/gallery/big/04.jpg" data-lightbox="gallery" data-title="LOKAL PIĘTRO">
-                <%= image_tag "gallery/small/04", alt: "gallery", class: "gallery_small" %>
-                <figcaption>LOKAL PIĘTRO</figcaption>
-            </a>
-        </figure>
-        <figure>
-            <a href="/assets/gallery/big/05.jpg" data-lightbox="gallery" data-title="LOKAL PARTER">
-                <%= image_tag "gallery/small/05", alt: "gallery", class: "gallery_small" %>
-                <figcaption>LOKAL PARTER</figcaption>
-            </a>
-        </figure>
-    </div>
-    <figure>
-        <a href="/assets/gallery/big/06.jpg" data-lightbox="gallery" data-title="JOE BUFFALO WINGS - LOUISIANA / BBQ - smażone skrzydełka, seler naciowy, marchewka, ranch dip">
-            <%= image_tag "gallery/small/06", alt: "gallery", class: "gallery_big" %>
-            <figcaption>JOE BUFFALO WINGS</figcaption>
-        </a>
-    </figure>
-</div>
-<div class="galeria_second">
-    <div class="small_photos">
-        <figure>
-            <a href="/assets/gallery/big/07.jpg" data-lightbox="gallery" data-title="PANCAKE - naleśniki na maślance z syropem klonowym i owocami">
-                <%= image_tag "gallery/small/07", alt: "gallery", class: "gallery_small bez-bordera" %>
-                <figcaption>PANCAKE</figcaption>
-            </a>
-        </figure>
-        <figure>
-            <a href="/assets/gallery/big/08.jpg" data-lightbox="gallery" data-title="QUESADILLAS RIO GRANDE Qra | Wół | Wege - tortilla pszenna grillowana, ser, papryka, szczypiorek, cebulka, salsa fresca">
-                <%= image_tag "gallery/small/08", alt: "gallery", class: "gallery_small bez-bordera" %>
-                <figcaption>QUESADILLAS RIO GRANDE</figcaption>
+            <a href="/assets/gallery/big/09.jpg" data-title="<center><b>RANCHERO BURRITO</b> - chilli con carne, fasola, guacamole, pico de gallo, jalapeno, ser cheddar & mimolette, kolendra, nachos, śmietana</center>" data-size="1600x902">
+                <%= image_tag "gallery/small/09", alt: "gallery", class: "gallery_big" %>
+                <figcaption>RANCHERO BURRITO</figcaption>
             </a>
         </figure>
     </div>
-    <figure>
-        <a href="/assets/gallery/big/09.jpg" data-lightbox="gallery" data-title="RANCHERO BURRITO - chilli con carne, fasola, guacamole, pico de gallo, jalapeno, ser cheddar & mimolette, kolendra, nachos, śmietana">
-            <%= image_tag "gallery/small/09", alt: "gallery", class: "gallery_big" %>
-            <figcaption>RANCHERO BURRITO</figcaption>
-        </a>
-    </figure>
-</div>
-<div class="galeria_first">
-    <figure>
-        <a href="/assets/gallery/big/10.jpg" data-lightbox="gallery" data-title="RIB EYE - 300g stejka z grilla, ziemniaki zapiekane z kozim serem, masło">
-            <%= image_tag "gallery/small/10", alt: "gallery", class: "gallery_big bez-bordera" %>
-            <figcaption>RIB EYE</figcaption>
-        </a>
-    </figure>
-    <div class="small_photos">
+    <div class="galeria_first picture">
         <figure>
-            <a href="/assets/gallery/big/11.jpg" data-lightbox="gallery" data-title="SOFT TACOS QRA / WOŁOWINA / WEGE / KREWETKI - tortilla pszenna, papryka, cebula, salsa fresca, śmietana, guacamole, ser, fryty">
-                <%= image_tag "gallery/small/11", alt: "gallery", class: "gallery_small" %>
-                <figcaption>SOFT TACOS</figcaption>
+            <a href="/assets/gallery/big/10.jpg" data-title="<center><b>RIB EYE</b> - 300g stejka z grilla, ziemniaki zapiekane z kozim serem, masło</center>" data-size="1600x902">
+                <%= image_tag "gallery/small/10", alt: "gallery", class: "gallery_big bez-bordera" %>
+                <figcaption>RIB EYE</figcaption>
             </a>
         </figure>
-        <figure>
-            <a href="/assets/gallery/big/12.jpg" data-lightbox="gallery" data-title="ZEB mc CAIN - żeberka wieprzowe bbq style, fryty, fasola, colesław">
-                <%= image_tag "gallery/small/12", alt: "gallery", class: "gallery_small" %>
-                <figcaption>ZEB mc CAIN</figcaption>
-            </a>
-        </figure>
+        <div class="small_photos">
+            <figure>
+                <a href="/assets/gallery/big/11.jpg" data-title="<center><b>SOFT TACOS QRA / WOŁOWINA / WEGE / KREWETKI</b> - tortilla pszenna, papryka, cebula, salsa fresca, śmietana, guacamole, ser, fryty</center>" data-size="1600x902">
+                    <%= image_tag "gallery/small/11", alt: "gallery", class: "gallery_small" %>
+                    <figcaption>SOFT TACOS</figcaption>
+                </a>
+            </figure>
+            <figure>
+                <a href="/assets/gallery/big/12.jpg" data-title="<center><b>ZEB mc CAIN</b> - żeberka wieprzowe bbq style, fryty, fasola, colesław</center>" data-size="1600x902">
+                    <%= image_tag "gallery/small/12", alt: "gallery", class: "gallery_small" %>
+                    <figcaption>SOFT TACOS</figcaption>
+                </a>
+            </figure>
+        </div>
     </div>
-</div>
 </section>
 <section id="kontakt">
     <div class="left-side">
@@ -1005,7 +1007,110 @@
 <%= javascript_include_tag "menu_hover" %>
 <%= javascript_include_tag "menu" %>
 <%= javascript_include_tag "lightbox" %>
+<%= javascript_include_tag "photoswipe.min" %>
+<%= javascript_include_tag "photoswipe-ui-default.min" %>
 
 <!--[if lt IE 9]>
 <script src="http://html5shiv-printshiv.googlecode.com/svn/trunk/html5shiv-printshiv.js"></script>
 <![endif]-->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <div class="pswp__bg"></div>
+    <div class="pswp__scroll-wrap">
+
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Zamknij (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Udostępnij"></button>
+                <button class="pswp__button pswp__button--fs" title="Włącz/wyłącz pełny ekran"></button>
+                <button class="pswp__button pswp__button--zoom" title="Powiększ/Pomniejsz"></button>
+
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Poprzednie (strzałka w lewo)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Następne (strzałka w prawo)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    (function($) {
+        var $pswp = $('.pswp')[0];
+        var image = [];
+        var $pic     = $('.picture'),
+            getItems = function() {
+                var items = [];
+                $pic.find('a').each(function() {
+                    var $href   = $(this).attr('href'),
+                        $size   = $(this).data('size').split('x'),
+                        $width  = $size[0],
+                        $height = $size[1],
+                        $title  = $(this).data('title');
+
+                    var item = {
+                        src   : $href,
+                        w     : $width,
+                        h     : $height,
+                        title : $title
+                    }
+
+                    items.push(item);
+                });
+                return items;
+            }
+
+        var items = getItems();
+
+        $.each(items, function(index, value) {
+            image[index]     = new Image();
+            image[index].src = value['src'];
+        });
+
+        $pic.on('click', 'figure', function(event) {
+            event.preventDefault();
+            var number = $(this).find('a').attr('href').split('big/')[1].substr(0,2);
+            number--;
+            if (number[0] == "0"){
+                number = number.substr(1);
+            }
+            // var $index = $(this).index();
+            var $index = number;
+            var options = {
+                index: $index,
+                bgOpacity: 0.7,
+                showHideOpacity: true
+            }
+            var lightBox = new PhotoSwipe($pswp, PhotoSwipeUI_Default, items, options);
+            lightBox.init();
+        });
+    })(jQuery);
+</script>
