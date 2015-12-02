@@ -1,4 +1,5 @@
 class Season < ActiveRecord::Base
+  acts_as_paranoid
 	include FindUser
 	has_many :attempts
 

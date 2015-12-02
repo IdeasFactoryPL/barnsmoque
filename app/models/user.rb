@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  acts_as_paranoid
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :registerable, :recoverable and :omniauthable
   devise :database_authenticatable,
@@ -9,7 +10,7 @@ class User < ActiveRecord::Base
   def has_role?(role_name)
     self.role.name == role_name
   end
-  
+
   private
   def set_default_role
     self.role ||= Role.find_by_name('zarejestrowany')

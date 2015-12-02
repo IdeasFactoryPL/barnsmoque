@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+gem 'acts_as_paranoid', '~> 0.5.0.beta2'
 gem "cancan"
 gem 'i18n'
 gem 'thin'

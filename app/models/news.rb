@@ -1,6 +1,8 @@
 class News < ActiveRecord::Base
-include FindUser
-include ActionView::Helpers::UrlHelper
+	acts_as_paranoid
+	include FindUser
+	include ActionView::Helpers::UrlHelper
+
 	def description_with_link
 		if self[:description].downcase.include? "#link" or self[:description].downcase.include? "#menu"
 			["#link", "#Link"].each do |var|

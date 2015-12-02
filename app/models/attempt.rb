@@ -1,4 +1,5 @@
 class Attempt < ActiveRecord::Base
+  acts_as_paranoid
   include FindUser
   belongs_to :season
   validates :name, :season_id, presence: :true
@@ -6,7 +7,7 @@ class Attempt < ActiveRecord::Base
   has_attached_file :avatar, :styles => {:thumb => '50x50', :medium => '500x500'}, :default_url => "/images/original/person.jpg"
   crop_attached_file :avatar
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
-  
+
   def time
     if self.minute == 59 and self.second == 59 and self.hundredths_of_second == 99
       "poddał się"
