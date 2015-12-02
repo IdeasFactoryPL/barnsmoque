@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20151202010250) do
     t.datetime "avatar_updated_at"
     t.integer  "season_id"
     t.integer  "user_id"
-    t.time     "deleted_at"
+    t.datetime "deleted_at"
   end
 
   add_index "attempts", ["season_id"], name: "index_attempts_on_season_id", using: :btree
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20151202010250) do
     t.integer  "order"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.time     "deleted_at"
+    t.datetime "deleted_at"
   end
 
   create_table "menu_groups", force: :cascade do |t|
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20151202010250) do
     t.integer  "order"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.time     "deleted_at"
+    t.datetime "deleted_at"
   end
 
   create_table "news", force: :cascade do |t|
@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 20151202010250) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "user_id"
-    t.time     "deleted_at"
+    t.datetime "deleted_at"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(version: 20151202010250) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
-    t.time     "deleted_at"
+    t.datetime "deleted_at"
   end
 
   create_table "users", force: :cascade do |t|
@@ -96,7 +96,7 @@ ActiveRecord::Schema.define(version: 20151202010250) do
     t.integer  "role_id"
     t.string   "name"
     t.string   "surname"
-    t.time     "deleted_at"
+    t.datetime "deleted_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
@@ -109,7 +109,7 @@ ActiveRecord::Schema.define(version: 20151202010250) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
-    t.time     "deleted_at"
+    t.datetime "deleted_at"
   end
 
   add_foreign_key "users", "roles"
