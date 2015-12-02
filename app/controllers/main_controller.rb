@@ -4,7 +4,7 @@ class MainController < GenericController
 		@top_news = []
 		@news.each do |news|
 			news.description = nl2br(news.description)
-			if @top_news.count < 5 and news.release_date <= Time.now
+			if @top_news.count < 3 and news.release_date <= Time.now
 				@top_news << news
 			end
 		end
