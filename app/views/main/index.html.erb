@@ -985,21 +985,23 @@
     <a href="mailto:kontakt@barnsmoque.pl">kontakt@barnsmoque.pl</a></p>
 </div>
 </footer>
-<a id="hidden_link" rel="group" href="/images/wigilia.jpg" style="display:none" title='<center><%= link_to "Kliknij tutaj po więcej informacji", "wigilia_barn_smoque.pdf", {style: "color: #d35400; text-decoration: none"} %></center>'<img src="/assets/logo.png" alt=""></a>
-<script type="text/javascript">
-  $(document).ready(function() {
-    $("#hidden_link").fancybox({
-      helpers     : {
-        title: {
-          type: 'inside'
-        }
-      }
-    });
-    $(document).ready(function(){
-      $("#hidden_link").eq(0).trigger('click');
-    });
-  });
-</script>
+<% if DateTime.now < "2015-12-23".to_date %>
+    <a id="hidden_link" rel="group" href="/images/wigilia.jpg" style="display:none" title='<center><%= link_to "Kliknij tutaj po więcej informacji", "wigilia_barn_smoque.pdf", {style: "color: #d35400; text-decoration: none"} %></center>'<img src="/assets/logo.png" alt=""></a>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#hidden_link").fancybox({
+          helpers     : {
+            title: {
+              type: 'inside'
+            }
+          }
+        });
+        $(document).ready(function(){
+          $("#hidden_link").eq(0).trigger('click');
+        });
+      });
+    </script>
+<% end %>
 <%= javascript_include_tag "jquery.fancybox" %>
 <%= javascript_include_tag "show_more" %>
 <%= javascript_include_tag "animatescroll.min" %>
