@@ -788,7 +788,7 @@ figcaption.text-content figcaption {
     font-weight: 600;
 }
 
-#custom_menu > .wrapper > .col1 > article:last-child > .price, #custom_drinks > .wrapper > .col1 > article > .price, #custom_drinks > .wrapper > .col2 > article:nth-child(2) > .price, #custom_drinks > .wrapper > .col2 > article:nth-child(3) > .price {
+.item_without_description {
     margin-top: -22px;
 }
 

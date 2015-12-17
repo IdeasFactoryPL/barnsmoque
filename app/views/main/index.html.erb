@@ -293,276 +293,38 @@
         <%= image_tag "icons/close", alt: "close" %>
     </div>
     <div class="col1">
-        <article>
-            <header>
-                BEZPRAWIE
-            </header>
-            <h5>
-            QUESADILLAS RIO GRANDE Qra | Wół | Wege
-            </h5>
-            <div class="price">
-                22
-            </div>
-            <h6>
-            tortilla pszenna grillowana, ser, papryka, szczypiorek, cebulka, salsa fresca
-            </h6>
-            <h5>
-            THE BILL NACHOS
-            </h5>
-            <div class="price">
-                19
-            </div>
-            <h6>
-            zapiekane nachosy z chilli con carne, ser chihuahua, kolendra, szczypior, salsa fresca, creme fraiche, jalapeno
-            </h6>
-            <h5>
-            JOE BUFFALO WINGS - LOUISIANA / BBQ
-            </h5>
-            <div class="price">
-                21
-            </div>
-            <h6>
-            smażone skrzydełka, seler naciowy, marchewka, ranch dip
-            </h6>
-            <h5>
-            FUCK CRACK BACON
-            </h5>
-            <div class="price">
-                22
-            </div>
-            <h6>
-            grillowany bekon w cieście piwnym, syrop klonowy, salsa jalapeno bbq
-            </h6>
-            <h5>
-            IOWA STYLE BRISKET
-            </h5>
-            <div class="price">
-                24
-            </div>
-            <h6>
-            mostek wołowy bbq, placki z kukurydzy, ser manchego, sałata
-            </h6>
-        </article>
-        <article>
-            <header>
-                ZA GARŚĆ DOLARÓW
-            </header>
-            <h5>
-            SOFT TACOS QRA / WOŁOWINA / WEGE / KREWETKI
-            </h5>
-            <div class="price">
-                21/ 21/ 21/ 28
-            </div>
-            <h6>
-            tortilla pszenna, papryka, cebula, salsa fresca, śmietana, guacamole, ser, fryty
-            </h6>
-            <h5>
-            RANCHERO BURRITO
-            </h5>
-            <div class="price">
-                28
-            </div>
-            <h6>
-            chilli con carne, fasola, guacamole, pico de gallo, jalapeno, ser cheddar & mimolette, kolendra, nachos, śmietana
-            </h6>
-        </article>
-        <article>
-            <header>
-                ZA KILKA DOLARÓW WIECEJ...
-            </header>
-            <h5>
-            HEART ATTACK
-            </h5>
-            <div class="price">
-                26
-            </div>
-            <h6>
-            burger 200g, ser x 2, bekon x 2, warzywa, salsa fresca, bbq, chipsy, colesław, fryty
-            </h6>
-            <h5>
-            SEX & VIOLENCE
-            </h5>
-            <div class="price">
-                26
-            </div>
-            <h6>
-            burger 200g, ser, ser mascarpone ziołowe, bekon, rukola, warzywa, salsa fresca, bbq, colesław, frytyty
-            </h6>
-            <h5>
-            MAMAS, PAPAS & DUPAS BLADAS
-            </h5>
-            <div class="price">
-                26
-            </div>
-            <h6>
-            burger 200g, ser, bekon, chorizo, warzywa, guacamole, salsa fresca, bbq, colesław, fryty
-            </h6>
-            <h5>
-            PULLED PORK
-            </h5>
-            <div class="price">
-                26
-            </div>
-            <h6>
-            dłuuuuugo pieczona wieprzowina, ser, bbq, colesław, fasola z bekonem
-            </h6>
-            <h5>
-            PHILLY CHEESE STEAK
-            </h5>
-            <div class="price">
-                28
-            </div>
-            <h6>
-            kanapka z rostbefem, duszonacebula, ser, sałata, pomidor, sos pieprzowy, fryty
-            </h6>
-        </article>
-        <article>
-            <header>
-                ZA DODATKOWY HAJS
-            </header>
-            <h5>
-            FRYTY
-            </h5>
-            <div class="price">
-                5
-            </div>
-            <h6></h6>
-            <h5>
-            NACHOS
-            </h5>
-            <div class="price">
-                5
-            </div>
-            <h6></h6>
-            <h5>
-            I INNE
-            </h5>
-            <div class="price">
-                3
-            </div>
-            <h6></h6>
-        </article>
+        <% MenuGroup.first(3).each do |menu_group| %>
+            <article>
+                <header><%= menu_group.name %></header>
+                <% menu_group.menu_items.each do |menu_item| %>
+                    <h5><%= menu_item.name %></h5>
+                    <% if menu_item.description.empty? %>
+                        <div class="price item_without_description">
+                    <% else %>
+                        <div class="price">
+                    <% end %>
+                            <%= menu_item.price %></div>
+                    <h6><%= menu_item.description %></h6>
+                <% end %>
+            </article>
+        <% end %>
     </div>
     <div class="col2">
-        <article>
-            <header>
-                DWA OBLICZA ZEMSTY
-            </header>
-            <h5>
-            CESAR SALAD QRA / KREWETKI
-            </h5>
-            <div class="price">
-                22/ 28
-            </div>
-            <h6>
-            sałata rzymska, bekon, parmezan, grzanki
-            </h6>
-        </article>
-        <article>
-            <header>
-                W SAMO POŁUDNIE
-            </header>
-            <h5>
-            CORN CHOWDER
-            </h5>
-            <div class="price">
-                14
-            </div>
-            <h6>
-            krem z kukurydzy, żeberka bbq, rukola
-            </h6>
-            <h5>
-            CHILLI CON CARNE
-            </h5>
-            <div class="price">
-                16
-            </div>
-            <h6>
-            pikantna zupa z wołowiny,ser, fasola, jalapeno, salsa fresca, guacamole, nachos
-            </h6>
-        </article>
-        <article>
-            <header>
-                PRAWDZIWE MĘSTWO
-            </header>
-            <h5>
-            FISH & CHIPS
-            </h5>
-            <div class="price">
-                29
-            </div>
-            <h6>
-            dorsz essex w panierce, fryty, sos tatarski
-            </h6>
-            <h5>
-            ZEB mc CAIN
-            </h5>
-            <div class="price">
-                36
-            </div>
-            <h6>
-            żeberka wieprzowe bbq style, fryty, fasola, colesław
-            </h6>
-            <h5>
-            JERK CHICKEN AMISH
-            </h5>
-            <div class="price">
-                32
-            </div>
-            <h6>
-            1/2 qrczaka pieczonego, pureeziemniaczano - groszkowe, chorizo
-            </h6>
-            <h5>
-            RIB EYE
-            </h5>
-            <div class="price">
-                45
-            </div>
-            <h6>
-            300g stejka z grilla, ziemniaki zapiekane z kozim serem, masło
-            </h6>
-            <h5>
-            TOP LION
-            </h5>
-            <div class="price">
-                45
-            </div>
-            <h6>
-            300g stejka z grilla, groszek z pieczoną cebulą, fryty truflowe, sos Jack Daniel’s
-            </h6>
-        </article>
-        <article>
-            <header>
-                BEZ PRZEBACZENIA
-            </header>
-            <h5>
-            DEATH’S KISS
-            </h5>
-            <div class="price">
-                18
-            </div>
-            <h6>
-            brownies bez mąki, sorbet pomarańczowy, creme fraiche
-            </h6>
-            <h5>
-            PLUM COBBLER
-            </h5>
-            <div class="price">
-                14
-            </div>
-            <h6>
-            śliwki z wanilią zapiekane pod kruszonką, lody cynamonowe z whisky
-            </h6>
-            <h5>
-            PANCAKE
-            </h5>
-            <div class="price">
-                14
-            </div>
-            <h6>
-            naleśniki na maślance z syropem klonowym i owocami
-            </h6>
-        </article>
+        <% MenuGroup.last(4).each do |menu_group| %>
+            <article>
+                <header><%= menu_group.name %></header>
+                <% menu_group.menu_items.each do |menu_item| %>
+                    <h5><%= menu_item.name %></h5>
+                    <% if menu_item.description.empty? %>
+                        <div class="price item_without_description">
+                    <% else %>
+                        <div class="price">
+                    <% end %>
+                            <%= menu_item.price %></div>
+                    <h6><%= menu_item.description %></h6>
+                <% end %>
+            </article>
+        <% end %>
     </div>
 </div>
 </section>
@@ -584,382 +346,54 @@
         <%= image_tag "icons/close", alt: "close" %>
     </div>
     <div class="col1">
-        <article>
-            <header>
-                EL DORADO
-            </header>
-            <h5>
-            Piwo z beczki 0,5l
-            </h5>
-            <div class="price">
-                zapytaj kelnera
-            </div>
-            <h6></h6>
-            <h5>
-            Raciborskie. 0,5l
-            </h5>
-            <div class="price">
-                9
-            </div>
-            <h6></h6>
-            <h5>
-            Pszeniczniak 0.5l
-            </h5>
-            <div class="price">
-                9
-            </div>
-            <h6></h6>
-            <h5>
-            Johannes 0.5l
-            </h5>
-            <div class="price">
-                9
-            </div>
-            <h6></h6>
-            <h5>
-            Koźlak 0.5l
-            </h5>
-            <div class="price">
-                9
-            </div>
-            <h6></h6>
-            <h5>
-            Corona 0.33l
-            </h5>
-            <div class="price">
-                12
-            </div>
-            <h6></h6>
-            <h5>
-            Piwa rzemieślnicze
-            </h5>
-            <div class="price">
-                12
-            </div>
-            <h6></h6>
-        </article>
-        <article>
-            <header>
-                GARŚĆ DYNAMITU
-            </header>
-            <div class="superscription">
-                TEQUILA 40ml
-            </div>
-            <h5>
-            OLMECA SLIVER
-            </h5>
-            <div class="price">
-                15
-            </div>
-            <h6></h6>
-            <h5>
-            OLMECA GOLD
-            </h5>
-            <div class="price">
-                15
-            </div>
-            <h6></h6>
-            <div class="superscription">
-                WHISKEY 40ml
-            </div>
-            <h5>
-            JACK DANIELS
-            </h5>
-            <div class="price">
-                15
-            </div>
-            <h6></h6>
-            <h5>
-            JIM BEAM
-            </h5>
-            <div class="price">
-                13
-            </div>
-            <h6></h6>
-            <h5>
-            JAMESON
-            </h5>
-            <div class="price">
-                13
-            </div>
-            <h6></h6>
-            <div class="superscription">
-                RUM 40ml
-            </div>
-            <h5>
-            HAVANA CLUB
-            </h5>
-            <div class="price">
-                12
-            </div>
-            <h6></h6>
-            <h5>
-            BACARDI LIGHT
-            </h5>
-            <div class="price">
-                13
-            </div>
-            <h6></h6>
-            <h5>
-            BACARDI BLACK
-            </h5>
-            <div class="price">
-                13
-            </div>
-            <h6></h6>
-            <div class="superscription">
-                WÓDKA 40ml
-            </div>
-            <h5>
-            ABSOLUT
-            </h5>
-            <div class="price">
-                10
-            </div>
-            <h6></h6>
-            <h5>
-            WYBOROWA
-            </h5>
-            <div class="price">
-                8
-            </div>
-            <h6></h6>
-            <div class="superscription">
-                VERMOUTH 100ml
-            </div>
-            <h5>
-            MARTINI BIANCO
-            </h5>
-            <div class="price">
-                10
-            </div>
-            <h6></h6>
-            <h5>
-            MARTINI EXTRA DRY
-            </h5>
-            <div class="price">
-                10
-            </div>
-            <h6></h6>
-            <div class="superscription">
-                WINO DOMOWE
-            </div>
-            <h5>
-            CZERWONE 12,5cl / 50cl
-            </h5>
-            <div class="price">
-                9/30
-            </div>
-            <h6></h6>
-            <h5>
-            BIAŁE 12,5cl / 50cl
-            </h5>
-            <div class="price">
-                10
-            </div>
-            <h6></h6>
-        </article>
+        <% DrinkGroup.first(3).each do |drink_group| %>
+            <article>
+                <header><%= drink_group.name %></header>
+                <% if drink_group.drink_groups.empty? %>
+                    <% drink_group.drink_items.each do |drink_item| %>
+                        <h5><%= drink_item.name %></h5>
+                        <% if drink_item.description.empty? %>
+                            <div class="price item_without_description">
+                        <% else %>
+                            <div class="price">
+                        <% end %>
+                                <%= drink_item.price %></div>
+                        <h6><%= drink_item.description %></h6>
+                    <% end %>
+                <% else %>
+                    <% drink_group.drink_groups.each do |drink_group_from_drink_group| %>
+                        <div class="superscription"><%= drink_group_from_drink_group.name %></div>
+                        <% drink_group_from_drink_group.drink_items.each do |drink_item| %>
+                            <h5><%= drink_item.name %></h5>
+                            <% if drink_item.description.empty? %>
+                                <div class="price item_without_description">
+                            <% else %>
+                                <div class="price">
+                            <% end %>
+                                    <%= drink_item.price %></div>
+                            <h6><%= drink_item.description %></h6>
+                        <% end %>
+                    <% end %>
+                <% end %>
+            </article>
+        <% end %>
     </div>
     <div class="col2">
-        <article>
-            <header>
-                DOBRY, ZLY, BRZYDKI
-            </header>
-            <h5>
-            MOJITO
-            </h5>
-            <div class="price">
-                19
-            </div>
-            <h6>
-            rum, mięta, woda gazowana, cukier trzcinowy, limonka
-            </h6>
-            <h5>
-            COSMOPOLITAN
-            </h5>
-            <div class="price">
-                17
-            </div>
-            <h6>
-            wódka, cointreau, sok żurawinowy, sok z limonki
-            </h6>
-            <h5>
-            MARGARITA classic/truskawkowa
-            </h5>
-            <div class="price">
-                20
-            </div>
-            <h6>
-            tequila, cointreau, sok z limonki/truskawki
-            </h6>
-            <h5>
-            CUBA LIBRE
-            </h5>
-            <div class="price">
-                18
-            </div>
-            <h6>
-            rum, cola, sok z limonki
-            </h6>
-            <h5>
-            TEQUILA SUNRISE
-            </h5>
-            <div class="price">
-                20
-            </div>
-            <h6>
-            tequila, sok pomarańczowy, grenadina
-            </h6>
-            <h5>
-            ADIOS MOTHER FUCKER
-            </h5>
-            <div class="price">
-                29
-            </div>
-            <h6>
-            wódka, tequila, rum, whisky, cointreau, sok z cytryny, syrop cukrowy, sprite
-            </h6>
-            <h5>
-            WHISKY SOUR
-            </h5>
-            <div class="price">
-                16
-            </div>
-            <h6>
-            whisky, sok z cytryny, syrop cukrowy
-            </h6>
-        </article>
-        <article>
-            <header>
-                POJEDYNEK W CORRALU O.K.
-            </header>
-            <h5>
-            COLA, COLA ZERO, FANTA 0.2l
-            </h5>
-            <div class="price">
-                5
-            </div>
-            <h6></h6>
-            <h5>
-            TONIC, SPRITE 0.2l
-            </h5>
-            <div class="price">
-                5
-            </div>
-            <h6></h6>
-            <h5>
-            DR PEPPER 0.33l
-            </h5>
-            <div class="price">
-                8
-            </div>
-            <h6></h6>
-            <h5>
-            WODA KROPLA BESKIDU 0.25l
-            </h5>
-            <div class="price">
-                5
-            </div>
-            <h6>
-            gazowana / niegazowana
-            </h6>
-            <h5>
-            SOKI CAPPY 0.2l
-            </h5>
-            <div class="price">
-                5
-            </div>
-            <h6></h6>
-            <h5>
-            SOK ŚWIEŻO WYCISKANY 0.2l
-            </h5>
-            <div class="price">
-                9
-            </div>
-            <h6></h6>
-            <h5>
-            LEMONIADA 0.2l
-            </h5>
-            <div class="price">
-                7
-            </div>
-            <h6></h6>
-            <h5>
-            FRITZ-KOLA RÓŻNE SMAKI 0,33l
-            </h5>
-            <div class="price">
-                10
-            </div>
-            <h6></h6>
-            <h5>
-            JOHN LEMON 0,33l
-            </h5>
-            <div class="price">
-                10
-            </div>
-            <h6></h6>
-            <h5>
-            WOSTOK 0,33l
-            </h5>
-            <div class="price">
-                10
-            </div>
-            <h6></h6>
-            <h5>
-            YERBA MATE / Z GRANATEM 0,33l
-            </h5>
-            <div class="price">
-                10
-            </div>
-            <h6></h6>
-        </article>
-        <article>
-            <header>
-                NAPAD NA EXPRESS
-            </header>
-            <h5>
-            Herbata
-            </h5>
-            <div class="price">
-                7
-            </div>
-            <h6></h6>
-            <h5>
-            Espresso
-            </h5>
-            <div class="price">
-                6
-            </div>
-            <h6></h6>
-            <h5>
-            Espresso doppio
-            </h5>
-            <div class="price">
-                10
-            </div>
-            <h6></h6>
-            <h5>
-            Latte
-            </h5>
-            <div class="price">
-                9
-            </div>
-            <h6></h6>
-            <h5>
-            Cappuccino
-            </h5>
-            <div class="price">
-                8
-            </div>
-            <h6></h6>
-            <h5>
-            Kawa mrożona
-            </h5>
-            <div class="price">
-                12
-            </div>
-            <h6></h6>
-        </article>
+        <% (DrinkGroup.first(5) - DrinkGroup.first(3)).each do |drink_group| %>
+            <article>
+                <header><%= drink_group.name %></header>
+                <% drink_group.drink_items.each do |drink_item| %>
+                    <h5><%= drink_item.name %></h5>
+                    <% if drink_item.description.empty? %>
+                        <div class="price item_without_description">
+                    <% else %>
+                        <div class="price">
+                    <% end %>
+                            <%= drink_item.price %></div>
+                    <h6><%= drink_item.description %></h6>
+                <% end %>
+            </article>
+        <% end %>
     </div>
 </div>
 </section>

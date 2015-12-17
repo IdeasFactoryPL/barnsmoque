@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151202010250) do
+ActiveRecord::Schema.define(version: 20151216224902) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,19 +37,53 @@ ActiveRecord::Schema.define(version: 20151202010250) do
 
   create_table "drink_groups", force: :cascade do |t|
     t.string   "name"
-    t.integer  "order"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.datetime "deleted_at"
+    t.string   "english_name"
+    t.integer  "drink_group_id"
   end
+
+  add_index "drink_groups", ["drink_group_id"], name: "index_drink_groups_on_drink_group_id", using: :btree
+
+  create_table "drink_items", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "english_name"
+    t.text     "english_description"
+    t.string   "price"
+    t.datetime "deleted_at"
+    t.integer  "drink_group_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  add_index "drink_items", ["drink_group_id"], name: "index_drink_items_on_drink_group_id", using: :btree
 
   create_table "menu_groups", force: :cascade do |t|
     t.string   "name"
-    t.integer  "order"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.datetime "deleted_at"
+    t.string   "english_name"
+    t.integer  "menu_group_id"
   end
+
+  add_index "menu_groups", ["menu_group_id"], name: "index_menu_groups_on_menu_group_id", using: :btree
+
+  create_table "menu_items", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "english_name"
+    t.text     "english_description"
+    t.string   "price"
+    t.datetime "deleted_at"
+    t.integer  "menu_group_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  add_index "menu_items", ["menu_group_id"], name: "index_menu_items_on_menu_group_id", using: :btree
 
   create_table "news", force: :cascade do |t|
     t.string   "title"
