@@ -111,7 +111,7 @@
             <% @top_news.each do |news| %>
                 <article class="day<%= news.date.day.to_s.rjust(2, '0')%>">
                     <header><%= news.title %></header>
-                    <h4><%= news.date_string %></h4>
+                    <h4><%= news.date %></h4>
                     <p>
                         <%= news.description_with_link.html_safe %>
                     </p>
