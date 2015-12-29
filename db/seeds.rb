@@ -25,6 +25,7 @@ MenuGroup.destroy_all
 DrinkGroup.destroy_all
 MenuItem.destroy_all
 
+MenuGroup.create(name: "ŚNIADANIA (od poniedziałku do piątku w godzinach 9:00 - 12:00)")
 MenuGroup.create(name: "JAK ZDOBYWANO DZIKI ZACHÓD (pierwsze danie)")
 MenuGroup.create(name: "DWA OBLICZA ZEMSTY (sałaty)")
 MenuGroup.create(name: "ZA GARŚĆ DOLARÓW (kanapki)")
@@ -33,6 +34,8 @@ MenuGroup.create(name: "WYJĘTY SPOD PRAWA (tortille)")
 MenuGroup.create(name: "BEZ PRZEBACZENIA (deser)")
 MenuGroup.create(name: "ZA DODATKOWY HAJS")
 
+MenuItem.create(name: "NEW YORK BAGEL", description: "bajgiel, jajko sadzone, wędzony łosoś, serek philadelphia z ziołami, szpinak, ser, sos miodowo-musztardowy", price: "14", english_description: "", menu_group: MenuGroup.find_by_name("ŚNIADANIA (od poniedziałku do piątku w godzinach 9:00 - 12:00)"))
+MenuItem.create(name: "TEXAS BREAKFAST", description: "2 jaja „chłopskie” sadzone, smażone ziemniaki, bekon, fasolka bbq, grillowane kiełbaski 2 szt, pomidor", price: "14", english_description: "", menu_group: MenuGroup.find_by_name("ŚNIADANIA (od poniedziałku do piątku w godzinach 9:00 - 12:00)"))
 MenuItem.create(name: "JOE BUFFALO WINGS", description: "smażone skrzydełka (9 szt.) w sosie BBQ lub louisiana z marchewką, selerem, i sosem ranchero", price: "21", english_description: "fried wings (9 pcs.) in BBQ or Louisiana sauce with carrots, celery and ranchero sauce", menu_group: MenuGroup.find_by_name("JAK ZDOBYWANO DZIKI ZACHÓD (pierwsze danie)"))
 MenuItem.create(name: "FUCK CRACK BACON", description: "bekon w cieście piwnym z syropem klonowym i salsą jalapeno BBQ", price: "22", english_description: "bacon in beer batter with maple syrup and jalapeno BBQ salsa", menu_group: MenuGroup.find_by_name("JAK ZDOBYWANO DZIKI ZACHÓD (pierwsze danie)"))
 MenuItem.create(name: "CRAZY GAUCHO", description: "pieczony ser z salsą fresca i tortillami", price: "21", english_description: "baked cheese with salsa fresca and tortillas", menu_group: MenuGroup.find_by_name("JAK ZDOBYWANO DZIKI ZACHÓD (pierwsze danie)"))
