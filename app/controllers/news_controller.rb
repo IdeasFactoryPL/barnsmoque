@@ -1,14 +1,16 @@
 class NewsController < GenericController
-	
+
 	before_action :authenticate_user!
 	before_action :find_news, only: [:show, :edit, :destroy, :update]
 
 	def new
 		@news = News.new
 	end
+
 	def index
-		@news = News.order(:date)
+		@news = News.order(date: :desc)
 	end
+
 	def create
 		@news = News.create(news_params)
 		@news.user_id = current_user.id
@@ -20,6 +22,7 @@ class NewsController < GenericController
 			render 'new'
 		end
 	end
+
 	def update
 		@news.user_id = current_user.id
 		if @news.update(news_params)
@@ -30,6 +33,7 @@ class NewsController < GenericController
 			render 'edit'
 		end
 	end
+
 	def destroy
 		if @news.present?
 			@news.destroy
@@ -40,10 +44,11 @@ class NewsController < GenericController
 			redirect_to news_path(@news)
 		end
 	end
+
 	def show
 		@news.description = nl2br(@news.description)
 	end
-	
+
 	private
 	def news_params
 		params.require(:news).permit(:title, :date, :description, :link_name, :link_for, :release_date)

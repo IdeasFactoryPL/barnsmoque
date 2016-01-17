@@ -1,7 +1,7 @@
 class AttemptsController < ApplicationController
 	before_action :authenticate_user!
 	before_action :find_attempt, only: [:show, :update, :destroy, :edit]
-	
+
 	def new
 		@attempt = Attempt.new
 		@seasons = Season.all
@@ -65,10 +65,10 @@ class AttemptsController < ApplicationController
 	end
 
 	def index
-		@seasons = Season.all
-		@attempts = Attempt.all
+		@seasons = Season.all.order(number: :desc)
+		@attempts = Attempt.all.order(created_at: :desc)
 		@attempts.clear
-		@season_numbers = Hash.new { |hash, key|  }
+		@season_numbers = Hash.new { |hash, key| }
 		@season_ids = Attempt.pluck(:season_id).uniq
 		@season_ids.each do |season_id|
 			if Season.where(id: season_id).count > 0
