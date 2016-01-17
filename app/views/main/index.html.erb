@@ -272,7 +272,41 @@
         </div>
     </div>
     <div class="right-side" style="height: 100%">
-        <iframe src="https://www.google.com/maps/embed/v1/place?q=Zgoda%205%2C%20Warsaw%2C%20Poland&key=AIzaSyCUtAmbIgQpLObMMiwkjr4WRn5ZuEotm5M" width="100%" height="300px" allowfullscreen></iframe>
+<div id="mapa-box" style="float:left;width:100%;height:568px;"></div>
+                    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+                    <%= javascript_tag do %>
+                    initialize();
+                      function initialize() {
+                      var myLatlng = new google.maps.LatLng(52.232746, 21.013506);
+                      var mapOptions = {
+                        zoom: 16,
+                        center: myLatlng,
+                        scrollwheel:true,
+                        styles: [{"stylers":[{"hue":"#ff8800"},{"gamma":0.72},{"lightness":4},{"visibility":"simplified"},{"saturation": -100}]}],
+                        mapTypeId: google.maps.MapTypeId.ROADMAP
+                      }
+
+                      var map = new google.maps.Map(document.getElementById('mapa-box'), mapOptions);
+
+                      var infowindow = new google.maps.InfoWindow({
+                          content: '<div style="width:170px; height:70px"><b>Barn Smoque</b><br>ul. Zgoda 5<br>Warszawa<br>tel.: 571 414 121<br><a href="http://facebook.com/BarnSmoque" target="_blank">facebook.com/BarnSmoque</a></div>'
+                      });
+                      var image = '<%= image_path "maps_logo.png" %>';
+                      var marker = new google.maps.Marker({
+                          position: myLatlng,
+                          map: map,
+                          icon: image,
+                          title: 'Barn Burger'
+                      });
+                      google.maps.event.addListener(marker, 'click', function() {
+                        infowindow.open(map,marker);
+                      });
+                    }
+
+                    google.maps.event.addDomListener(window, 'load', initialize);
+                    <% end %>
+                </div>
+        <!-- <iframe src="https://maps.google.com/maps?hl=pl&q=Barn Smoque&ie=UTF8&t=roadmap&z=18&iwloc=B&output=embed" width="100%" height="300px" allowfullscreen></iframe> -->
     </div>
 </section>
 <section id="custom_menu">

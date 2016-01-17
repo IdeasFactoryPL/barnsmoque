@@ -615,8 +615,8 @@ figcaption.text-content figcaption {
     display: block;
 }
 
-#kontakt iframe {
-    height: 568px;
+#kontakt #mapa-box {
+    height: 568px !important;
     /*height:100%;*/
 }
 
@@ -950,8 +950,8 @@ footer .center-small {
     #kontakt figure{
         margin: 7px 0px;
     }
-    #kontakt iframe {
-        height: 760px;
+    #kontakt #mapa-box {
+        height: 760px !important;
     }
 }
 
@@ -994,7 +994,7 @@ footer .center-small {
     #galeria .galeria_first, #galeria .galeria_second {
         width: 50%;
     }
-    
+
     /**********KONTAKT**********/
 
 
@@ -1117,7 +1117,7 @@ footer .center-small {
     }
     #kontakt figure:hover{
         filter: none;
-        padding-left: 0px; 
+        padding-left: 0px;
     }
     .figcaption_hover{
         -webkit-filter: none;
@@ -1163,7 +1163,7 @@ footer .center-small {
         width: 100%;
         margin: 0 auto;
     }
- 
+
     footer .left_side, footer .right_side {
         width: 50%;
         display: block;
@@ -1175,8 +1175,8 @@ footer .center-small {
     #kontakt .right-side{
         width: 100%;
     }
-    #kontakt iframe{
-        height: 50vh;
+    #kontakt #mapa-box{
+        height: 50vh !important;
     }
     #kontakt figcaption{
         width: calc(100% - 168px);
