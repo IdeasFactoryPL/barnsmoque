@@ -419,7 +419,8 @@
     <a href="mailto:kontakt@barnsmoque.pl">kontakt@barnsmoque.pl</a></p>
 </div>
 </footer>
-<% if DateTime.now < "2015-12-23".to_date %>
+<%# if DateTime.now < "2015-12-23".to_date %>
+    <!--
     <a id="hidden_link" rel="group" href="/images/wigilia.jpg" style="display:none" title='<center><%= link_to "<b>KLIKNIJ TUTAJ po więcej informacji</b>", "wigilia_barn_smoque.pdf", {style: "color: #d35400; text-decoration: none"} %></center>'<img src="/assets/logo.png" alt=""></a>
     <script type="text/javascript">
       $(document).ready(function() {
@@ -435,7 +436,8 @@
         });
       });
     </script>
-<% end %>
+    -->
+<%# end %>
 <%= javascript_include_tag "jquery.fancybox" %>
 <%= javascript_include_tag "show_more" %>
 <%= javascript_include_tag "animatescroll.min" %>
