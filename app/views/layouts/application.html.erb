@@ -13,6 +13,14 @@
   <% if controller_name == "attempts" or controller_name == "sessions" or controller_name == "news" or controller_name == "vouchers" or controller_name == "users" %>
     <%= stylesheet_link_tag 'attempt' %>
   <% end %>
+  <meta name="description" content="Kultowa amerykańsko-meksykańska restauracja w centrum Warszawy">
+  <meta charset="UTF-8">
+  <meta name="keywords" content="amerykańskie jedzenie, amerykańska restauracja, restauracja, warszawa, centrum, zgoda, american restaurant, warsaw, food, jedzenie, barn burger">
+  <meta name="author" content="IdeasFactory.pl Rafał Petryka">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="Barn Smoque - Warszawa ul. Zgoda 5">
+  <meta property="og:description" content="Amerykańsko-meksykańska restauracja w centrum Warszawy.">
+  <meta property="og:image" content='<%= image_path "logo_og.png" %>'>
   <%= yield :stylesheets %>
   <% favicon_link_tag 'favicon/apple-icon-57x57.png', rel: 'apple-touch-icon', size: '57x57' %>
   <% favicon_link_tag 'favicon/apple-icon-60x60.png', rel: 'apple-touch-icon', size: '60x60' %>
@@ -23,7 +31,6 @@
   <% favicon_link_tag 'favicon/apple-icon-144x144.png', rel: 'apple-touch-icon', size: '144x144' %>
   <% favicon_link_tag 'favicon/apple-icon-152x152.png', rel: 'apple-touch-icon', size: '152x152' %>
   <% favicon_link_tag 'favicon/apple-icon-180x180.png', rel: 'apple-touch-icon', size: '180x180' %>
-
   <% favicon_link_tag 'favicon/android-icon-192x192.png', rel: 'icon', type: 'image/png', size: '192x192' %>
   <% favicon_link_tag 'favicon/favicon-32x32.png', rel: 'icon', type: 'image/png', size: '32x32' %>
   <% favicon_link_tag 'favicon/favicon-96x96.png', rel: 'icon', type: 'image/png', size: '96x96' %>
