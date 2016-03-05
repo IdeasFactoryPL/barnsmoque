@@ -5,7 +5,7 @@ class SeasonsController < GenericController
   def new
     @season = Season.new
   end
-  
+
   def create
     @season = Season.new(season_params)
     @season.user_id = current_user.id
@@ -83,7 +83,6 @@ class SeasonsController < GenericController
     params.require(:season).permit(:description, :number, :html_code)
   end
   def check_if_season_number_exist
-    # debugger
     @counter = 0
     if @season.id != nil
     if Season.where(number: @season.number).find(@season.id) != nil

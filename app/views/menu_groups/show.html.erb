@@ -1,0 +1,51 @@
+<div class="title">
+  <%= @menu_group.name %>
+</div>
+<div class="container theme-showcase" role="main">
+  <div class="container">
+    <table class="table table-hover">
+        <tbody>
+          <tr>
+            <td>Numer w kolejności</td>
+            <td><%= @menu_group.number %></td>
+          </tr>
+          <tr>
+            <td>Data ukazania</td>
+            <td><%= @menu_group.start_date %></td>
+          </tr>
+          <tr>
+            <td>Data zakończenia</td>
+            <td><%= @menu_group.end_date %></td>
+          </tr>
+          <% unless @menu_group.user.nil? %>
+            <tr>
+              <td>Zmieniony lub utworzony przez</td>
+              <td><%= link_to @menu_group.user.name_and_surname, user_path(@menu_group.user)%></td>
+            </tr>
+          <% end %>
+          <tr>
+            <td>Potrawy</td>
+            <td>
+              <ul>
+                <% @menu_group.menu_items.each do |menu_item| %>
+                  <li>
+                    <%= link_to (menu_item.name + "<br>").html_safe, menu_item_path(menu_item) %>
+                  </li>
+                <% end %>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><%= link_to "Edytuj", edit_menu_group_path(@menu_group), class: 'btn btn-warning btn-m' %></td>
+          <td><%= link_to "Usuń", menu_group_path(@menu_group), method: :delete, data: {confirm: "Czy na pewno chcesz usunąć #{@menu_group.name}?"}, class: 'btn btn-danger btn-m' %></td>
+          </tr>
+          <tr>
+            <td>
+              <%= link_to "Wróć do grup menu", menu_groups_path, class: 'btn btn-info btn-m' %>
+            </td>
+            <td></td>
+          </tr>
+        </tbody>
+    </table>
+  </div>
+</div>

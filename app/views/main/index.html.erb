@@ -6,119 +6,118 @@
   <%= stylesheet_link_tag 'photoswipe' %>
   <%= stylesheet_link_tag 'default-skin' %>
 <% end %>
-        <section id="start">
-            <div class="wrapper">
+    <section id="start">
+        <div class="wrapper">
+            <figure>
+                <%= image_tag("logo_invert", alt: "Logo Barn Smoque") %>
+            </figure>
+            <div>
+                <h1>Warszawa ul. Zgoda 5</h1>
+                <h1><a href="tel:+48571414121">571414121</a></h1>
+            </div>
+            <div class="icons">
                 <figure>
-                    <%= image_tag("logo_invert", alt: "Logo Barn Smoque") %>
+                    <a href="http://facebook.com/BarnSmoque" title="Odwiedź facebooka Barn Smoque" target="_blank">
+                        <%= image_tag "icons/facebook_small", alt: "facebook" %>
+                    </a>
                 </figure>
-                <div>
-                    <h1>Warszawa ul. Zgoda 5</h1>
-                    <h1><a href="tel:+48571414121">571414121</a></h1>
-                </div>
-                <div class="icons">
-                    <figure>
-                        <a href="http://facebook.com/BarnSmoque" title="Odwiedź facebooka Barn Smoque" target="_blank">
-                            <%= image_tag "icons/facebook_small", alt: "facebook" %>
-                        </a>
-                    </figure>
-                    <figure>
-                        <a href="http://instagram.com/barnsmoque" title="Zobacz instagram Barn Smoque" target="_blank">
-                            <%= image_tag "icons/instagram_small", alt: "instagram" %>
-                        </a>
-                    </figure>
-                    <figure>
-                        <a href="mailto:kontakt@barnsmoque.pl" title="Napisz maila Barn Smoque">
-                            <%= image_tag "icons/mail_small", alt: "mail" %>
-                        </a>
-                    </figure>
-                    <figure>
-                        <a href="tel:+48571414121" title="Zadzwoń do Barn Smoque">
-                            <%= image_tag "icons/phone_small", alt: "telefon" %>
-                        </a>
-                    </figure>
-                </div>
+                <figure>
+                    <a href="http://instagram.com/barnsmoque" title="Zobacz instagram Barn Smoque" target="_blank">
+                        <%= image_tag "icons/instagram_small", alt: "instagram" %>
+                    </a>
+                </figure>
+                <figure>
+                    <a href="mailto:kontakt@barnsmoque.pl" title="Napisz maila Barn Smoque">
+                        <%= image_tag "icons/mail_small", alt: "mail" %>
+                    </a>
+                </figure>
+                <figure>
+                    <a href="tel:+48571414121" title="Zadzwoń do Barn Smoque">
+                        <%= image_tag "icons/phone_small", alt: "telefon" %>
+                    </a>
+                </figure>
             </div>
-        </section>
-        <nav>
-            <div class="close_nav">
-                <%= image_tag "icons/close_nav", alt: "close" %>
-            </div>
-            <ul>
-                <li>
-                    <a onclick="$('#start').animatescroll();">Start</a>
-                </li>
-                <li>
-                    <a onclick="$('#o_restauracji').animatescroll();">O restauracji</a>
-                </li>
-                <li>
-                    <a onclick="$('#menu').animatescroll();">Menu</a>
-                </li>
-                <li>
-                    <a onclick="$('#aktualnosci').animatescroll();">Aktualności</a>
-                </li>
-                <li>
-                    <a onclick="$('#galeria').animatescroll();">Galeria</a>
-                </li>
-                <li>
-                    <a onclick="$('#kontakt').animatescroll();">Kontakt</a>
-                </li>
-            </ul>
-        </nav>
-        <div class="menu_button">
-            <%= image_tag "icons/menu", alt: "Menu" %>
         </div>
-        <section id="o_restauracji">
-            <div class="wrapper">
-                <h2>O RESTAURACJI</h2>
-                <h3>Był rok 1969 w kulturze zwany okresem dzieci kwiatów. Na Woodstocku występowali m.in. Jimi Hendrix, Janis Joplin z Texasu, czy Jefferson Airplane. Prezydentem został Richard Nixon.</h3>
-                <p>Tego lata Apollo 11 z Neilem Armstrongiem wylądował na księżycu. W Polsce Breakout wydał album „Na drugim brzegu tęczy”, a Skaldowie „Cała jesteś w skowronkach”. W wyborach do Sejmu poseł Władysław Gomułka otrzymał 99,44% głosów, Józef Cyrankiewicz 94% głosów, a PZPR 255 mandatów. Na Księżyc mogliśmy sobie jedynie popatrzeć... W Murzasichle nieopodal Zakopanego, młody Jasiek Gąsiennica Curuś-Farell Pizdryk Gawęda zawiązał tobołek z chlebem i bryndzą, otrzymał błogosławieństwo od rodziców na drogę za wielką wodę, co by zielonych dudków naprzywozić. W Gdyni już czekał wysłużony, ale wciąż luksusowy i drogi statek turbinowo - parowy „Stefan Batory”. To na jego pokładzie 18-letni Jasiek dotarł do Nowego Jorku, gdzie zaczął się jego amerykański sen.
+    </section>
+    <nav>
+        <div class="close_nav">
+            <%= image_tag "icons/close_nav", alt: "close" %>
+        </div>
+        <ul>
+            <li>
+                <a onclick="$('#start').animatescroll();">Start</a>
+            </li>
+            <li>
+                <a onclick="$('#o_restauracji').animatescroll();">O restauracji</a>
+            </li>
+            <li>
+                <a onclick="$('#menu').animatescroll();">Menu</a>
+            </li>
+            <li>
+                <a onclick="$('#aktualnosci').animatescroll();">Aktualności</a>
+            </li>
+            <li>
+                <a onclick="$('#galeria').animatescroll();">Galeria</a>
+            </li>
+            <li>
+                <a onclick="$('#kontakt').animatescroll();">Kontakt</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="menu_button">
+        <%= image_tag "icons/menu", alt: "Menu" %>
+    </div>
+    <section id="o_restauracji">
+        <div class="wrapper">
+            <h2>O RESTAURACJI</h2>
+            <h3>Był rok 1969 w kulturze zwany okresem dzieci kwiatów. Na Woodstocku występowali m.in. Jimi Hendrix, Janis Joplin z Texasu, czy Jefferson Airplane. Prezydentem został Richard Nixon.</h3>
+            <p>Tego lata Apollo 11 z Neilem Armstrongiem wylądował na księżycu. W Polsce Breakout wydał album „Na drugim brzegu tęczy”, a Skaldowie „Cała jesteś w skowronkach”. W wyborach do Sejmu poseł Władysław Gomułka otrzymał 99,44% głosów, Józef Cyrankiewicz 94% głosów, a PZPR 255 mandatów. Na Księżyc mogliśmy sobie jedynie popatrzeć... W Murzasichle nieopodal Zakopanego, młody Jasiek Gąsiennica Curuś-Farell Pizdryk Gawęda zawiązał tobołek z chlebem i bryndzą, otrzymał błogosławieństwo od rodziców na drogę za wielką wodę, co by zielonych dudków naprzywozić. W Gdyni już czekał wysłużony, ale wciąż luksusowy i drogi statek turbinowo - parowy „Stefan Batory”. To na jego pokładzie 18-letni Jasiek dotarł do Nowego Jorku, gdzie zaczął się jego amerykański sen.
+            </p>
+            <a class="show_more_about_restaurant">Rozwiń...</a>
+            <div class="more_about_restaurant">
+                <p>
+                Tułał się niczym westernowy kołtun kurzu na teksańskiej prerii. Był pucybutem na Broadway przy Plaza Hotel, pomywaczem w Jack’s Fire Dept i lał wachę na stacji benzynowej przy Bedford Ave, by po kilku latach przenieść się do Avondale w Chicago, czyli słynnego Jackowa położonego w północno-zachodniej części miasta pomiędzy rzeką Chicago, a ulicami Diversey Avenue, Addison Street, i Pulaski Road. Jackowo to był raj dla Jaśka. Niby już po amerykańsku gadał, ale tu wszyscy mówili po polsku, a raczej po góralsku. Powierzchni było tu jakieś 5,18 km2, a liczba ludności 39.264, z czego 85% górali spod Zakopanego. Tu Jasiek nabrał wiatru w żagle, tu mawiał „Mógłbym się rozmnażać”, ale nosiło Jaśka po Stanach. A to w Texasie zdobył tytuł Championa w Łapaniu Świni na Lasso, a to smukły niczym charcik rzeźnika ujeżdżał strusie na oklep, kury szczać prowadzał, zapładniał in vitro młode jałówki w Alabamie. Tęsknota za krajem jednak raniła mu serce niczym głaz okrutny. Miał kasę, znajomych, poważanie u miejscowego proboszcza, ale „czas wracać” - pomyślał. Byl rok 2012. W USA wybory wygrał Barack Obama, obiecując min. zniesienie wiz dla Polaków i popierając małżeństwa homoseksualne. Facebook zadebiutował na giełdzie, wydobycie ropy i gazu z łupków pozwoli USA na niezależność energetyczną... W Polsce otwarto najdroższy stadion na świecie, wydobycie ropy i gazu z łupków pozwoli Polsce na niekończącą się zależność energetyczną od Ruskich. Rozpoczynają się Mistrzostwa Europy w piłce nożnej. Prezydent podpisuje ustawę emerytalną, dzięki której Jasiek będzie zapierdalał do 67 r.ż., a więc „Jest po co wracać” pomyślał. I tak Jasiek, Jan, a może już John – syn Maryśki i Franciszka z nieprawego łoża, zaopatrzony w RayBany i Conversy po wieloletniej tułaczce ląduje na lotnisku Chopina w Warszawie, gdzie zakotwiczy na dłużej. Mając amerykańskie doświadczenie, otwiera w Warszawie burgerownię BARN. Twórca By-Passa, Sex&amp;Violence, czy Psechujburgera po trzech latach otwiera nową kulinarną mekkę stolicy Barn Smoque, gdzie swoje doświadczenia z jałówkami z USA przełoży na szamę. Mówi się, że Pan Bóg budował świat przez 6 dni, a gdy 7 dnia odpoczywał Jasiek stworzył to miejsce. Żeby dojść do źródła musisz iść czasami pod prąd... Zobaczcie sami
                 </p>
-                <a class="show_more_about_restaurant">Rozwiń...</a>
-                <div class="more_about_restaurant">
-                    <p>
-                    Tułał się niczym westernowy kołtun kurzu na teksańskiej prerii. Był pucybutem na Broadway przy Plaza Hotel, pomywaczem w Jack’s Fire Dept i lał wachę na stacji benzynowej przy Bedford Ave, by po kilku latach przenieść się do Avondale w Chicago, czyli słynnego Jackowa położonego w północno-zachodniej części miasta pomiędzy rzeką Chicago, a ulicami Diversey Avenue, Addison Street, i Pulaski Road. Jackowo to był raj dla Jaśka. Niby już po amerykańsku gadał, ale tu wszyscy mówili po polsku, a raczej po góralsku. Powierzchni było tu jakieś 5,18 km2, a liczba ludności 39.264, z czego 85% górali spod Zakopanego. Tu Jasiek nabrał wiatru w żagle, tu mawiał „Mógłbym się rozmnażać”, ale nosiło Jaśka po Stanach. A to w Texasie zdobył tytuł Championa w Łapaniu Świni na Lasso, a to smukły niczym charcik rzeźnika ujeżdżał strusie na oklep, kury szczać prowadzał, zapładniał in vitro młode jałówki w Alabamie. Tęsknota za krajem jednak raniła mu serce niczym głaz okrutny. Miał kasę, znajomych, poważanie u miejscowego proboszcza, ale „czas wracać” - pomyślał. Byl rok 2012. W USA wybory wygrał Barack Obama, obiecując min. zniesienie wiz dla Polaków i popierając małżeństwa homoseksualne. Facebook zadebiutował na giełdzie, wydobycie ropy i gazu z łupków pozwoli USA na niezależność energetyczną... W Polsce otwarto najdroższy stadion na świecie, wydobycie ropy i gazu z łupków pozwoli Polsce na niekończącą się zależność energetyczną od Ruskich. Rozpoczynają się Mistrzostwa Europy w piłce nożnej. Prezydent podpisuje ustawę emerytalną, dzięki której Jasiek będzie zapierdalał do 67 r.ż., a więc „Jest po co wracać” pomyślał. I tak Jasiek, Jan, a może już John – syn Maryśki i Franciszka z nieprawego łoża, zaopatrzony w RayBany i Conversy po wieloletniej tułaczce ląduje na lotnisku Chopina w Warszawie, gdzie zakotwiczy na dłużej. Mając amerykańskie doświadczenie, otwiera w Warszawie burgerownię BARN. Twórca By-Passa, Sex&amp;Violence, czy Psechujburgera po trzech latach otwiera nową kulinarną mekkę stolicy Barn Smoque, gdzie swoje doświadczenia z jałówkami z USA przełoży na szamę. Mówi się, że Pan Bóg budował świat przez 6 dni, a gdy 7 dnia odpoczywał Jasiek stworzył to miejsce. Żeby dojść do źródła musisz iść czasami pod prąd... Zobaczcie sami
-                    </p>
-                </div>
             </div>
-        </section>
-        <section id="menu">
-            <h2>MENU</h2>
-            <div class="wrapper">
-                <a onclick="$('#jedzenie')">
-                <div class="jedzenie">
-                    <figure>
-                        <%= image_tag "icons/menu/eat", alt: "jedzenie" %>
-                        <figcaption>
-                            coś na ząb
-                        </figcaption>
-                    </figure>
-                </div>
-                </a>
-                <a onclick="$('#napoje')">
-                <div class="napoje">
-                    <figure>
-                        <%= image_tag "icons/menu/drink", alt: "napoje" %>
-                        <figcaption>
-                            napoje
-                        </figcaption>
-                    </figure>
-                </div>
-                </a>
+        </div>
+    </section>
+    <section id="menu">
+        <h2>MENU</h2>
+        <div class="wrapper">
+            <a onclick="$('#jedzenie')">
+            <div class="jedzenie">
+                <figure>
+                    <%= image_tag "icons/menu/eat", alt: "jedzenie" %>
+                    <figcaption>
+                        coś na ząb
+                    </figcaption>
+                </figure>
             </div>
-        </section>
-        <section id="aktualnosci">
-            <h2>AKTUALNOŚCI</h2>
-            <% @top_news.each do |news| %>
-                <article class="day<%= news.date.day.to_s.rjust(2, '0')%>">
-                    <header><%= news.title %></header>
-                    <h4><%= news.date %></h4>
-                    <p>
-                        <%= news.description_with_link.html_safe %>
-                    </p>
-                </article>
-            <% end %>
-        </article>
-</article>
+            </a>
+            <a onclick="$('#napoje')">
+            <div class="napoje">
+                <figure>
+                    <%= image_tag "icons/menu/drink", alt: "napoje" %>
+                    <figcaption>
+                        napoje
+                    </figcaption>
+                </figure>
+            </div>
+            </a>
+        </div>
+    </section>
+    <section id="aktualnosci">
+        <h2>AKTUALNOŚCI</h2>
+        <% @top_news.each do |news| %>
+            <article class="day<%= news.date.day.to_s.rjust(2, '0')%>">
+                <header><%= news.title %></header>
+                <h4><%= news.date %></h4>
+                <p>
+                    <%= news.description_with_link.html_safe %>
+                </p>
+            </article>
+        <% end %>
+    </article>
 </section>
 <section id="galeria">
     <div class="galeria_first picture">
@@ -210,6 +209,103 @@
         </div>
     </div>
 </section>
+<section id="custom_menu">
+    <div class="photo">
+        <article>
+            <header>
+                COŚ NA ZĄB
+            </header>
+            <a class="showDrinks">
+            <figure>
+                <%= image_tag "icons/menu/drink_with_inscription", alt: "napoje" %>
+            </figure>
+            </a>
+        </article>
+    </div>
+    <div class="wrapper">
+        <div class="close">
+            <%= image_tag "icons/close", alt: "close" %>
+        </div>
+        <div class="col1">
+            <% @first_menu_group.each do |menu_group| %>
+                <article>
+                    <header><%= menu_group.name %></header>
+                    <% menu_group.menu_items_ordered_by_number.each do |menu_item| %>
+                        <h5><%= menu_item.name %></h5>
+                        <% if menu_item.description.empty? %>
+                            <div class="price item_without_description">
+                        <% else %>
+                            <div class="price">
+                        <% end %>
+                                <%= menu_item.price %></div>
+                        <h6><%= menu_item.description %></h6>
+                    <% end %>
+                </article>
+            <% end %>
+        </div>
+        <div class="col2">
+            <% @second_menu_group.each do |menu_group| %>
+                <article>
+                    <header><%= menu_group.name %></header>
+                    <% menu_group.menu_items_ordered_by_number.each do |menu_item| %>
+                        <h5><%= menu_item.name %></h5>
+                        <% if menu_item.description.empty? %>
+                            <div class="price item_without_description">
+                        <% else %>
+                            <div class="price">
+                        <% end %>
+                                <%= menu_item.price %></div>
+                        <h6><%= menu_item.description %></h6>
+                    <% end %>
+                </article>
+            <% end %>
+        </div>
+    </div>
+</section>
+<section id="custom_drinks">
+    <div class="photo">
+        <article>
+            <header>
+                NAPOJE
+            </header>
+            <a class="showMenu">
+            <figure>
+                <%= image_tag "icons/menu/eat_with_inscription", alt: "napoje" %>
+            </figure>
+            </a>
+        </article>
+    </div>
+    <div class="wrapper">
+        <div class="close">
+            <%= image_tag "icons/close", alt: "close" %>
+        </div>
+        <div class="col1">
+            <% DrinkGroup.first(3).each do |drink_group| %>
+                <article>
+                    <header><%= drink_group.name %></header>
+
+                </article>
+            <% end %>
+        </div>
+        <div class="col2">
+            <% (DrinkGroup.first(5) - DrinkGroup.first(3)).each do |drink_group| %>
+                <article>
+                    <header><%= drink_group.name %></header>
+                    <% drink_group.drink_items.each do |drink_item| %>
+                        <h5><%= drink_item.name %></h5>
+                        <% if drink_item.description.empty? %>
+                            <div class="price item_without_description">
+                        <% else %>
+                            <div class="price">
+                        <% end %>
+                                <%= drink_item.price %></div>
+                        <h6><%= drink_item.description %></h6>
+                    <% end %>
+                </article>
+            <% end %>
+        </div>
+    </div>
+</section>
 <section id="kontakt">
     <div class="left-side">
         <div class="kontakt-godziny-otwarcia">
@@ -272,186 +368,63 @@
         </div>
     </div>
     <div class="right-side" style="height: 100%">
-<div id="mapa-box" style="float:left;width:100%;height:568px;"></div>
-                    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-                    <%= javascript_tag do %>
-                    initialize();
-                      function initialize() {
-                      var myLatlng = new google.maps.LatLng(52.232746, 21.013506);
-                      var mapOptions = {
-                        zoom: 16,
-                        center: myLatlng,
-                        scrollwheel:true,
-                        styles: [{"stylers":[{"hue":"#ff8800"},{"gamma":0.72},{"lightness":4},{"visibility":"simplified"},{"saturation": -100}]}],
-                        mapTypeId: google.maps.MapTypeId.ROADMAP
-                      }
+        <div id="mapa-box" style="float:left;width:100%;height:568px;"></div>
+            <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+            <%= javascript_tag do %>
+                initialize();
+                  function initialize() {
+                  var myLatlng = new google.maps.LatLng(52.232746, 21.013506);
+                  var mapOptions = {
+                    zoom: 16,
+                    center: myLatlng,
+                    scrollwheel:true,
+                    styles: [{"stylers":[{"hue":"#ff8800"},{"gamma":0.72},{"lightness":4},{"visibility":"simplified"},{"saturation": -100}]}],
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                  }
 
-                      var map = new google.maps.Map(document.getElementById('mapa-box'), mapOptions);
+                  var map = new google.maps.Map(document.getElementById('mapa-box'), mapOptions);
 
-                      var infowindow = new google.maps.InfoWindow({
-                          content: '<div style="width:170px; height:70px"><b>Barn Smoque</b><br>ul. Zgoda 5<br>Warszawa<br>tel.: 571 414 121<br><a href="http://facebook.com/BarnSmoque" target="_blank">facebook.com/BarnSmoque</a></div>'
-                      });
-                      var image = '<%= image_path "maps_logo.png" %>';
-                      var marker = new google.maps.Marker({
-                          position: myLatlng,
-                          map: map,
-                          icon: image,
-                          title: 'Barn Burger'
-                      });
-                      google.maps.event.addListener(marker, 'click', function() {
-                        infowindow.open(map,marker);
-                      });
-                    }
+                  var infowindow = new google.maps.InfoWindow({
+                      content: '<div style="width:170px; height:70px"><b>Barn Smoque</b><br>ul. Zgoda 5<br>Warszawa<br>tel.: 571 414 121<br><a href="http://facebook.com/BarnSmoque" target="_blank">facebook.com/BarnSmoque</a></div>'
+                  });
+                  var image = '<%= image_path "maps_logo.png" %>';
+                  var marker = new google.maps.Marker({
+                      position: myLatlng,
+                      map: map,
+                      icon: image,
+                      title: 'Barn Burger'
+                  });
+                  google.maps.event.addListener(marker, 'click', function() {
+                    infowindow.open(map,marker);
+                  });
+                }
 
-                    google.maps.event.addDomListener(window, 'load', initialize);
-                    <% end %>
-                </div>
-        <!-- <iframe src="https://maps.google.com/maps?hl=pl&q=Barn Smoque&ie=UTF8&t=roadmap&z=18&iwloc=B&output=embed" width="100%" height="300px" allowfullscreen></iframe> -->
+                google.maps.event.addDomListener(window, 'load', initialize);
+            <% end %>
+        </div>
     </div>
-</section>
-<section id="custom_menu">
-<div class="photo">
-    <article>
-        <header>
-            COŚ NA ZĄB
-        </header>
-        <a class="showDrinks">
-        <figure>
-            <%= image_tag "icons/menu/drink_with_inscription", alt: "napoje" %>
-        </figure>
-        </a>
-    </article>
-</div>
-<div class="wrapper">
-    <div class="close">
-        <%= image_tag "icons/close", alt: "close" %>
-    </div>
-    <div class="col1">
-        <% MenuGroup.first(3).each do |menu_group| %>
-            <article>
-                <header><%= menu_group.name %></header>
-                <% menu_group.menu_items.each do |menu_item| %>
-                    <h5><%= menu_item.name %></h5>
-                    <% if menu_item.description.empty? %>
-                        <div class="price item_without_description">
-                    <% else %>
-                        <div class="price">
-                    <% end %>
-                            <%= menu_item.price %></div>
-                    <h6><%= menu_item.description %></h6>
-                <% end %>
-            </article>
-        <% end %>
-    </div>
-    <div class="col2">
-        <% MenuGroup.last(4).each do |menu_group| %>
-            <article>
-                <header><%= menu_group.name %></header>
-                <% menu_group.menu_items.each do |menu_item| %>
-                    <h5><%= menu_item.name %></h5>
-                    <% if menu_item.description.empty? %>
-                        <div class="price item_without_description">
-                    <% else %>
-                        <div class="price">
-                    <% end %>
-                            <%= menu_item.price %></div>
-                    <h6><%= menu_item.description %></h6>
-                <% end %>
-            </article>
-        <% end %>
-    </div>
-</div>
-</section>
-<section id="custom_drinks">
-<div class="photo">
-    <article>
-        <header>
-            NAPOJE
-        </header>
-        <a class="showMenu">
-        <figure>
-            <%= image_tag "icons/menu/eat_with_inscription", alt: "napoje" %>
-        </figure>
-        </a>
-    </article>
-</div>
-<div class="wrapper">
-    <div class="close">
-        <%= image_tag "icons/close", alt: "close" %>
-    </div>
-    <div class="col1">
-        <% DrinkGroup.first(3).each do |drink_group| %>
-            <article>
-                <header><%= drink_group.name %></header>
-                <% if drink_group.drink_groups.empty? %>
-                    <% drink_group.drink_items.each do |drink_item| %>
-                        <h5><%= drink_item.name %></h5>
-                        <% if drink_item.description.empty? %>
-                            <div class="price item_without_description">
-                        <% else %>
-                            <div class="price">
-                        <% end %>
-                                <%= drink_item.price %></div>
-                        <h6><%= drink_item.description %></h6>
-                    <% end %>
-                <% else %>
-                    <% drink_group.drink_groups.each do |drink_group_from_drink_group| %>
-                        <div class="superscription"><%= drink_group_from_drink_group.name %></div>
-                        <% drink_group_from_drink_group.drink_items.each do |drink_item| %>
-                            <h5><%= drink_item.name %></h5>
-                            <% if drink_item.description.empty? %>
-                                <div class="price item_without_description">
-                            <% else %>
-                                <div class="price">
-                            <% end %>
-                                    <%= drink_item.price %></div>
-                            <h6><%= drink_item.description %></h6>
-                        <% end %>
-                    <% end %>
-                <% end %>
-            </article>
-        <% end %>
-    </div>
-    <div class="col2">
-        <% (DrinkGroup.first(5) - DrinkGroup.first(3)).each do |drink_group| %>
-            <article>
-                <header><%= drink_group.name %></header>
-                <% drink_group.drink_items.each do |drink_item| %>
-                    <h5><%= drink_item.name %></h5>
-                    <% if drink_item.description.empty? %>
-                        <div class="price item_without_description">
-                    <% else %>
-                        <div class="price">
-                    <% end %>
-                            <%= drink_item.price %></div>
-                    <h6><%= drink_item.description %></h6>
-                <% end %>
-            </article>
-        <% end %>
-    </div>
-</div>
 </section>
 <footer>
-<div class="center-small">
-    <figure>
-        <%= image_tag "logo_invert", alt: "logo" %>
-    </figure>
-</div>
-<div class="left_side">
-    <p><a href="http://IdeasFactory.pl" target="_blank">©IdeasFactory.pl</a></p>
-</div>
-<div class="center">
-    <figure>
-        <%= image_tag "logo_invert", alt: "logo" %>
-    </figure>
-</div>
-<div class="right_side">
-    <p>ul. Zgoda 5 Warszawa</p>
-    <p>
-    <a href="tel:571414121">tel.: 571414121</a></p>
-    <p>
-    <a href="mailto:kontakt@barnsmoque.pl">kontakt@barnsmoque.pl</a></p>
-</div>
+    <div class="center-small">
+        <figure>
+            <%= image_tag "logo_invert", alt: "logo" %>
+        </figure>
+    </div>
+    <div class="left_side">
+        <p><a href="http://IdeasFactory.pl" target="_blank">©IdeasFactory.pl</a></p>
+    </div>
+    <div class="center">
+        <figure>
+            <%= image_tag "logo_invert", alt: "logo" %>
+        </figure>
+    </div>
+    <div class="right_side">
+        <p>ul. Zgoda 5 Warszawa</p>
+        <p>
+        <a href="tel:571414121">tel.: 571414121</a></p>
+        <p>
+        <a href="mailto:kontakt@barnsmoque.pl">kontakt@barnsmoque.pl</a></p>
+    </div>
 </footer>
 <%# if DateTime.now < "2015-12-23".to_date %>
     <!--

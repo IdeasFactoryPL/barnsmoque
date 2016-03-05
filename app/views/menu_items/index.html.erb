@@ -1,0 +1,47 @@
+<div class="container">
+  <h2>Lista potraw</h2>
+  <%= link_to "Dodaj nową potrawę", new_menu_item_path, class: "btn btn-primary btn-xs" %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Nazwa</th>
+        <th>Numer w kolejności</th>
+        <th>Cena</th>
+        <th>Data ukazania</th>
+        <th>Data zakończenia</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @menu_groups.each do |menu_group| %>
+        <tr><td colspan="7"><%= link_to menu_group.name, menu_group_path(menu_group), class: "text-danger" %></td></tr>
+        <% menu_group.menu_items.order_by_number.each do |menu_item| %>
+          <tr>
+            <td>
+              <%= link_to menu_item.name, menu_item_path(menu_item.id) %>
+            </td>
+            <td>
+              <%= menu_item.number %>
+            </td>
+            <td>
+              <%= menu_item.price %>
+            </td>
+            <td>
+              <%= menu_item.start_date %>
+            </td>
+            <td>
+              <%= menu_item.end_date %>
+            </td>
+            <td>
+              <%= link_to "Edytuj", edit_menu_item_path(menu_item), class: "btn btn-warning" %>
+            </td>
+            <td>
+              <%= link_to "Usuń", menu_item_path(menu_item), method: :delete, data: {confirm: "Jesteś pewien, że chcesz usunąć " + menu_item.name}, class: "btn btn-danger" %>
+            </td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

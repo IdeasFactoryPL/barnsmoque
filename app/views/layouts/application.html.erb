@@ -10,7 +10,7 @@
     <%= stylesheet_link_tag 'bootstrap.min' %>
     <%= javascript_include_tag 'alert', 'data-turbolinks-track' => true %>
   <% end %>
-  <% if controller_name == "attempts" or controller_name == "sessions" or controller_name == "news" or controller_name == "vouchers" or controller_name == "users" %>
+  <% if ["attempts", "sessions", "news", "vouchers", "users", "menu_groups", "menu_items"].include? controller_name %>
     <%= stylesheet_link_tag 'attempt' %>
   <% end %>
   <meta name="description" content="Kultowa amerykańsko-meksykańska restauracja w centrum Warszawy">
@@ -68,31 +68,32 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Świniobicie<span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <% if can? :create, Attempt %>
-                      <li><%= link_to "Dodaj świniobijcę", new_attempt_path %></li>
-                    <% end %>
-                    <% if can? :index, Attempt %>
-                      <li><%= link_to "Lista świniobijców", attempts_path %></li>
-                    <% end %>
-                    <li role="separator" class="divider"></li>
-                    <% if can? :create, Season %>
-                      <li><%= link_to "Dodaj sezon świniobicia", new_season_path %></li>
-                    <% end %>
-                    <% if can? :list, Season %>
-                      <li><%= link_to "Lista sezonów świniobicia", seasons_list_path %></li>
-                    <% end %>
-                  </ul>
-                </li>
-                <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Strona<span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <% if can? :create, News %>
-                      <li><%= link_to "Dodaj aktualność po Polsku", new_news_path %></li>
+                    <% if can? :create, News or can? :index, News %>
+                      <li>News</li>
+                      <% if can? :create, News %>
+                        <li><%= link_to "Dodaj aktualność po Polsku", new_news_path %></li>
+                      <% end %>
+                      <% if can? :index, News %>
+                        <li><%= link_to "Lista aktualności po Polsku", news_index_path %></li>
+                      <% end %>
                     <% end %>
-                    <% if can? :index, News %>
-                      <li><%= link_to "Lista aktualności po Polsku", news_index_path %></li>
+                    <% if can? :index, MenuGroup or can? :create, MenuGroup or can? :index, MenuItem or can? :create, MenuItem %>
+                      <li>Menu</li>
+                      <% if can? :index, MenuGroup %>
+                        <li><%= link_to "Lista grup menu", menu_groups_path %></li>
+                      <% end %>
+                      <% if can? :create, MenuGroup %>
+                        <li><%= link_to "Utwórz grupę menu", new_menu_group_path %></li>
+                      <% end %>
+                      <li role="separator" class="divider"></li>
+                      <% if can? :index, MenuItem %>
+                        <li><%= link_to "Lista potraw", menu_items_path %></li>
+                      <% end %>
+                      <% if can? :create, MenuItem %>
+                        <li><%= link_to "Utwórz potrawę", new_menu_item_path %></li>
+                      <% end %>
                     <% end %>
                   </ul>
                 </li>
@@ -118,6 +119,24 @@
                     <% end %>
                     <% if can? :edit_own, User %>
                       <li><%= link_to "Edytuj swoje konto", edit_user_path(current_user) %></li>
+                    <% end %>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Świniobicie<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <% if can? :create, Attempt %>
+                      <li><%= link_to "Dodaj świniobijcę", new_attempt_path %></li>
+                    <% end %>
+                    <% if can? :index, Attempt %>
+                      <li><%= link_to "Lista świniobijców", attempts_path %></li>
+                    <% end %>
+                    <li role="separator" class="divider"></li>
+                    <% if can? :create, Season %>
+                      <li><%= link_to "Dodaj sezon świniobicia", new_season_path %></li>
+                    <% end %>
+                    <% if can? :list, Season %>
+                      <li><%= link_to "Lista sezonów świniobicia", seasons_list_path %></li>
                     <% end %>
                   </ul>
                 </li>

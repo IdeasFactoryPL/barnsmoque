@@ -1,0 +1,39 @@
+<div class="container">
+  <h2>Lista grup menu</h2>
+  <%= link_to "Dodaj nową grupę menu", new_menu_group_path, class: "btn btn-primary btn-xs" %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Nazwa</th>
+        <th>Numer w kolejności</th>
+        <th>Data ukazania</th>
+        <th>Data zakończenia</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @menu_groups.order_by_number.each do |menu_group| %>
+        <tr>
+          <td>
+            <%= link_to menu_group.name, menu_group_path(menu_group.id) %>
+          </td>
+          <td>
+            <%= menu_group.number %>
+          </td>
+          <td>
+            <%= menu_group.start_date %>
+          </td>
+          <td>
+            <%= menu_group.end_date %>
+          </td>
+          <td>
+            <%= link_to "Edytuj", edit_menu_group_path(menu_group), class: "btn btn-warning" %>
+          </td>
+          <td>
+            <%= link_to "Usuń", menu_group_path(menu_group), method: :delete, data: {confirm: "Jesteś pewien, że chcesz usunąć " + menu_group.name}, class: "btn btn-danger" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,54 +1,78 @@
-<% if can? :create, Attempt or can? :index, Attempt or can? :create, Season or can? :list, Season %>
-  <h1>Świniobicie</h1>
-  <% if can? :create, Attempt or can? :index, Attempt %>
-    <h3>Uczestnicy</h3>
-    <% if can? :create, Attempt %>
-      <p><%= link_to "Dodaj świniobijcę", new_attempt_path %></p>
+<div class="col-sm-6">
+  <% if can? :create, News or can? :index, News %>
+    <h1>Strona</h1>
+    <% if can? :create, News or can? :index, News %>
+      <h3>News</h3>
+      <% if can? :create, News %>
+        <p><%= link_to "Dodaj aktualność po Polsku", new_news_path %></p>
+      <% end %>
+      <% if can? :index, News %>
+        <p><%= link_to "Lista aktualności po Polsku", news_index_path %></p>
+      <% end %>
     <% end %>
-    <% if can? :index, Attempt %>
-      <p><%= link_to "Lista świniobijców", attempts_path %></p>
+    <% if can? :create, MenuItem or can? :index, MenuItem or can? :create, MenuGroup or can? :index, MenuGroup %>
+      <h3>Menu</h3>
+      <% if can? :create, MenuGroup %>
+        <p><%= link_to "Utwórz grupę menu", new_menu_group_path %></p>
+      <% end %>
+      <% if can? :index, MenuGroup %>
+        <p><%= link_to "Lista grup menu", menu_groups_path %></p>
+      <% end %>
+      <% if can? :create, MenuItem %>
+        <p><%= link_to "Utwórz potrawę", new_menu_item_path %></p>
+      <% end %>
+      <% if can? :index, MenuItem %>
+        <p><%= link_to "Lista potraw", menu_items_path %></p>
+      <% end %>
     <% end %>
   <% end %>
-  <% if can? :create, Season or can? :list, Season %>
-    <h3>Sezony</h3>
-    <% if can? :create, Season %>
-      <p><%= link_to "Dodaj sezon świniobicia", new_season_path %></p>
+</div>
+<div class="col-sm-6">
+  <% if can? :index, Voucher or can? :find, Voucher or can? :create, Voucher %>
+    <h1>Vouchery</h1>
+    <% if can? :index, Voucher %>
+      <p><%= link_to "Lista voucherów", vouchers_path %></p>
     <% end %>
-    <% if can? :list, Season %>
-      <p><%= link_to "Lista sezonów świniobicia", seasons_list_path %></p>
+    <% if can? :find, Voucher %>
+      <p><%= link_to "Edytuj voucher (po wpisaniu kodu)", find_vouchers_path %></p>
+    <% end %>
+    <% if can? :create, Voucher %>
+      <p><%= link_to "Dodaj voucher", new_voucher_path %></p>
     <% end %>
   <% end %>
-<% end %>
-<% if can? :create, News or can? :index, News %>
-  <h1>Strona</h1>
-  <% if can? :create, News %>
-    <p><%= link_to "Dodaj aktualność po Polsku", new_news_path %></p>
+  <% if can? :index, User or can? :create, User or can? :edit_own, User %>
+    <h1>Użytkownicy</h1>
+    <% if can? :index, User %>
+      <p><%= link_to "Lista użytkowników", users_path %></p>
+    <% end %>
+    <% if can? :create, User %>
+      <p><%= link_to "Utwórz użytkownika", new_user_path %></p>
+    <% end %>
+    <% if can? :edit_own, User %>
+      <p><%= link_to "Edytuj swoje konto", edit_user_path(current_user) %></p>
+    <% end %>
   <% end %>
-  <% if can? :index, News %>
-    <p><%= link_to "Lista aktualności po Polsku", news_index_path %></p>
+</div>
+<div class="col-sm-12">
+  <% if can? :create, Attempt or can? :index, Attempt or can? :create, Season or can? :list, Season %>
+    <h1>Świniobicie</h1>
+    <% if can? :create, Attempt or can? :index, Attempt %>
+      <h3>Uczestnicy</h3>
+      <% if can? :create, Attempt %>
+        <p><%= link_to "Dodaj świniobijcę", new_attempt_path %></p>
+      <% end %>
+      <% if can? :index, Attempt %>
+        <p><%= link_to "Lista świniobijców", attempts_path %></p>
+      <% end %>
+    <% end %>
+    <% if can? :create, Season or can? :list, Season %>
+      <h3>Sezony</h3>
+      <% if can? :create, Season %>
+        <p><%= link_to "Dodaj sezon świniobicia", new_season_path %></p>
+      <% end %>
+      <% if can? :list, Season %>
+        <p><%= link_to "Lista sezonów świniobicia", seasons_list_path %></p>
+      <% end %>
+    <% end %>
   <% end %>
-<% end %>
-<% if can? :index, Voucher or can? :find, Voucher or can? :create, Voucher %>
-  <h1>Vouchery</h1>
-  <% if can? :index, Voucher %>
-    <p><%= link_to "Lista voucherów", vouchers_path %></p>
-  <% end %>
-  <% if can? :find, Voucher %>
-    <p><%= link_to "Edytuj voucher (po wpisaniu kodu)", find_vouchers_path %></p>
-  <% end %>
-  <% if can? :create, Voucher %>
-    <p><%= link_to "Dodaj voucher", new_voucher_path %></p>
-  <% end %>
-<% end %>
-<% if can? :index, User or can? :create, User or can? :edit_own, User %>
-  <h1>Użytkownicy</h1>
-  <% if can? :index, User %>
-    <p><%= link_to "Lista użytkowników", users_path %></p>
-  <% end %>
-  <% if can? :create, User %>
-    <p><%= link_to "Utwórz użytkownika", new_user_path %></p>
-  <% end %>
-  <% if can? :edit_own, User %>
-    <p><%= link_to "Edytuj swoje konto", edit_user_path(current_user) %></p>
-  <% end %>
-<% end %>
+</div>

@@ -1,0 +1,63 @@
+<div class="title">
+  <%= @menu_item.name %>
+</div>
+<div class="container theme-showcase" role="main">
+  <div class="container">
+    <table class="table table-hover">
+        <tbody>
+          <tr>
+            <td>Numer w kolejności</td>
+            <td><%= @menu_item.number %></td>
+          </tr>
+          <tr>
+            <td>Data ukazania</td>
+            <td><%= @menu_item.start_date %></td>
+          </tr>
+          <tr>
+            <td>Data zakończenia</td>
+            <td><%= @menu_item.end_date %></td>
+          </tr>
+          <tr>
+            <td>Opis</td>
+            <td><%= @menu_item.description %></td>
+          </tr>
+          <tr>
+            <td>Nazwa po angielsku</td>
+            <td><%= @menu_item.english_name %></td>
+          </tr>
+          <tr>
+            <td>Opis po angielsku</td>
+            <td><%= @menu_item.english_description %></td>
+          </tr>
+          <tr>
+            <td>Cena</td>
+            <td><%= @menu_item.price %></td>
+          </tr>
+          <% unless @menu_item.user.nil? %>
+            <tr>
+              <td>Zmieniony lub utworzony przez</td>
+              <td><%= link_to @menu_item.user.name_and_surname, user_path(@menu_item.user)%></td>
+            </tr>
+          <% end %>
+          <tr>
+            <td>Przypisany do grupy menu</td>
+            <% if @menu_item.menu_group.present? %>
+              <td><%= link_to @menu_item.menu_group.name, menu_group_path(@menu_item.menu_group) %></td>
+            <% else %>
+              <td>Żadnej</td>
+            <% end %>
+          </tr>
+          <tr>
+            <td><%= link_to "Edytuj", edit_menu_item_path(@menu_item), class: 'btn btn-warning btn-m' %></td>
+          <td><%= link_to "Usuń", menu_item_path(@menu_item), method: :delete, data: {confirm: "Czy na pewno chcesz usunąć #{@menu_item.name}?"}, class: 'btn btn-danger btn-m' %></td>
+          </tr>
+          <tr>
+            <td>
+              <%= link_to "Wróć do grup menu", menu_items_path, class: 'btn btn-info btn-m' %>
+            </td>
+            <td></td>
+          </tr>
+        </tbody>
+    </table>
+  </div>
+</div>
