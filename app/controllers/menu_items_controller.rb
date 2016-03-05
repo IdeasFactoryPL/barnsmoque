@@ -1,4 +1,4 @@
-class MenuItemsController < ApplicationController
+class MenuItemsController < GenericController
 
   before_action :authenticate_user!
   before_action :find_menu_item, only: [:edit, :show, :update, :destroy]
@@ -59,13 +59,4 @@ class MenuItemsController < ApplicationController
   def menu_item_params
     params.require(:menu_item).permit(:name, :description, :english_name, :english_description, :price, :menu_group_id, :number, :start_date, :end_date)
   end
-
-  def error_message(message)
-    model_error_message = ""
-    if @menu_item.errors.present?
-      model_error_message = "<br>" + @menu_item.errors.messages.first[1][0]
-    end
-    flash[:error] = message + model_error_message
-  end
-
 end

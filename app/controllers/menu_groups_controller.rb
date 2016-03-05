@@ -1,4 +1,4 @@
-class MenuGroupsController < ApplicationController
+class MenuGroupsController < GenericController
 
   before_action :authenticate_user!
   before_action :find_menu_groups, only: [:edit, :update, :show, :destroy]
@@ -56,12 +56,5 @@ class MenuGroupsController < ApplicationController
   end
   def menu_group_params
     params.require(:menu_group).permit(:name, :english_name, :number, :start_date, :end_date, menu_item_ids: [])
-  end
-  def error_message(message)
-    model_error_message = ""
-    if @menu_group.errors.present?
-      model_error_message = "<br>" + @menu_group.errors.messages.first[1][0]
-    end
-    flash[:error] = message + model_error_message
   end
 end
