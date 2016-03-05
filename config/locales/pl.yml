@@ -20,6 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 pl:
+  number_taken: &number_taken "Podany numer w kolejności jest już zajęty"
   alerts:
     info:
       info_about_time: "<strong>Informacja!</strong> Jeśli uczestnik się poddał to nie uzupełniamy jego czasu"
@@ -35,6 +36,18 @@ pl:
           attributes:
             season_id:
               blank: "Sezon nie powinien być pusty"
+        menu_group:
+          attributes:
+            name:
+              taken: "Podana nazwa grupy menu jest już zajęta"
+            number:
+              taken: *number_taken
+        menu_item:
+          attributes:
+            name:
+              taken: "Podana nazwa potrawy jest już zajęta"
+            number:
+              taken: *number_taken
         voucher:
           attributes:
             code:

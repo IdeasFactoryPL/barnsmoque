@@ -1,8 +1,9 @@
-class MenuItem < ActiveRecord::Base
+class MenuItem < Menu
   belongs_to :menu_group
   belongs_to :user
   acts_as_paranoid
   scope :order_by_number, -> {order(:number)}
   scope :item_without_menu_group, -> {where(menu_group_id: nil)}
   scope :free, -> {where(menu_group_id: nil)}
+  validate :start_date_less_than_end_date?
 end

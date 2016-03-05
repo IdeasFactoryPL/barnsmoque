@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160223074055) do
+ActiveRecord::Schema.define(version: 20160305191122) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 20160223074055) do
     t.integer  "user_id"
   end
 
+  add_index "menu_groups", ["number", "name"], name: "index_menu_groups_on_number_and_name", unique: true, using: :btree
   add_index "menu_groups", ["user_id"], name: "index_menu_groups_on_user_id", using: :btree
 
   create_table "menu_items", force: :cascade do |t|
@@ -93,6 +94,7 @@ ActiveRecord::Schema.define(version: 20160223074055) do
   end
 
   add_index "menu_items", ["menu_group_id"], name: "index_menu_items_on_menu_group_id", using: :btree
+  add_index "menu_items", ["number", "name"], name: "index_menu_items_on_number_and_name", unique: true, using: :btree
   add_index "menu_items", ["user_id"], name: "index_menu_items_on_user_id", using: :btree
 
   create_table "news", force: :cascade do |t|
