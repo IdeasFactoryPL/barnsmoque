@@ -17,7 +17,7 @@ News.destroy_all
   Role.find_or_create_by({name: role})
 end
 
-admin = User.create!(email: "rafal@ideasfactory.pl", password: "questr12", role: Role.where(name: "admin").first, name: "Rafał", surname: "Petryka")
+admin = User.create!(email: "a@a.com", password: "questr12", role: Role.where(name: "admin").first, name: "Rafał", surname: "Petryka")
 
 News.create!(title: "Otwarcie restauracji", date: "11-09-2015".to_date, description: "Witamy naszych sympatyków.\r\nTradycyjnie, bez Magdy G., bez spiny i fajerwerków, bez specjalnych wystrojów - uczciwe żarcie i tyle.\r\nKto ma chęć, od 11 września ul. Zgoda 5 - bo nie samym burgerem żyje człowiek", release_date: Time.now, user_id: User.last.id)
 News.create!(title: "Świniobicie", date: "6-10-2015".to_date, description: "Zapraszamy na Świniobicie do Barn Smoque w którym można wygrać smaczne nagrody. Więcej informacji znajdziesz na #link", link_name: "swiniobicie.barnsmoque.pl", link_for: "http://swiniobicie.barnsmoque.pl", release_date: Time.now, user_id: User.last.id)
@@ -69,9 +69,9 @@ MenuItem.create!(name: "I INNE", english_name: "OTHERS", description: "", price:
 
 DrinkGroup.create!(name: "EL DORADO", user: admin)
 DrinkGroup.create!(name: "GARŚĆ DYNAMITU", user: admin)
-DrinkGroup.create!(name: "NAPAD NA EXPRESS", user: admin)
 DrinkGroup.create!(name: "DOBRY, ZŁY, BRZYDKI", user: admin)
 DrinkGroup.create!(name: "POJEDYNEK W CORRALU O.K.", user: admin)
+DrinkGroup.create!(name: "NAPAD NA EXPRESS", user: admin)
 
 DrinkItem.create!(name: "TEQUILA 40ml", drink_group: DrinkGroup.find_by_name("GARŚĆ DYNAMITU"), user: admin)
 DrinkItem.create!(name: "WHISKY/WHISKEY 40ml", drink_group: DrinkGroup.find_by_name("GARŚĆ DYNAMITU"), user: admin)
@@ -138,5 +138,12 @@ MenuGroup.all.each_with_index do |menu_group, index|
   menu_group.update_attributes(number: (index+1)*10)
   menu_group.menu_items.each_with_index do |menu_item, index_menu_items|
     menu_item.update_attributes(number: (index_menu_items+1)*10)
+  end
+end
+
+DrinkGroup.all.each_with_index do |drink_group, index|
+  drink_group.update_attributes(number: (index+1)*10)
+  drink_group.drink_items.each_with_index do |drink_item, index_menu_items|
+    drink_item.update_attributes(number: (index_menu_items+1)*10)
   end
 end

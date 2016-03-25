@@ -24,5 +24,16 @@ class MainController < GenericController
 				@second_menu_group << menu_group
 			end
 		end
+
+		@drink_items = DrinkGroup.order_by_number_with_date.map(&:drink_items).flatten.size
+		@first_drink_group = []
+		@second_drink_group = []
+		DrinkGroup.order_by_number_with_date.each do |drink_group|
+			if @first_drink_group.map{|d| d.drink_items.size}.sum < @drink_items/2 and
+				@first_drink_group << drink_group
+			else
+				@second_drink_group << drink_group
+			end
+		end
 	end
 end

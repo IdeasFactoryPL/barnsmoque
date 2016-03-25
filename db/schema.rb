@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160305191122) do
+ActiveRecord::Schema.define(version: 20160325204655) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,8 +42,12 @@ ActiveRecord::Schema.define(version: 20160305191122) do
     t.datetime "deleted_at"
     t.string   "english_name"
     t.integer  "user_id"
+    t.integer  "number"
+    t.datetime "start_date"
+    t.datetime "end_date"
   end
 
+  add_index "drink_groups", ["number", "name"], name: "index_drink_groups_on_number_and_name", unique: true, using: :btree
   add_index "drink_groups", ["user_id"], name: "index_drink_groups_on_user_id", using: :btree
 
   create_table "drink_items", force: :cascade do |t|
@@ -57,9 +61,13 @@ ActiveRecord::Schema.define(version: 20160305191122) do
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.integer  "user_id"
+    t.integer  "number"
+    t.datetime "start_date"
+    t.datetime "end_date"
   end
 
   add_index "drink_items", ["drink_group_id"], name: "index_drink_items_on_drink_group_id", using: :btree
+  add_index "drink_items", ["number", "name"], name: "index_drink_items_on_number_and_name", unique: true, using: :btree
   add_index "drink_items", ["user_id"], name: "index_drink_items_on_user_id", using: :btree
 
   create_table "menu_groups", force: :cascade do |t|

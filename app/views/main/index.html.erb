@@ -232,7 +232,7 @@
                     <header><%= menu_group.name %></header>
                     <% menu_group.menu_items_ordered_by_number.each do |menu_item| %>
                         <h5><%= menu_item.name %></h5>
-                        <% if menu_item.description.empty? %>
+                        <% if menu_item.description.blank? %>
                             <div class="price item_without_description">
                         <% else %>
                             <div class="price">
@@ -249,7 +249,7 @@
                     <header><%= menu_group.name %></header>
                     <% menu_group.menu_items_ordered_by_number.each do |menu_item| %>
                         <h5><%= menu_item.name %></h5>
-                        <% if menu_item.description.empty? %>
+                        <% if menu_item.description.blank? %>
                             <div class="price item_without_description">
                         <% else %>
                             <div class="price">
@@ -280,20 +280,29 @@
             <%= image_tag "icons/close", alt: "close" %>
         </div>
         <div class="col1">
-            <% DrinkGroup.first(3).each do |drink_group| %>
+            <% @first_drink_group.each do |drink_group| %>
                 <article>
                     <header><%= drink_group.name %></header>
-
+                    <% drink_group.drink_items_ordered_by_number.each do |drink_item| %>
+                        <h5><%= drink_item.name %></h5>
+                        <% if drink_item.description.blank? %>
+                            <div class="price item_without_description">
+                        <% else %>
+                            <div class="price">
+                        <% end %>
+                                <%= drink_item.price %></div>
+                        <h6><%= drink_item.description %></h6>
+                    <% end %>
                 </article>
             <% end %>
         </div>
         <div class="col2">
-            <% (DrinkGroup.first(5) - DrinkGroup.first(3)).each do |drink_group| %>
+            <% @second_drink_group.each do |drink_group| %>
                 <article>
                     <header><%= drink_group.name %></header>
-                    <% drink_group.drink_items.each do |drink_item| %>
+                    <% drink_group.drink_items_ordered_by_number.each do |drink_item| %>
                         <h5><%= drink_item.name %></h5>
-                        <% if drink_item.description.empty? %>
+                        <% if drink_item.description.blank? %>
                             <div class="price item_without_description">
                         <% else %>
                             <div class="price">

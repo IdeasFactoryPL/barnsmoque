@@ -5,5 +5,4 @@ class MenuItem < Menu
   scope :order_by_number, -> {order(:number)}
   scope :item_without_menu_group, -> {where(menu_group_id: nil)}
   scope :free, -> {where(menu_group_id: nil)}
-  validate :start_date_less_than_end_date?
 end
