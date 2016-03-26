@@ -283,16 +283,7 @@
             <% @first_drink_group.each do |drink_group| %>
                 <article>
                     <header><%= drink_group.name %></header>
-                    <% drink_group.drink_items_ordered_by_number.each do |drink_item| %>
-                        <h5><%= drink_item.name %></h5>
-                        <% if drink_item.description.blank? %>
-                            <div class="price item_without_description">
-                        <% else %>
-                            <div class="price">
-                        <% end %>
-                                <%= drink_item.price %></div>
-                        <h6><%= drink_item.description %></h6>
-                    <% end %>
+                    <%= show_drink_items_from_drink_group(drink_group) %>
                 </article>
             <% end %>
         </div>
@@ -300,16 +291,7 @@
             <% @second_drink_group.each do |drink_group| %>
                 <article>
                     <header><%= drink_group.name %></header>
-                    <% drink_group.drink_items_ordered_by_number.each do |drink_item| %>
-                        <h5><%= drink_item.name %></h5>
-                        <% if drink_item.description.blank? %>
-                            <div class="price item_without_description">
-                        <% else %>
-                            <div class="price">
-                        <% end %>
-                                <%= drink_item.price %></div>
-                        <h6><%= drink_item.description %></h6>
-                    <% end %>
+                    <%= show_drink_items_from_drink_group(drink_group) %>
                 </article>
             <% end %>
         </div>

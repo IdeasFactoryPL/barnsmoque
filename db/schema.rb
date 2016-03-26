@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160325204655) do
+ActiveRecord::Schema.define(version: 20160326200549) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,16 +37,18 @@ ActiveRecord::Schema.define(version: 20160325204655) do
 
   create_table "drink_groups", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.datetime "deleted_at"
     t.string   "english_name"
     t.integer  "user_id"
     t.integer  "number"
     t.datetime "start_date"
     t.datetime "end_date"
+    t.integer  "drink_group_id"
   end
 
+  add_index "drink_groups", ["drink_group_id"], name: "index_drink_groups_on_drink_group_id", using: :btree
   add_index "drink_groups", ["number", "name"], name: "index_drink_groups_on_number_and_name", unique: true, using: :btree
   add_index "drink_groups", ["user_id"], name: "index_drink_groups_on_user_id", using: :btree
 
@@ -166,6 +168,7 @@ ActiveRecord::Schema.define(version: 20160325204655) do
     t.datetime "deleted_at"
   end
 
+  add_foreign_key "drink_groups", "drink_groups"
   add_foreign_key "drink_groups", "users"
   add_foreign_key "drink_items", "users"
   add_foreign_key "menu_groups", "users"
