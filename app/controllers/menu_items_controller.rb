@@ -10,7 +10,7 @@ class MenuItemsController < GenericController
 
   def edit
     @start_date = @menu_item.start_date
-    @selected_menu_group = @menu_item.menu_group.id
+    @selected_menu_group = @menu_item.menu_group.id if @menu_item.menu_group.present?
   end
 
   def create
@@ -20,13 +20,19 @@ class MenuItemsController < GenericController
       flash[:success] = "Zapisano potrawę"
       redirect_to menu_item_path(@menu_item)
     else
-      error_message("Nie udało się zapisać potrawy")
+      error_message(@menu_item, "Nie udało się zapisać potrawy")
       render 'new'
     end
   end
 
   def index
+    @menu_items_without_menu_groups = MenuItem.free
     @menu_groups = MenuGroup.all
+    if @menu_items_without_menu_groups.size > 0
+      @special_menu_group = MenuGroup.new(name: "Potrawy bez grupy")
+      @special_menu_group.menu_items = @menu_items_without_menu_groups
+      @menu_groups << @special_menu_group
+    end
   end
 
   def destroy
@@ -35,7 +41,7 @@ class MenuItemsController < GenericController
       flash[:success] = "Usunięto potrawę"
       redirect_to menu_items_path
     else
-      error_message("Nie udało się usunąć potrawy")
+      error_message(@menu_item, "Nie udało się usunąć potrawy")
       redirect_to menu_items_path(@menu_item)
     end
   end
@@ -46,7 +52,7 @@ class MenuItemsController < GenericController
       flash[:success] = "Zaktualizowno potrawę"
       redirect_to menu_item_path(@menu_item)
     else
-      error_message("Nie udało się zaktualizować potrawy")
+      error_message(@menu_item, "Nie udało się zaktualizować potrawy")
       render 'new'
     end
   end
@@ -55,6 +61,20 @@ class MenuItemsController < GenericController
   def find_menu_item
     @menu_item = MenuItem.find(params[:id])
   end
+
+  def get_menu_items(menu_group)
+    if menu_group.present? and menu_group.menu_items.present?
+      menu_items_ordered_by_number = menu_group.menu_items.order_by_number
+      if menu_items_ordered_by_number.present?
+        menu_items_ordered_by_number
+      else
+        menu_group.menu_items
+      end
+    else
+      []
+    end
+  end
+  helper_method :get_menu_items
 
   def menu_item_params
     params.require(:menu_item).permit(:name, :description, :english_name, :english_description, :price, :menu_group_id, :number, :start_date, :end_date)

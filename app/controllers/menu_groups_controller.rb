@@ -23,7 +23,7 @@ class MenuGroupsController < GenericController
       flash[:success] = "Dodano grupę menu"
       redirect_to menu_groups_path
     else
-      error_message("Nie udało się dodać grupy menu")
+      error_message(@menu_group, "Nie udało się dodać grupy menu")
       render 'new'
     end
   end
@@ -45,7 +45,7 @@ class MenuGroupsController < GenericController
       flash[:success] = "Zaktualizowno grupę menu"
       redirect_to menu_group_path(@menu_group)
     else
-      error_message("Nie udało się zaktualizować grupy menu")
+      error_message(@menu_group, "Nie udało się zaktualizować grupy menu")
       render 'new'
     end
   end

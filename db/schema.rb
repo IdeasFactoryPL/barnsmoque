@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160326200549) do
+ActiveRecord::Schema.define(version: 20160329192635) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 20160326200549) do
   end
 
   add_index "drink_groups", ["drink_group_id"], name: "index_drink_groups_on_drink_group_id", using: :btree
-  add_index "drink_groups", ["number", "name"], name: "index_drink_groups_on_number_and_name", unique: true, using: :btree
+  add_index "drink_groups", ["number", "name"], name: "index_drink_groups_on_number_and_name", using: :btree
   add_index "drink_groups", ["user_id"], name: "index_drink_groups_on_user_id", using: :btree
 
   create_table "drink_items", force: :cascade do |t|
@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 20160326200549) do
   end
 
   add_index "drink_items", ["drink_group_id"], name: "index_drink_items_on_drink_group_id", using: :btree
-  add_index "drink_items", ["number", "name"], name: "index_drink_items_on_number_and_name", unique: true, using: :btree
+  add_index "drink_items", ["number", "name"], name: "index_drink_items_on_number_and_name", using: :btree
   add_index "drink_items", ["user_id"], name: "index_drink_items_on_user_id", using: :btree
 
   create_table "menu_groups", force: :cascade do |t|
@@ -84,7 +84,7 @@ ActiveRecord::Schema.define(version: 20160326200549) do
     t.integer  "user_id"
   end
 
-  add_index "menu_groups", ["number", "name"], name: "index_menu_groups_on_number_and_name", unique: true, using: :btree
+  add_index "menu_groups", ["number", "name"], name: "index_menu_groups_on_number_and_name", using: :btree
   add_index "menu_groups", ["user_id"], name: "index_menu_groups_on_user_id", using: :btree
 
   create_table "menu_items", force: :cascade do |t|
@@ -104,7 +104,7 @@ ActiveRecord::Schema.define(version: 20160326200549) do
   end
 
   add_index "menu_items", ["menu_group_id"], name: "index_menu_items_on_menu_group_id", using: :btree
-  add_index "menu_items", ["number", "name"], name: "index_menu_items_on_number_and_name", unique: true, using: :btree
+  add_index "menu_items", ["number", "name"], name: "index_menu_items_on_number_and_name", using: :btree
   add_index "menu_items", ["user_id"], name: "index_menu_items_on_user_id", using: :btree
 
   create_table "news", force: :cascade do |t|

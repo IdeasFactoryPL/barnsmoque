@@ -15,8 +15,14 @@
     </thead>
     <tbody>
       <% @menu_groups.each do |menu_group| %>
-        <tr><td colspan="7"><%= link_to menu_group.name, menu_group_path(menu_group), class: "text-danger" %></td></tr>
-        <% menu_group.menu_items.order_by_number.each do |menu_item| %>
+        <tr><td colspan="7">
+          <% if menu_group.id.present? %>
+            <%= link_to menu_group.name, menu_group_path(menu_group), class: "text-danger" %>
+          <% else %>
+            <%= link_to menu_group.name, "#", class: "text-danger" %>
+          <% end %>
+        </td></tr>
+        <% get_menu_items(menu_group).each do |menu_item| %>
           <tr>
             <td>
               <%= link_to menu_item.name, menu_item_path(menu_item.id) %>
